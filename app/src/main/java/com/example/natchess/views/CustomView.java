@@ -43,10 +43,40 @@ public class CustomView extends View {
     private RectF r2Scale;
     private RectF b1Scale;
     private RectF b2Scale;
+    private RectF p1wScale;
+    private RectF p2wScale;
+    private RectF p3wScale;
+    private RectF p4wScale;
+    private RectF p5wScale;
+    private RectF p6wScale;
+    private RectF p7wScale;
+    private RectF p8wScale;
+    private RectF n1wScale;
+    private RectF n2wScale;
+    private RectF kwScale;
+    private RectF qwScale;
+    private RectF r1wScale;
+    private RectF r2wScale;
+    private RectF b1wScale;
+    private RectF b2wScale;
     private Piece[][] allPieces;
     private boolean selected;
     private Piece selectedPiece;
+    private Piece moveFrom;
+    private Piece moveTo;
     private boolean move;
+    private int moveFromR;
+    private int moveFromC;
+    private int moveToR;
+    private int moveToC;
+    private float color[][] = {{0,1,0,1,0,1,0,1},
+            {1,0,1,0,1,0,1,0},
+            {0,1,0,1,0,1,0,1},
+            {1,0,1,0,1,0,1,0},
+            {0,1,0,1,0,1,0,1},
+            {1,0,1,0,1,0,1,0},
+            {0,1,0,1,0,1,0,1},
+            {1,0,1,0,1,0,1,0}};
 
 
 
@@ -78,10 +108,12 @@ public class CustomView extends View {
 
     private void init(@Nullable AttributeSet set){
         InitialiseBoardColors();
-        allPieces = new Piece[2][8];
+        allPieces = new Piece[4][8];
+
+        //black pieces arrangement
         allPieces[0][0] = new Piece("rook","black","A8");
         allPieces[0][1] = new Piece("night","black","B8");
-        allPieces[0][2] = new Piece("bishop","black","Null");
+        allPieces[0][2] = new Piece("bishop","black","C8");
         allPieces[0][3] = new Piece("queen","black","D8");
         allPieces[0][4] = new Piece("king","black","E8");
         allPieces[0][5] = new Piece("bishop","black","F8");
@@ -95,8 +127,32 @@ public class CustomView extends View {
         allPieces[1][5] = new Piece("pawn","black","F7");
         allPieces[1][6] = new Piece("pawn","black","G7");
         allPieces[1][7] = new Piece("pawn","black","H7");
+
+        //white pieces arrangement
+        allPieces[3][0] = new Piece("rook","white","A1");
+        allPieces[3][1] = new Piece("night","white","B1");
+        allPieces[3][2] = new Piece("bishop","white","C1");
+        allPieces[3][3] = new Piece("queen","white","D1");
+        allPieces[3][4] = new Piece("king","white","E1");
+        allPieces[3][5] = new Piece("bishop","white","F1");
+        allPieces[3][6] = new Piece("night","white","G1");
+        allPieces[3][7] = new Piece("rook","white","H1");
+        allPieces[2][0] = new Piece("pawn","white","A2");
+        allPieces[2][1] = new Piece("pawn","white","B2");
+        allPieces[2][2] = new Piece("pawn","white","C2");
+        allPieces[2][3] = new Piece("pawn","white","D2");
+        allPieces[2][4] = new Piece("pawn","white","E2");
+        allPieces[2][5] = new Piece("pawn","white","F2");
+        allPieces[2][6] = new Piece("pawn","white","G2");
+        allPieces[2][7] = new Piece("pawn","white","H2");
+
+
         selected = false;
         move = false;
+        moveFromC = -1;
+        moveFromR = -1;
+        moveToC = -1;
+        moveToR = -1;
 
     }
 
@@ -115,177 +171,316 @@ public class CustomView extends View {
         boolean value = super.onTouchEvent(event);
 
         boolean contains = false;
-        int rSelected=0;
-        int cSelected=0;
-        if(arrRect[0][0].contains(event.getX(),event.getY())){
+        int rSelected = 0;
+        int cSelected = 0;
+        if(arrRect[0][0].contains(event.getX(), event.getY())) {
+            paintMove(0, 0, "A8", rSelected, cSelected, contains);
 
-            for(int r = 0;r<allPieces.length;++r){
-                for(int c = 0;c<allPieces[0].length;++c){
-                    if(contains) break;
-                    if(allPieces[r][c].position.equals("A8")){
-                        contains = true;
-                        System.out.println("Alec it contains a "+ allPieces[r][c].name);
-                        rSelected = r;
-                        cSelected = c;
-                        //selectedPiece = allPieces[r][c];
-                    }
-                }
-                if(contains) break;
-            }
+        }else if (arrRect[0][1].contains(event.getX(), event.getY())) {
+            paintMove(0, 1, "B8", rSelected, cSelected, contains);
 
-            if(contains==true){
-                if(selected==false){
-                    selected = true;
-                    selectedPiece = allPieces[rSelected][cSelected];
-                    arrPaint[0][0].setColor(Color.GRAY);
-                    System.out.println("Alec touched this Please try change");
-                    invalidate();
-                }else{
-                    if(selectedPiece.position.equals("A8")) {
-                        selected = false;
-                        selectedPiece = null;
-                        arrPaint[0][0].setColor(Color.rgb(236, 217, 121));
-                        System.out.println("Alec touched this Please try change back");
-                        invalidate();
-                    }
-                }
+        }else if (arrRect[0][2].contains(event.getX(), event.getY())) {
+            paintMove(0, 2, "C8", rSelected, cSelected, contains);
 
-            }
-        }else if(arrRect[0][1].contains(event.getX(),event.getY())){
-            for(int r = 0;r<allPieces.length;++r){
-                for(int c = 0;c<allPieces[0].length;++c){
-                    if(contains) break;
-                    if(allPieces[r][c].position.equals("B8")){
-                        contains = true;
-                        System.out.println("Alec it contains a "+ allPieces[r][c].name);
-                        rSelected = r;
-                        cSelected = c;
-                        //selectedPiece = allPieces[r][c];
-                    }
-                }
-                if(contains) break;
-            }
+        }else if (arrRect[0][3].contains(event.getX(), event.getY())) {
+            paintMove(0, 3, "D8", rSelected, cSelected, contains);
 
-            if(contains==true){
-                if(selected==false){
-                    selected = true;
-                    selectedPiece = allPieces[rSelected][cSelected];
-                    arrPaint[0][1].setColor(Color.GRAY);
-                    System.out.println("Alec touched this Please try change");
-                    invalidate();
-                }else{
-                    if(selectedPiece.position.equals("B8")) {
-                        selected = false;
-                        selectedPiece = null;
-                        arrPaint[0][1].setColor(Color.rgb(215, 162, 109));
-                        System.out.println("Alec touched this Please try change back");
-                        invalidate();
-                    }
-                }
+        }else if (arrRect[0][4].contains(event.getX(), event.getY())) {
+            paintMove(0, 4, "E8", rSelected, cSelected, contains);
 
-            }
+        }else if (arrRect[0][5].contains(event.getX(), event.getY())) {
+            paintMove(0, 5, "F8", rSelected, cSelected, contains);
 
-        }else if(arrRect[0][2].contains(event.getX(),event.getY())){
+        }else if (arrRect[0][6].contains(event.getX(), event.getY())) {
+            paintMove(0, 6, "G8", rSelected, cSelected, contains);
 
-            for(int r = 0;r<allPieces.length;++r){
-                for(int c = 0;c<allPieces[0].length;++c){
-                    if(contains) break;
-                    if(allPieces[r][c].position.equals("C8")){
-                        contains = true;
-                        System.out.println("Alec it contains a "+ allPieces[r][c].name);
-                        rSelected = r;
-                        cSelected = c;
-                        //selectedPiece = allPieces[r][c];
-                    }
-                }
-                if(contains) break;
-            }
+        }else if (arrRect[0][7].contains(event.getX(), event.getY())) {
+            paintMove(0, 7, "H8", rSelected, cSelected, contains);
 
-            if(contains==true){
-                if(selected==false){
-                    selected = true;
-                    selectedPiece = allPieces[rSelected][cSelected];
-                    arrPaint[0][2].setColor(Color.GRAY);
-                    System.out.println("Alec touched this Please try change");
-                    invalidate();
-                }else{
-                    if(selectedPiece.position.equals("C8")) {
-                        selected = false;
-                        selectedPiece = null;
-                        arrPaint[0][2].setColor(Color.rgb(236, 217, 121));
-                        System.out.println("Alec touched this Please try change back");
-                        invalidate();
-                    }
-                }
+        }else if(arrRect[1][0].contains(event.getX(),event.getY())){
+            paintMove(1, 0, "A7", rSelected, cSelected, contains);
 
-            }else {
-                if(selected==true){
-                    selected = false;
-                    selectedPiece.position = "C8";
-                    arrPaint[0][2].setColor(Color.GRAY);
-                    System.out.println("Alec its a move");
-                    invalidate();
-                }
-            }
+        }else if(arrRect[1][1].contains(event.getX(),event.getY())){
+            paintMove(1, 1, "B7", rSelected, cSelected, contains);
 
+        }else if(arrRect[1][2].contains(event.getX(),event.getY())){
+            paintMove(1, 2, "C7", rSelected, cSelected, contains);
 
-        }else if(arrRect[0][3].contains(event.getX(),event.getY())){
-            if(arrPaint[0][3].getColor()==Color.GRAY){
-                arrPaint[0][3].setColor(Color.rgb(215,162,109));
+        }else if(arrRect[1][3].contains(event.getX(),event.getY())){
+            paintMove(1, 3, "D7", rSelected, cSelected, contains);
 
-            }else{
-                arrPaint[0][3].setColor(Color.GRAY);
-            }
-            invalidate();
-            System.out.println("Alec touched this Please change");
+        }else if(arrRect[1][4].contains(event.getX(),event.getY())){
+            paintMove(1, 4, "E7", rSelected, cSelected, contains);
 
-        }else if(arrRect[0][4].contains(event.getX(),event.getY())){
-            if(arrPaint[0][4].getColor()==Color.GRAY){
-                arrPaint[0][4].setColor(Color.rgb(236,217,121));
+        }else if(arrRect[1][5].contains(event.getX(),event.getY())){
+            paintMove(1, 5, "F7", rSelected, cSelected, contains);
 
-            }else{
-                arrPaint[0][4].setColor(Color.GRAY);
-            }
-            invalidate();
-            System.out.println("Alec touched this Please change");
+        }else if(arrRect[1][6].contains(event.getX(),event.getY())){
+            paintMove(1, 6, "G7", rSelected, cSelected, contains);
 
-        }else if(arrRect[0][5].contains(event.getX(),event.getY())){
-            if(arrPaint[0][5].getColor()==Color.GRAY){
-                arrPaint[0][5].setColor(Color.rgb(215,162,109));
+        }else if(arrRect[1][7].contains(event.getX(),event.getY())){
+            paintMove(1, 7, "H7", rSelected, cSelected, contains);
 
-            }else{
-                arrPaint[0][5].setColor(Color.GRAY);
-            }
-            invalidate();
-            System.out.println("Alec touched this Please change");
+        }else if(arrRect[2][0].contains(event.getX(),event.getY())) {
+            paintMove(2, 0, "A6", rSelected, cSelected, contains);
 
-        }else if(arrRect[0][6].contains(event.getX(),event.getY())){
-            if(arrPaint[0][6].getColor()==Color.GRAY){
-                arrPaint[0][6].setColor(Color.rgb(236,217,121));
+        }
+        else if(arrRect[2][1].contains(event.getX(),event.getY())){
+            paintMove(2,1,"B6",rSelected,cSelected, contains);
 
-            }else{
-                arrPaint[0][6].setColor(Color.GRAY);
-            }
-            invalidate();
-            System.out.println("Alec touched this Please change");
+        }
+        else if(arrRect[2][2].contains(event.getX(),event.getY())){
+            paintMove(2,2,"C6",rSelected,cSelected, contains);
 
-        }else if(arrRect[0][7].contains(event.getX(),event.getY())){
-            if(arrPaint[0][7].getColor()==Color.GRAY){
-                arrPaint[0][7].setColor(Color.rgb(215,162,109));
+        }
+        else if(arrRect[2][3].contains(event.getX(),event.getY())){
+            paintMove(2,3,"D6",rSelected,cSelected, contains);
 
-            }else{
-                arrPaint[0][7].setColor(Color.GRAY);
-            }
-            invalidate();
-            System.out.println("Alec touched this Please change");
+        }
+        else if(arrRect[2][4].contains(event.getX(),event.getY())){
+            paintMove(2,4,"E6",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[2][5].contains(event.getX(),event.getY())){
+            paintMove(2,5,"F6",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[2][6].contains(event.getX(),event.getY())){
+            paintMove(2,6,"G6",rSelected,cSelected, contains);
+
+        }else if(arrRect[2][7].contains(event.getX(),event.getY())){
+            paintMove(2,7,"H6",rSelected,cSelected, contains);
+
+        }else if(arrRect[3][0].contains(event.getX(),event.getY())) {
+            paintMove(3, 0, "A5", rSelected, cSelected, contains);
+
+        }
+        else if(arrRect[3][1].contains(event.getX(),event.getY())){
+            paintMove(3,1,"B5",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[3][2].contains(event.getX(),event.getY())){
+            paintMove(3,2,"C5",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[3][3].contains(event.getX(),event.getY())){
+            paintMove(3,3,"D5",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[3][4].contains(event.getX(),event.getY())){
+            paintMove(3,4,"E5",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[3][5].contains(event.getX(),event.getY())){
+            paintMove(3,5,"F5",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[3][6].contains(event.getX(),event.getY())){
+            paintMove(3,6,"G5",rSelected,cSelected, contains);
+
+        }else if(arrRect[3][7].contains(event.getX(),event.getY())){
+            paintMove(3,7,"H5",rSelected,cSelected, contains);
+
+        }else if(arrRect[4][0].contains(event.getX(),event.getY())) {
+            paintMove(4, 0, "A4", rSelected, cSelected, contains);
+
+        }
+        else if(arrRect[4][1].contains(event.getX(),event.getY())){
+            paintMove(4,1,"B4",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[4][2].contains(event.getX(),event.getY())){
+            paintMove(4,2,"C4",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[4][3].contains(event.getX(),event.getY())){
+            paintMove(4,3,"D4",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[4][4].contains(event.getX(),event.getY())){
+            paintMove(4,4,"E4",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[4][5].contains(event.getX(),event.getY())){
+            paintMove(4,5,"F4",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[4][6].contains(event.getX(),event.getY())){
+            paintMove(4,6,"G4",rSelected,cSelected, contains);
+
+        }else if(arrRect[4][7].contains(event.getX(),event.getY())){
+            paintMove(4,7,"H4",rSelected,cSelected, contains);
+
+        }else if(arrRect[5][0].contains(event.getX(),event.getY())) {
+            paintMove(5, 0, "A3", rSelected, cSelected, contains);
+
+        }
+        else if(arrRect[5][1].contains(event.getX(),event.getY())){
+            paintMove(5,1,"B3",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[5][2].contains(event.getX(),event.getY())){
+            paintMove(5,2,"C3",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[5][3].contains(event.getX(),event.getY())){
+            paintMove(5,3,"D3",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[5][4].contains(event.getX(),event.getY())){
+            paintMove(5,4,"E3",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[5][5].contains(event.getX(),event.getY())){
+            paintMove(5,5,"F3",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[5][6].contains(event.getX(),event.getY())){
+            paintMove(5,6,"G3",rSelected,cSelected, contains);
+
+        }else if(arrRect[5][7].contains(event.getX(),event.getY())){
+            paintMove(5,7,"H3",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[6][0].contains(event.getX(),event.getY())) {
+            paintMove(6, 0, "A2", rSelected, cSelected, contains);
+
+        }
+        else if(arrRect[6][1].contains(event.getX(),event.getY())){
+            paintMove(6,1,"B2",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[6][2].contains(event.getX(),event.getY())){
+            paintMove(6,2,"C2",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[6][3].contains(event.getX(),event.getY())){
+            paintMove(6,3,"D2",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[6][4].contains(event.getX(),event.getY())){
+            paintMove(6,4,"E2",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[6][5].contains(event.getX(),event.getY())){
+            paintMove(6,5,"F2",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[6][6].contains(event.getX(),event.getY())){
+            paintMove(6,6,"G2",rSelected,cSelected, contains);
+
+        }else if(arrRect[6][7].contains(event.getX(),event.getY())){
+            paintMove(6,7,"H2",rSelected,cSelected, contains);
+
+        }else if(arrRect[7][0].contains(event.getX(),event.getY())) {
+            paintMove(7, 0, "A1", rSelected, cSelected, contains);
+
+        }
+        else if(arrRect[7][1].contains(event.getX(),event.getY())){
+            paintMove(7,1,"B1",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[7][2].contains(event.getX(),event.getY())){
+            paintMove(7,2,"C1",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[7][3].contains(event.getX(),event.getY())){
+            paintMove(7,3,"D1",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[7][4].contains(event.getX(),event.getY())){
+            paintMove(7,4,"E1",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[7][5].contains(event.getX(),event.getY())){
+            paintMove(7,5,"F1",rSelected,cSelected, contains);
+
+        }
+        else if(arrRect[7][6].contains(event.getX(),event.getY())){
+            paintMove(7,6,"G1",rSelected,cSelected, contains);
+
+        }else if(arrRect[7][7].contains(event.getX(),event.getY())){
+            paintMove(7,7,"H1",rSelected,cSelected, contains);
 
         }
 
         return value;
     }
 
+    public void paintMove(int pr, int pc, String p,int rs, int cs, boolean cont){
+        for(int r = 0;r<allPieces.length;++r){
+            for(int c = 0;c<allPieces[0].length;++c){
+                if(cont) break;
+                if(allPieces[r][c].position.equals(p)){
+                    cont = true;
+                    System.out.println("Alec this block contains a "+ allPieces[r][c].color + " " + allPieces[r][c].name);
+                    rs = r;
+                    cs = c;
+                }
+            }
+            if(cont) break;
+        }
+
+        if(cont==true){
+            if(selected==false){
+                if(moveToR !=-1 && moveToC !=-1 && moveFromC !=-1 && moveFromR != -1){
+                    if(color[moveFromR][moveFromC]==0){
+                        arrPaint[moveFromR][moveFromC].setColor(Color.rgb(236,217,121));
+                    }else{
+                        arrPaint[moveFromR][moveFromC].setColor(Color.rgb(215,162,109));
+                    }
+
+                    if(color[moveToR][moveToC]== 0){
+                        arrPaint[moveToR][moveToC].setColor(Color.rgb(236,217,121));
+                    }else{
+                        arrPaint[moveToR][moveToC].setColor(Color.rgb(215,162,109));
+                    }
+                    moveFromR = -1;
+                    moveFromC = -1;
+                    moveToR = -1;
+                    moveToC = -1;
+                    System.out.println("Alec clear grey color of previous move");
+                }
+                selected = true;
+                selectedPiece = allPieces[rs][cs];
+                moveFromR = pr;
+                moveFromC = pc;
+                arrPaint[pr][pc].setColor(Color.GRAY);
+                System.out.println("Alec now color this to grey, its clicked");
+                invalidate();
+            }else{
+                if(selectedPiece.position.equals(p)) {
+                    selected = false;
+                    selectedPiece = null;
+                    moveFromC = -1;
+                    moveFromR = -1;
+                    if(color[pr][pc]==0){
+                        arrPaint[pr][pc].setColor(Color.rgb(236, 217, 121));
+                    }else {
+                        arrPaint[pr][pc].setColor(Color.rgb(215,162,109));
+                    }
+                    System.out.println("Alec now change back to normal block color, its unclicked");
+                    invalidate();
+                }
+            }
+        }else {
+            if(selected==true){
+                moveToR = pr;
+                moveToC = pc;
+                selected = false;
+                System.out.print("Alec this is a move of "+ selectedPiece.color +" "+ selectedPiece.name + " from " +selectedPiece.position);
+                selectedPiece.position = p;
+                arrPaint[pr][pc].setColor(Color.GRAY);
+                System.out.println(" to "+ selectedPiece.position);
+                invalidate();
+            }
+        }
+
+    }
+
     private void DrawChessPieces(Canvas canvas){
 
+        //black chess pieces
         Bitmap bpawn = BitmapFactory.decodeResource(getResources(), R.mipmap.pb);
         Bitmap brook = BitmapFactory.decodeResource(getResources(), R.mipmap.rb);
         Bitmap bnight = BitmapFactory.decodeResource(getResources(), R.mipmap.nb);
@@ -293,7 +488,16 @@ public class CustomView extends View {
         Bitmap bqueen = BitmapFactory.decodeResource(getResources(), R.mipmap.qb);
         Bitmap bking = BitmapFactory.decodeResource(getResources(), R.mipmap.kb);
 
+        //white chess pieces
+        Bitmap wpawn = BitmapFactory.decodeResource(getResources(), R.mipmap.pw);
+        Bitmap wrook = BitmapFactory.decodeResource(getResources(), R.mipmap.rw);
+        Bitmap wnight = BitmapFactory.decodeResource(getResources(), R.mipmap.nw);
+        Bitmap wbishop = BitmapFactory.decodeResource(getResources(), R.mipmap.bw);
+        Bitmap wqueen = BitmapFactory.decodeResource(getResources(), R.mipmap.qw);
+        Bitmap wking = BitmapFactory.decodeResource(getResources(), R.mipmap.kw);
 
+
+        //draw all black pieces
         float[] Positionp1 = post(allPieces[1][0].position,canvas);
         p1Scale = new RectF(Positionp1[0],Positionp1[1],Positionp1[2],Positionp1[3]);
         canvas.drawBitmap(bpawn,null,p1Scale,null);
@@ -332,7 +536,7 @@ public class CustomView extends View {
 
         float[] Positionr2 = post(allPieces[0][7].position,canvas);
         r2Scale = new RectF(Positionr2[0],Positionr2[1],Positionr2[2],Positionr2[3]);
-        //canvas.drawBitmap(brook,null,r2Scale,null);
+        canvas.drawBitmap(brook,null,r2Scale,null);
 
         float[] Positionn1 = post(allPieces[0][1].position,canvas);
         n1Scale = new RectF(Positionn1[0],Positionn1[1],Positionn1[2],Positionn1[3]);
@@ -340,23 +544,91 @@ public class CustomView extends View {
 
         float[] Positionn2 = post(allPieces[0][6].position,canvas);
         n2Scale = new RectF(Positionn2[0],Positionn2[1],Positionn2[2],Positionn2[3]);
-        //canvas.drawBitmap(bnight,null,n2Scale,null);
+        canvas.drawBitmap(bnight,null,n2Scale,null);
 
         float[] Positionb2 = post(allPieces[0][5].position,canvas);
         b2Scale = new RectF(Positionb2[0],Positionb2[1],Positionb2[2],Positionb2[3]);
-        //canvas.drawBitmap(bbishop,null,b2Scale,null);
+        canvas.drawBitmap(bbishop,null,b2Scale,null);
 
-        //float[] Positionb1 = post(allPieces[0][2].position,canvas);
-        //b1Scale = new RectF(Positionb1[0],Positionb1[1],Positionb1[2],Positionb1[3]);
-        //canvas.drawBitmap(bbishop,null,b1Scale,null);
+        float[] Positionb1 = post(allPieces[0][2].position,canvas);
+        b1Scale = new RectF(Positionb1[0],Positionb1[1],Positionb1[2],Positionb1[3]);
+        canvas.drawBitmap(bbishop,null,b1Scale,null);
 
         float[] Positionq = post(allPieces[0][3].position,canvas);
         qScale = new RectF(Positionq[0],Positionq[1],Positionq[2],Positionq[3]);
-        //canvas.drawBitmap(bqueen,null,qScale,null);
+        canvas.drawBitmap(bqueen,null,qScale,null);
 
         float[] Positionk = post(allPieces[0][4].position,canvas);
         kScale = new RectF(Positionk[0],Positionk[1],Positionk[2],Positionk[3]);
-        //canvas.drawBitmap(bking,null,kScale,null);
+        canvas.drawBitmap(bking,null,kScale,null);
+
+
+
+
+        //draw all white pieces
+        float[] Positionp1w = post(allPieces[2][0].position,canvas);
+        p1wScale = new RectF(Positionp1w[0],Positionp1w[1],Positionp1w[2],Positionp1w[3]);
+        canvas.drawBitmap(wpawn,null,p1wScale,null);
+
+        float[] Positionp2w = post(allPieces[2][1].position,canvas);
+        p2wScale = new RectF(Positionp2w[0],Positionp2w[1],Positionp2w[2],Positionp2w[3]);
+        canvas.drawBitmap(wpawn,null,p2wScale,null);
+
+        float[] Positionp3w = post(allPieces[2][2].position,canvas);
+        p3wScale = new RectF(Positionp3w[0],Positionp3w[1],Positionp3w[2],Positionp3w[3]);
+        canvas.drawBitmap(wpawn,null,p3wScale,null);
+
+        float[] Positionp4w = post(allPieces[2][3].position,canvas);
+        p4wScale = new RectF(Positionp4w[0],Positionp4w[1],Positionp4w[2],Positionp4w[3]);
+        canvas.drawBitmap(wpawn,null,p4wScale,null);
+
+        float[] Positionp5w = post(allPieces[2][4].position,canvas);
+        p5wScale = new RectF(Positionp5w[0],Positionp5w[1],Positionp5w[2],Positionp5w[3]);
+        canvas.drawBitmap(wpawn,null,p5wScale,null);
+
+        float[] Positionp6w = post(allPieces[2][5].position,canvas);
+        p6wScale = new RectF(Positionp6w[0],Positionp6w[1],Positionp6w[2],Positionp6w[3]);
+        canvas.drawBitmap(wpawn,null,p6wScale,null);
+
+        float[] Positionp7w = post(allPieces[2][6].position,canvas);
+        p7wScale = new RectF(Positionp7w[0],Positionp7w[1],Positionp7w[2],Positionp7w[3]);
+        canvas.drawBitmap(wpawn,null,p7wScale,null);
+
+        float[] Positionp8w = post(allPieces[2][7].position,canvas);
+        p8wScale = new RectF(Positionp8w[0],Positionp8w[1],Positionp8w[2],Positionp8w[3]);
+        canvas.drawBitmap(wpawn,null,p8wScale,null);
+
+        float[] Positionr1w = post(allPieces[3][0].position,canvas);
+        r1wScale = new RectF(Positionr1w[0],Positionr1w[1],Positionr1w[2],Positionr1w[3]);
+        canvas.drawBitmap(wrook,null,r1wScale,null);
+
+        float[] Positionr2w = post(allPieces[3][7].position,canvas);
+        r2wScale = new RectF(Positionr2w[0],Positionr2w[1],Positionr2w[2],Positionr2w[3]);
+        canvas.drawBitmap(wrook,null,r2wScale,null);
+
+        float[] Positionn1w = post(allPieces[3][1].position,canvas);
+        n1wScale = new RectF(Positionn1w[0],Positionn1w[1],Positionn1w[2],Positionn1w[3]);
+        canvas.drawBitmap(wnight,null,n1wScale,null);
+
+        float[] Positionn2w = post(allPieces[3][6].position,canvas);
+        n2wScale = new RectF(Positionn2w[0],Positionn2w[1],Positionn2w[2],Positionn2w[3]);
+        canvas.drawBitmap(wnight,null,n2wScale,null);
+
+        float[] Positionb2w = post(allPieces[3][5].position,canvas);
+        b2wScale = new RectF(Positionb2w[0],Positionb2w[1],Positionb2w[2],Positionb2w[3]);
+        canvas.drawBitmap(wbishop,null,b2wScale,null);
+
+        float[] Positionb1w = post(allPieces[3][2].position,canvas);
+        b1wScale = new RectF(Positionb1w[0],Positionb1w[1],Positionb1w[2],Positionb1w[3]);
+        canvas.drawBitmap(wbishop,null,b1wScale,null);
+
+        float[] Positionqw = post(allPieces[3][3].position,canvas);
+        qwScale = new RectF(Positionqw[0],Positionqw[1],Positionqw[2],Positionqw[3]);
+        canvas.drawBitmap(wqueen,null,qwScale,null);
+
+        float[] Positionkw = post(allPieces[3][4].position,canvas);
+        kwScale = new RectF(Positionkw[0],Positionkw[1],Positionkw[2],Positionkw[3]);
+        canvas.drawBitmap(wking,null,kwScale,null);
 
     }
 
@@ -633,7 +905,7 @@ public class CustomView extends View {
             results[0] = w*6;
             results[1] = h*4;
             results[2] = w*7;
-            results[3] = h*7;
+            results[3] = h*5;
             return results;
 
         }else if(p.equals("H4")){
@@ -825,14 +1097,7 @@ public class CustomView extends View {
 
         float top = 0;
         float bottom = canvas.getHeight()/8;
-        float color[][] = {{0,1,0,1,0,1,0,1},
-                {1,0,1,0,1,0,1,0},
-                {0,1,0,1,0,1,0,1},
-                {1,0,1,0,1,0,1,0},
-                {0,1,0,1,0,1,0,1},
-                {1,0,1,0,1,0,1,0},
-                {0,1,0,1,0,1,0,1},
-                {1,0,1,0,1,0,1,0}};
+
         for(int r=0;r<8;++r){
             float right = canvas.getWidth()/8;
             float left = 0;
