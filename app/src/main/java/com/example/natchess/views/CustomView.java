@@ -18,6 +18,7 @@ import com.example.natchess.Piece;
 import com.example.natchess.R;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class CustomView extends View {
 
@@ -77,9 +78,7 @@ public class CustomView extends View {
             {1,0,1,0,1,0,1,0},
             {0,1,0,1,0,1,0,1},
             {1,0,1,0,1,0,1,0}};
-
-
-
+    private ArrayList<String> legalMoves;
 
 
     public CustomView(Context context) {
@@ -112,12 +111,12 @@ public class CustomView extends View {
 
         //black pieces arrangement
         allPieces[0][0] = new Piece("rook","black","A8");
-        allPieces[0][1] = new Piece("night","black","B8");
+        allPieces[0][1] = new Piece("Knight","black","B8");
         allPieces[0][2] = new Piece("bishop","black","C8");
         allPieces[0][3] = new Piece("queen","black","D8");
         allPieces[0][4] = new Piece("king","black","E8");
         allPieces[0][5] = new Piece("bishop","black","F8");
-        allPieces[0][6] = new Piece("night","black","G8");
+        allPieces[0][6] = new Piece("Knight","black","G8");
         allPieces[0][7] = new Piece("rook","black","H8");
         allPieces[1][0] = new Piece("pawn","black","A7");
         allPieces[1][1] = new Piece("pawn","black","B7");
@@ -130,12 +129,12 @@ public class CustomView extends View {
 
         //white pieces arrangement
         allPieces[3][0] = new Piece("rook","white","A1");
-        allPieces[3][1] = new Piece("night","white","B1");
+        allPieces[3][1] = new Piece("Knight","white","B1");
         allPieces[3][2] = new Piece("bishop","white","C1");
         allPieces[3][3] = new Piece("queen","white","D1");
         allPieces[3][4] = new Piece("king","white","E1");
         allPieces[3][5] = new Piece("bishop","white","F1");
-        allPieces[3][6] = new Piece("night","white","G1");
+        allPieces[3][6] = new Piece("Knight","white","G1");
         allPieces[3][7] = new Piece("rook","white","H1");
         allPieces[2][0] = new Piece("pawn","white","A2");
         allPieces[2][1] = new Piece("pawn","white","B2");
@@ -421,60 +420,144 @@ public class CustomView extends View {
             if(cont) break;
         }
 
-        if(cont==true){
-            if(selected==false){
-                if(moveToR !=-1 && moveToC !=-1 && moveFromC !=-1 && moveFromR != -1){
-                    if(color[moveFromR][moveFromC]==0){
-                        arrPaint[moveFromR][moveFromC].setColor(Color.rgb(236,217,121));
-                    }else{
-                        arrPaint[moveFromR][moveFromC].setColor(Color.rgb(215,162,109));
-                    }
 
-                    if(color[moveToR][moveToC]== 0){
-                        arrPaint[moveToR][moveToC].setColor(Color.rgb(236,217,121));
-                    }else{
-                        arrPaint[moveToR][moveToC].setColor(Color.rgb(215,162,109));
+            if (selected == false) {
+                if(cont) {
+                    if (moveToR != -1 && moveToC != -1 && moveFromC != -1 && moveFromR != -1) {
+                        if (color[moveFromR][moveFromC] == 0) {
+                            arrPaint[moveFromR][moveFromC].setColor(Color.rgb(236, 217, 121));
+                        } else {
+                            arrPaint[moveFromR][moveFromC].setColor(Color.rgb(215, 162, 109));
+                        }
+
+                        if (color[moveToR][moveToC] == 0) {
+                            arrPaint[moveToR][moveToC].setColor(Color.rgb(236, 217, 121));
+                        } else {
+                            arrPaint[moveToR][moveToC].setColor(Color.rgb(215, 162, 109));
+                        }
+                        moveFromR = -1;
+                        moveFromC = -1;
+                        moveToR = -1;
+                        moveToC = -1;
+                        System.out.println("Alec clear grey color of previous move");
                     }
-                    moveFromR = -1;
-                    moveFromC = -1;
-                    moveToR = -1;
-                    moveToC = -1;
-                    System.out.println("Alec clear grey color of previous move");
-                }
-                selected = true;
-                selectedPiece = allPieces[rs][cs];
-                moveFromR = pr;
-                moveFromC = pc;
-                arrPaint[pr][pc].setColor(Color.GRAY);
-                System.out.println("Alec now color this to grey, its clicked");
-                invalidate();
-            }else{
-                if(selectedPiece.position.equals(p)) {
-                    selected = false;
-                    selectedPiece = null;
-                    moveFromC = -1;
-                    moveFromR = -1;
-                    if(color[pr][pc]==0){
-                        arrPaint[pr][pc].setColor(Color.rgb(236, 217, 121));
-                    }else {
-                        arrPaint[pr][pc].setColor(Color.rgb(215,162,109));
-                    }
-                    System.out.println("Alec now change back to normal block color, its unclicked");
+                    selected = true;
+                    selectedPiece = allPieces[rs][cs];
+                    moveFromR = pr;
+                    moveFromC = pc;
+                    arrPaint[pr][pc].setColor(Color.GRAY);
+                    System.out.println("Alec now color this to grey, its clicked");
                     invalidate();
                 }
-            }
-        }else {
-            if(selected==true){
-                moveToR = pr;
-                moveToC = pc;
+            } else if (selectedPiece.position.equals(p)) {
                 selected = false;
-                System.out.print("Alec this is a move of "+ selectedPiece.color +" "+ selectedPiece.name + " from " +selectedPiece.position);
-                selectedPiece.position = p;
-                arrPaint[pr][pc].setColor(Color.GRAY);
-                System.out.println(" to "+ selectedPiece.position);
+                selectedPiece = null;
+                moveFromC = -1;
+                moveFromR = -1;
+                if (color[pr][pc] == 0) {
+                    arrPaint[pr][pc].setColor(Color.rgb(236, 217, 121));
+                } else {
+                    arrPaint[pr][pc].setColor(Color.rgb(215, 162, 109));
+                }
+                System.out.println("Alec now change back to normal block color, its unclicked");
                 invalidate();
+            } else if(selected == true){
+
+
+
+                if(selectedPiece.name.equals("Knight")){
+                    legalMoves = selectedPiece.CalculateLegalMoves();
+                    if(legalMoves.contains(p)){
+                        if(cont){
+                            allPieces[rs][cs].position = "null";
+                        }
+                        moveToR = pr;
+                        moveToC = pc;
+                        selected = false;
+                        System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
+                        selectedPiece.position = p;
+                        arrPaint[pr][pc].setColor(Color.GRAY);
+                        System.out.println(" to " + selectedPiece.position);
+                        invalidate();
+                    }
+                }else if(selectedPiece.name.equals("pawn")){
+                    legalMoves = selectedPiece.CalculateLegalMoves();
+                    System.out.println(legalMoves.size());
+                    if(legalMoves.contains(p)){
+                        if(cont){
+                            allPieces[rs][cs].position = "null";
+                        }
+                        moveToR = pr;
+                        moveToC = pc;
+                        selected = false;
+                        System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
+                        selectedPiece.position = p;
+                        arrPaint[pr][pc].setColor(Color.GRAY);
+                        System.out.println(" to " + selectedPiece.position);
+                        invalidate();
+                    }
+                }
+                else {
+                    if(cont){
+                        allPieces[rs][cs].position = "null";
+                    }
+                    moveToR = pr;
+                    moveToC = pc;
+                    selected = false;
+                    System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
+                    selectedPiece.position = p;
+                    arrPaint[pr][pc].setColor(Color.GRAY);
+                    System.out.println(" to " + selectedPiece.position);
+                    invalidate();
+                }
+
+
+
+
             }
-        }
+
+//        else {
+//            if(selected==true){
+//
+//                if(selectedPiece.name.equals("Knight")){
+//                    legalMoves = selectedPiece.CalculateLegalMoves();
+//                    if(legalMoves.contains(p)){
+//                        moveToR = pr;
+//                        moveToC = pc;
+//                        selected = false;
+//                        System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
+//                        selectedPiece.position = p;
+//                        arrPaint[pr][pc].setColor(Color.GRAY);
+//                        System.out.println(" to " + selectedPiece.position);
+//                        invalidate();
+//                    }
+//
+//                }else if(selectedPiece.name.equals("pawn")){
+//                    legalMoves = selectedPiece.CalculateLegalMoves();
+//                    System.out.println(legalMoves.size());
+//                    if(legalMoves.contains(p)){
+//                        moveToR = pr;
+//                        moveToC = pc;
+//                        selected = false;
+//                        System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
+//                        selectedPiece.position = p;
+//                        arrPaint[pr][pc].setColor(Color.GRAY);
+//                        System.out.println(" to " + selectedPiece.position);
+//                        invalidate();
+//                    }
+//                }
+//                else {
+//                    moveToR = pr;
+//                    moveToC = pc;
+//                    selected = false;
+//                    System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
+//                    selectedPiece.position = p;
+//                    arrPaint[pr][pc].setColor(Color.GRAY);
+//                    System.out.println(" to " + selectedPiece.position);
+//                    invalidate();
+//                }
+//            }
+//        }
 
     }
 
@@ -499,136 +582,224 @@ public class CustomView extends View {
 
         //draw all black pieces
         float[] Positionp1 = post(allPieces[1][0].position,canvas);
-        p1Scale = new RectF(Positionp1[0],Positionp1[1],Positionp1[2],Positionp1[3]);
-        canvas.drawBitmap(bpawn,null,p1Scale,null);
+        if(Positionp1 != null){
+            p1Scale = new RectF(Positionp1[0],Positionp1[1],Positionp1[2],Positionp1[3]);
+            canvas.drawBitmap(bpawn,null,p1Scale,null);
+        }
+
 
         float[] Positionp2 = post(allPieces[1][1].position,canvas);
-        p2Scale = new RectF(Positionp2[0],Positionp2[1],Positionp2[2],Positionp2[3]);
-        canvas.drawBitmap(bpawn,null,p2Scale,null);
+        if(Positionp2 != null){
+            p2Scale = new RectF(Positionp2[0],Positionp2[1],Positionp2[2],Positionp2[3]);
+            canvas.drawBitmap(bpawn,null,p2Scale,null);
+        }
 
         float[] Positionp3 = post(allPieces[1][2].position,canvas);
-        p3Scale = new RectF(Positionp3[0],Positionp3[1],Positionp3[2],Positionp3[3]);
-        canvas.drawBitmap(bpawn,null,p3Scale,null);
+        if(Positionp3 != null){
+            p3Scale = new RectF(Positionp3[0],Positionp3[1],Positionp3[2],Positionp3[3]);
+            canvas.drawBitmap(bpawn,null,p3Scale,null);
+        }
+
 
         float[] Positionp4 = post(allPieces[1][3].position,canvas);
-        p4Scale = new RectF(Positionp4[0],Positionp4[1],Positionp4[2],Positionp4[3]);
-        canvas.drawBitmap(bpawn,null,p4Scale,null);
+        if(Positionp4!=null){
+            p4Scale = new RectF(Positionp4[0],Positionp4[1],Positionp4[2],Positionp4[3]);
+            canvas.drawBitmap(bpawn,null,p4Scale,null);
+        }
 
         float[] Positionp5 = post(allPieces[1][4].position,canvas);
-        p5Scale = new RectF(Positionp5[0],Positionp5[1],Positionp5[2],Positionp5[3]);
-        canvas.drawBitmap(bpawn,null,p5Scale,null);
+        if(Positionp5!=null){
+            p5Scale = new RectF(Positionp5[0],Positionp5[1],Positionp5[2],Positionp5[3]);
+            canvas.drawBitmap(bpawn,null,p5Scale,null);
+        }
+
 
         float[] Positionp6 = post(allPieces[1][5].position,canvas);
-        p6Scale = new RectF(Positionp6[0],Positionp6[1],Positionp6[2],Positionp6[3]);
-        canvas.drawBitmap(bpawn,null,p6Scale,null);
+        if(Positionp6!=null){
+            p6Scale = new RectF(Positionp6[0],Positionp6[1],Positionp6[2],Positionp6[3]);
+            canvas.drawBitmap(bpawn,null,p6Scale,null);
+        }
+
 
         float[] Positionp7 = post(allPieces[1][6].position,canvas);
-        p7Scale = new RectF(Positionp7[0],Positionp7[1],Positionp7[2],Positionp7[3]);
-        canvas.drawBitmap(bpawn,null,p7Scale,null);
+        if(Positionp7!=null){
+            p7Scale = new RectF(Positionp7[0],Positionp7[1],Positionp7[2],Positionp7[3]);
+            canvas.drawBitmap(bpawn,null,p7Scale,null);
+        }
+
 
         float[] Positionp8 = post(allPieces[1][7].position,canvas);
-        p8Scale = new RectF(Positionp8[0],Positionp8[1],Positionp8[2],Positionp8[3]);
-        canvas.drawBitmap(bpawn,null,p8Scale,null);
+        if(Positionp8!=null){
+            p8Scale = new RectF(Positionp8[0],Positionp8[1],Positionp8[2],Positionp8[3]);
+            canvas.drawBitmap(bpawn,null,p8Scale,null);
+        }
 
         float[] Positionr1 = post(allPieces[0][0].position,canvas);
-        r1Scale = new RectF(Positionr1[0],Positionr1[1],Positionr1[2],Positionr1[3]);
-        canvas.drawBitmap(brook,null,r1Scale,null);
+        if(Positionr1!=null){
+            r1Scale = new RectF(Positionr1[0],Positionr1[1],Positionr1[2],Positionr1[3]);
+            canvas.drawBitmap(brook,null,r1Scale,null);
+        }
 
         float[] Positionr2 = post(allPieces[0][7].position,canvas);
-        r2Scale = new RectF(Positionr2[0],Positionr2[1],Positionr2[2],Positionr2[3]);
-        canvas.drawBitmap(brook,null,r2Scale,null);
+        if(Positionr2!=null){
+            r2Scale = new RectF(Positionr2[0],Positionr2[1],Positionr2[2],Positionr2[3]);
+            canvas.drawBitmap(brook,null,r2Scale,null);
+        }
+
 
         float[] Positionn1 = post(allPieces[0][1].position,canvas);
-        n1Scale = new RectF(Positionn1[0],Positionn1[1],Positionn1[2],Positionn1[3]);
-        canvas.drawBitmap(bnight,null,n1Scale,null);
+        if(Positionn1!=null){
+            n1Scale = new RectF(Positionn1[0],Positionn1[1],Positionn1[2],Positionn1[3]);
+            canvas.drawBitmap(bnight,null,n1Scale,null);
+        }
 
         float[] Positionn2 = post(allPieces[0][6].position,canvas);
-        n2Scale = new RectF(Positionn2[0],Positionn2[1],Positionn2[2],Positionn2[3]);
-        canvas.drawBitmap(bnight,null,n2Scale,null);
+        if(Positionn2!=null){
+            n2Scale = new RectF(Positionn2[0],Positionn2[1],Positionn2[2],Positionn2[3]);
+            canvas.drawBitmap(bnight,null,n2Scale,null);
+        }
+
 
         float[] Positionb2 = post(allPieces[0][5].position,canvas);
-        b2Scale = new RectF(Positionb2[0],Positionb2[1],Positionb2[2],Positionb2[3]);
-        canvas.drawBitmap(bbishop,null,b2Scale,null);
+        if(Positionb2!=null){
+            b2Scale = new RectF(Positionb2[0],Positionb2[1],Positionb2[2],Positionb2[3]);
+            canvas.drawBitmap(bbishop,null,b2Scale,null);
+        }
+
 
         float[] Positionb1 = post(allPieces[0][2].position,canvas);
-        b1Scale = new RectF(Positionb1[0],Positionb1[1],Positionb1[2],Positionb1[3]);
-        canvas.drawBitmap(bbishop,null,b1Scale,null);
+        if(Positionb1!=null){
+            b1Scale = new RectF(Positionb1[0],Positionb1[1],Positionb1[2],Positionb1[3]);
+            canvas.drawBitmap(bbishop,null,b1Scale,null);
+        }
 
         float[] Positionq = post(allPieces[0][3].position,canvas);
-        qScale = new RectF(Positionq[0],Positionq[1],Positionq[2],Positionq[3]);
-        canvas.drawBitmap(bqueen,null,qScale,null);
+        if(Positionq!=null){
+            qScale = new RectF(Positionq[0],Positionq[1],Positionq[2],Positionq[3]);
+            canvas.drawBitmap(bqueen,null,qScale,null);
+        }
+
 
         float[] Positionk = post(allPieces[0][4].position,canvas);
-        kScale = new RectF(Positionk[0],Positionk[1],Positionk[2],Positionk[3]);
-        canvas.drawBitmap(bking,null,kScale,null);
+        if(Positionk!=null){
+            kScale = new RectF(Positionk[0],Positionk[1],Positionk[2],Positionk[3]);
+            canvas.drawBitmap(bking,null,kScale,null);
+        }
+
 
 
 
 
         //draw all white pieces
         float[] Positionp1w = post(allPieces[2][0].position,canvas);
-        p1wScale = new RectF(Positionp1w[0],Positionp1w[1],Positionp1w[2],Positionp1w[3]);
-        canvas.drawBitmap(wpawn,null,p1wScale,null);
+        if(Positionp1w!=null){
+            p1wScale = new RectF(Positionp1w[0],Positionp1w[1],Positionp1w[2],Positionp1w[3]);
+            canvas.drawBitmap(wpawn,null,p1wScale,null);
+        }
+
 
         float[] Positionp2w = post(allPieces[2][1].position,canvas);
-        p2wScale = new RectF(Positionp2w[0],Positionp2w[1],Positionp2w[2],Positionp2w[3]);
-        canvas.drawBitmap(wpawn,null,p2wScale,null);
+        if(Positionp2w!=null){
+            p2wScale = new RectF(Positionp2w[0],Positionp2w[1],Positionp2w[2],Positionp2w[3]);
+            canvas.drawBitmap(wpawn,null,p2wScale,null);
+
+        }
 
         float[] Positionp3w = post(allPieces[2][2].position,canvas);
-        p3wScale = new RectF(Positionp3w[0],Positionp3w[1],Positionp3w[2],Positionp3w[3]);
-        canvas.drawBitmap(wpawn,null,p3wScale,null);
+        if(Positionp3w!=null){
+            p3wScale = new RectF(Positionp3w[0],Positionp3w[1],Positionp3w[2],Positionp3w[3]);
+            canvas.drawBitmap(wpawn,null,p3wScale,null);
+        }
+
 
         float[] Positionp4w = post(allPieces[2][3].position,canvas);
-        p4wScale = new RectF(Positionp4w[0],Positionp4w[1],Positionp4w[2],Positionp4w[3]);
-        canvas.drawBitmap(wpawn,null,p4wScale,null);
+        if(Positionp4w!=null){
+            p4wScale = new RectF(Positionp4w[0],Positionp4w[1],Positionp4w[2],Positionp4w[3]);
+            canvas.drawBitmap(wpawn,null,p4wScale,null);
+        }
+
 
         float[] Positionp5w = post(allPieces[2][4].position,canvas);
-        p5wScale = new RectF(Positionp5w[0],Positionp5w[1],Positionp5w[2],Positionp5w[3]);
-        canvas.drawBitmap(wpawn,null,p5wScale,null);
+        if(Positionp5w!=null){
+            p5wScale = new RectF(Positionp5w[0],Positionp5w[1],Positionp5w[2],Positionp5w[3]);
+            canvas.drawBitmap(wpawn,null,p5wScale,null);
+        }
 
         float[] Positionp6w = post(allPieces[2][5].position,canvas);
-        p6wScale = new RectF(Positionp6w[0],Positionp6w[1],Positionp6w[2],Positionp6w[3]);
-        canvas.drawBitmap(wpawn,null,p6wScale,null);
+        if(Positionp6w!=null){
+            p6wScale = new RectF(Positionp6w[0],Positionp6w[1],Positionp6w[2],Positionp6w[3]);
+            canvas.drawBitmap(wpawn,null,p6wScale,null);
+        }
+
 
         float[] Positionp7w = post(allPieces[2][6].position,canvas);
-        p7wScale = new RectF(Positionp7w[0],Positionp7w[1],Positionp7w[2],Positionp7w[3]);
-        canvas.drawBitmap(wpawn,null,p7wScale,null);
+        if(Positionp7w!=null){
+            p7wScale = new RectF(Positionp7w[0],Positionp7w[1],Positionp7w[2],Positionp7w[3]);
+            canvas.drawBitmap(wpawn,null,p7wScale,null);
+        }
+
 
         float[] Positionp8w = post(allPieces[2][7].position,canvas);
-        p8wScale = new RectF(Positionp8w[0],Positionp8w[1],Positionp8w[2],Positionp8w[3]);
-        canvas.drawBitmap(wpawn,null,p8wScale,null);
+        if(Positionp8w!=null){
+            p8wScale = new RectF(Positionp8w[0],Positionp8w[1],Positionp8w[2],Positionp8w[3]);
+            canvas.drawBitmap(wpawn,null,p8wScale,null);
+        }
+
 
         float[] Positionr1w = post(allPieces[3][0].position,canvas);
-        r1wScale = new RectF(Positionr1w[0],Positionr1w[1],Positionr1w[2],Positionr1w[3]);
-        canvas.drawBitmap(wrook,null,r1wScale,null);
+        if(Positionr1w!=null){
+            r1wScale = new RectF(Positionr1w[0],Positionr1w[1],Positionr1w[2],Positionr1w[3]);
+            canvas.drawBitmap(wrook,null,r1wScale,null);
+        }
+
 
         float[] Positionr2w = post(allPieces[3][7].position,canvas);
-        r2wScale = new RectF(Positionr2w[0],Positionr2w[1],Positionr2w[2],Positionr2w[3]);
-        canvas.drawBitmap(wrook,null,r2wScale,null);
+        if(Positionr2w!=null){
+            r2wScale = new RectF(Positionr2w[0],Positionr2w[1],Positionr2w[2],Positionr2w[3]);
+            canvas.drawBitmap(wrook,null,r2wScale,null);
+        }
+
 
         float[] Positionn1w = post(allPieces[3][1].position,canvas);
-        n1wScale = new RectF(Positionn1w[0],Positionn1w[1],Positionn1w[2],Positionn1w[3]);
-        canvas.drawBitmap(wnight,null,n1wScale,null);
+        if(Positionn1w!=null){
+            n1wScale = new RectF(Positionn1w[0],Positionn1w[1],Positionn1w[2],Positionn1w[3]);
+            canvas.drawBitmap(wnight,null,n1wScale,null);
+        }
+
 
         float[] Positionn2w = post(allPieces[3][6].position,canvas);
-        n2wScale = new RectF(Positionn2w[0],Positionn2w[1],Positionn2w[2],Positionn2w[3]);
-        canvas.drawBitmap(wnight,null,n2wScale,null);
+        if(Positionn2w!=null){
+            n2wScale = new RectF(Positionn2w[0],Positionn2w[1],Positionn2w[2],Positionn2w[3]);
+            canvas.drawBitmap(wnight,null,n2wScale,null);
+        }
+
 
         float[] Positionb2w = post(allPieces[3][5].position,canvas);
-        b2wScale = new RectF(Positionb2w[0],Positionb2w[1],Positionb2w[2],Positionb2w[3]);
-        canvas.drawBitmap(wbishop,null,b2wScale,null);
+        if(Positionb2w!=null){
+            b2wScale = new RectF(Positionb2w[0],Positionb2w[1],Positionb2w[2],Positionb2w[3]);
+            canvas.drawBitmap(wbishop,null,b2wScale,null);
+        }
+
 
         float[] Positionb1w = post(allPieces[3][2].position,canvas);
-        b1wScale = new RectF(Positionb1w[0],Positionb1w[1],Positionb1w[2],Positionb1w[3]);
-        canvas.drawBitmap(wbishop,null,b1wScale,null);
+        if(Positionb1w!=null){
+            b1wScale = new RectF(Positionb1w[0],Positionb1w[1],Positionb1w[2],Positionb1w[3]);
+            canvas.drawBitmap(wbishop,null,b1wScale,null);
+        }
+
 
         float[] Positionqw = post(allPieces[3][3].position,canvas);
-        qwScale = new RectF(Positionqw[0],Positionqw[1],Positionqw[2],Positionqw[3]);
-        canvas.drawBitmap(wqueen,null,qwScale,null);
+        if(Positionqw!=null){
+            qwScale = new RectF(Positionqw[0],Positionqw[1],Positionqw[2],Positionqw[3]);
+            canvas.drawBitmap(wqueen,null,qwScale,null);
+        }
+
 
         float[] Positionkw = post(allPieces[3][4].position,canvas);
-        kwScale = new RectF(Positionkw[0],Positionkw[1],Positionkw[2],Positionkw[3]);
-        canvas.drawBitmap(wking,null,kwScale,null);
+        if(Positionkw!=null){
+            kwScale = new RectF(Positionkw[0],Positionkw[1],Positionkw[2],Positionkw[3]);
+            canvas.drawBitmap(wking,null,kwScale,null);
+        }
 
     }
 
@@ -1076,14 +1247,15 @@ public class CustomView extends View {
             results[3] = h*8;
             return results;
 
-        }else{           //H1
+        }else if(p.equals("H1")){   //H1
             results[0] = w*7;
             results[1] = h*7;
             results[2] = w*8;
             results[3] = h*8;
             return results;
-
         }
+
+        return null;
     }
 
     private void DrawChessBoard(Canvas canvas){
