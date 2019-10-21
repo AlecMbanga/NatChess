@@ -407,6 +407,8 @@ public class CustomView extends View {
     }
 
     public void paintMove(int pr, int pc, String p,int rs, int cs, boolean cont){
+        //extracting info of clicked piece
+
         for(int r = 0;r<allPieces.length;++r){
             for(int c = 0;c<allPieces[0].length;++c){
                 if(cont) break;
@@ -420,6 +422,11 @@ public class CustomView extends View {
             if(cont) break;
         }
 
+        /////
+        /////
+        ///// posible place to verify which user is playing
+        /////
+        /////
 
             if (selected == false) {
                 if(cont) {
