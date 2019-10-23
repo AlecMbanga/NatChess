@@ -568,19 +568,38 @@ public class CustomView extends View {
                         invalidate();
                     }
                 }
-                else {
-                    if(cont){
-                        allPieces[rs][cs].position = "null";
+                else if(selectedPiece.name.equals("king")){
+                    legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
+                    if(legalMoves.contains(p)){
+                        for(int hh=0;hh<legalMoves.size();++hh){
+                            System.out.println("Alec possible is "+ legalMoves.get(hh));
+                        }
+                        if(cont){
+                            allPieces[rs][cs].position = "null";
+                        }
+                        moveToR = pr;
+                        moveToC = pc;
+                        selected = false;
+                        System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
+                        selectedPiece.position = p;
+                        arrPaint[pr][pc].setColor(Color.GRAY);
+                        System.out.println(" to " + selectedPiece.position);
+                        invalidate();
                     }
-                    moveToR = pr;
-                    moveToC = pc;
-                    selected = false;
-                    System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
-                    selectedPiece.position = p;
-                    arrPaint[pr][pc].setColor(Color.GRAY);
-                    System.out.println(" to " + selectedPiece.position);
-                    invalidate();
                 }
+//                else {
+//                    if(cont){
+//                        allPieces[rs][cs].position = "null";
+//                    }
+//                    moveToR = pr;
+//                    moveToC = pc;
+//                    selected = false;
+//                    System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
+//                    selectedPiece.position = p;
+//                    arrPaint[pr][pc].setColor(Color.GRAY);
+//                    System.out.println(" to " + selectedPiece.position);
+//                    invalidate();
+//                }
 
 
 

@@ -9,6 +9,9 @@ public class Piece {
     public String color;
     public String position;
     public String status;
+    public String onlinePos;
+    public String onlineCodeName;
+    public boolean firstMove;
     public ArrayList<String> board = new ArrayList<String>(Arrays.asList("A1","B1","C1","D1","E1","F1","G1","H1",
                                                                     "A2","B2","C2","D2","E2","F2","G2","H2",
                                                                     "A3","B3","C3","D3","E3","F3","G3","H3",
@@ -24,10 +27,14 @@ public class Piece {
         this.color = color;
         this.position = position;
         this.status = "alive";
+        this.onlinePos = position;
+        this.firstMove = true;
+
     }
 
     public ArrayList<String> CalculateLegalMoves(Piece[][] allPieces){
         if(name.equals("king")){
+            return kingMoves(allPieces);
 
         }else if(name.equals("queen")){
             return queenMoves(allPieces);
@@ -44,7 +51,171 @@ public class Piece {
         }else{
             return KnightMoves(allPieces);
         }
-        return null;
+    }
+
+    public ArrayList<String> kingMoves(Piece[][] allPieces){
+        ArrayList<String> moves = new ArrayList<>();
+
+        ArrayList<String> takenBlocks = new ArrayList<>();
+        ArrayList<String> takenBlocksColor = new ArrayList<>();
+
+        for(int r=0;r<allPieces.length;++r){
+            for(int c=0;c<allPieces[0].length;++c){
+                if(!allPieces[r][c].equals("null")){
+                    takenBlocks.add(allPieces[r][c].position);
+                    takenBlocksColor.add(allPieces[r][c].color);
+                }
+            }
+        }
+
+        int num = (int)position.charAt(1)-48;
+        char alpha = (char)(position.charAt(0));
+
+        char alphaRemove1 = (char)(position.charAt(0)-1);
+        char alphaAdd1 = (char)(position.charAt(0)+1);
+
+        int numRemove1 = num-1;
+        int numAdd1 = num+1;
+
+        //up
+        String posibility1 = Character.toString(alpha) + Integer.toString(numAdd1);
+
+        //up left
+        String posibility2 = Character.toString(alphaRemove1) + Integer.toString(numAdd1);
+
+        //up right
+        String posibility3 = Character.toString(alphaAdd1) + Integer.toString(numAdd1);
+
+        //left
+        String posibility4 = Character.toString(alphaRemove1) + Integer.toString(num);
+
+        //right
+        String posibility5 = Character.toString(alphaAdd1) + Integer.toString(num);
+
+        //down
+        String posibility6 = Character.toString(alpha) + Integer.toString(numRemove1);
+
+        //down left
+        String posibility7 = Character.toString(alphaRemove1) + Integer.toString(numRemove1);
+
+        //down right
+        String posibility8 = Character.toString(alphaAdd1) + Integer.toString(numRemove1);
+
+
+        //up move
+        if(takenBlocks.contains(posibility1)){
+            if(color.equals("black") && takenBlocksColor.get(takenBlocks.indexOf(posibility1)).equals("white")){
+                moves.add(posibility1);
+            }
+            else if(color.equals("white") && takenBlocksColor.get(takenBlocks.indexOf(posibility1)).equals("black")){
+                moves.add(posibility1);
+            }
+        }else{
+            if(board.contains(posibility1)){
+                moves.add(posibility1);
+            }
+        }
+
+        //up left move
+        if(takenBlocks.contains(posibility2)){
+            if(color.equals("black") && takenBlocksColor.get(takenBlocks.indexOf(posibility2)).equals("white")){
+                moves.add(posibility2);
+            }
+            else if(color.equals("white") && takenBlocksColor.get(takenBlocks.indexOf(posibility2)).equals("black")){
+                moves.add(posibility2);
+            }
+        }else{
+            if(board.contains(posibility2)){
+                moves.add(posibility2);
+            }
+        }
+
+        //up right move
+        if(takenBlocks.contains(posibility3)){
+            if(color.equals("black") && takenBlocksColor.get(takenBlocks.indexOf(posibility3)).equals("white")){
+                moves.add(posibility3);
+            }
+            else if(color.equals("white") && takenBlocksColor.get(takenBlocks.indexOf(posibility3)).equals("black")){
+                moves.add(posibility3);
+            }
+        }else{
+            if(board.contains(posibility3)){
+                moves.add(posibility3);
+            }
+        }
+
+        //left move
+        if(takenBlocks.contains(posibility4)){
+            if(color.equals("black") && takenBlocksColor.get(takenBlocks.indexOf(posibility4)).equals("white")){
+                moves.add(posibility4);
+            }
+            else if(color.equals("white") && takenBlocksColor.get(takenBlocks.indexOf(posibility4)).equals("black")){
+                moves.add(posibility4);
+            }
+        }else{
+            if(board.contains(posibility4)){
+                moves.add(posibility4);
+            }
+        }
+
+        //right move
+        if(takenBlocks.contains(posibility5)){
+            if(color.equals("black") && takenBlocksColor.get(takenBlocks.indexOf(posibility5)).equals("white")){
+                moves.add(posibility5);
+            }
+            else if(color.equals("white") && takenBlocksColor.get(takenBlocks.indexOf(posibility5)).equals("black")){
+                moves.add(posibility5);
+            }
+        }else{
+            if(board.contains(posibility5)){
+                moves.add(posibility5);
+            }
+        }
+
+        //down move
+        if(takenBlocks.contains(posibility6)){
+            if(color.equals("black") && takenBlocksColor.get(takenBlocks.indexOf(posibility6)).equals("white")){
+                moves.add(posibility6);
+            }
+            else if(color.equals("white") && takenBlocksColor.get(takenBlocks.indexOf(posibility6)).equals("black")){
+                moves.add(posibility6);
+            }
+        }else{
+            if(board.contains(posibility6)){
+                moves.add(posibility6);
+            }
+        }
+
+        //down left move
+        if(takenBlocks.contains(posibility7)){
+            if(color.equals("black") && takenBlocksColor.get(takenBlocks.indexOf(posibility7)).equals("white")){
+                moves.add(posibility7);
+            }
+            else if(color.equals("white") && takenBlocksColor.get(takenBlocks.indexOf(posibility7)).equals("black")){
+                moves.add(posibility7);
+            }
+        }else{
+            if(board.contains(posibility7)){
+                moves.add(posibility7);
+            }
+        }
+
+        //down right move
+        if(takenBlocks.contains(posibility8)){
+            if(color.equals("black") && takenBlocksColor.get(takenBlocks.indexOf(posibility8)).equals("white")){
+                moves.add(posibility8);
+            }
+            else if(color.equals("white") && takenBlocksColor.get(takenBlocks.indexOf(posibility8)).equals("black")){
+                moves.add(posibility8);
+            }
+        }else{
+            if(board.contains(posibility8)){
+                moves.add(posibility8);
+            }
+        }
+
+
+        return moves;
     }
 
     public ArrayList<String> queenMoves(Piece[][] allPieces){
