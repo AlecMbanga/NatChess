@@ -473,8 +473,12 @@ public class CustomView extends View {
 
 
                 if(selectedPiece.name.equals("Knight")){
-                    legalMoves = selectedPiece.CalculateLegalMoves();
+                    legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
+
                     if(legalMoves.contains(p)){
+                        for(int hh=0;hh<legalMoves.size();++hh){
+                            System.out.println("Alec possible is "+ legalMoves.get(hh));
+                        }
                         if(cont){
                             allPieces[rs][cs].position = "null";
                         }
@@ -488,9 +492,69 @@ public class CustomView extends View {
                         invalidate();
                     }
                 }else if(selectedPiece.name.equals("pawn")){
-                    legalMoves = selectedPiece.CalculateLegalMoves();
-                    System.out.println(legalMoves.size());
+                    legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
+
                     if(legalMoves.contains(p)){
+                        for(int hh=0;hh<legalMoves.size();++hh){
+                            System.out.println("Alec possible is "+ legalMoves.get(hh));
+                        }
+                        if(cont){
+                            allPieces[rs][cs].position = "null";
+                        }
+                        moveToR = pr;
+                        moveToC = pc;
+                        selected = false;
+                        System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
+                        selectedPiece.position = p;
+                        arrPaint[pr][pc].setColor(Color.GRAY);
+                        System.out.println(" to " + selectedPiece.position);
+                        invalidate();
+                    }
+                }
+                else if(selectedPiece.name.equals("rook")){
+                    legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
+                    if(legalMoves.contains(p)){
+                        for(int hh=0;hh<legalMoves.size();++hh){
+                            System.out.println("Alec possible is "+ legalMoves.get(hh));
+                        }
+                        if(cont){
+                            allPieces[rs][cs].position = "null";
+                        }
+                        moveToR = pr;
+                        moveToC = pc;
+                        selected = false;
+                        System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
+                        selectedPiece.position = p;
+                        arrPaint[pr][pc].setColor(Color.GRAY);
+                        System.out.println(" to " + selectedPiece.position);
+                        invalidate();
+                    }
+                }
+                else if(selectedPiece.name.equals("bishop")){
+                    legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
+                    if(legalMoves.contains(p)){
+                        for(int hh=0;hh<legalMoves.size();++hh){
+                            System.out.println("Alec possible is "+ legalMoves.get(hh));
+                        }
+                        if(cont){
+                            allPieces[rs][cs].position = "null";
+                        }
+                        moveToR = pr;
+                        moveToC = pc;
+                        selected = false;
+                        System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
+                        selectedPiece.position = p;
+                        arrPaint[pr][pc].setColor(Color.GRAY);
+                        System.out.println(" to " + selectedPiece.position);
+                        invalidate();
+                    }
+                }
+                else if(selectedPiece.name.equals("queen")){
+                    legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
+                    if(legalMoves.contains(p)){
+                        for(int hh=0;hh<legalMoves.size();++hh){
+                            System.out.println("Alec possible is "+ legalMoves.get(hh));
+                        }
                         if(cont){
                             allPieces[rs][cs].position = "null";
                         }
