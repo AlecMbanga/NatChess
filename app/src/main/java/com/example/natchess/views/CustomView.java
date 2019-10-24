@@ -16,7 +16,10 @@ import androidx.annotation.Nullable;
 
 import com.example.natchess.Piece;
 import com.example.natchess.R;
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -82,7 +85,7 @@ public class CustomView extends View {
     private ArrayList<String> legalMoves;
     private ArrayList<String> validMoves = new ArrayList<>();
 
-    private Firebase mRootRef;
+    private Firebase mRoot;
 
     public CustomView(Context context) {
         super(context);
@@ -109,11 +112,111 @@ public class CustomView extends View {
     }
 
     private void init(@Nullable AttributeSet set){
-        mRootRef = new Firebase("https://natchess-d50b2.firebaseio.com/Test");
+        mRoot = new Firebase("https://natchess-d50b2.firebaseio.com/Test/");
         InitialiseBoardColors();
         allPieces = new Piece[4][8];
 
         //black pieces arrangement
+
+        //r1b
+//        allPieces[0][0] = new Piece("rook","black","A8");
+//        String index00Name = "rook";
+//        String index00Color = "black";
+//        final String[] index00Position = new String[1];
+//        String index00Status ="";
+//        String index00FirstMove = "";
+//        Firebase r1b = mRoot.child("r1b");
+//        Firebase b = mRoot.child("Name");
+//        b.setValue("Alec Mbanga");
+//        r1b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                String value = dataSnapshot.getKey();
+//                if(value.equals("position")){
+//                    System.out.println("Alec help from childadded "+ dataSnapshot.getValue().toString());
+//                    index00Position[0] = dataSnapshot.getValue().toString();
+//                }
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//        System.out.println("Alec help from childadded "+ index00Position[0]);
+//        allPieces[0][0] = new Piece("rook","black","A8");
+//
+//        Firebase r1bStatus = r1b.child("status");
+//        r1bStatus.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//
+//            }
+//        });
+//
+//        Firebase r1bFirst = r1b.child("firstMove");
+//        r1bFirst.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//
+//            }
+//        });
+
+
+
+
+
         allPieces[0][0] = new Piece("rook","black","A8");
         allPieces[0][1] = new Piece("Knight","black","B8");
         allPieces[0][2] = new Piece("bishop","black","C8");

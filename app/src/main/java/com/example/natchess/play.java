@@ -25,7 +25,7 @@ public class play extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        mRoot = new Firebase("https://natchess-d50b2.firebaseio.com/");
+        mRoot = new Firebase("https://natchess-d50b2.firebaseio.com/Test/");
 
         final CustomView customView = new CustomView(this);
 
@@ -35,10 +35,10 @@ public class play extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-            Firebase mChild = mRoot.child("Name");
-            mChild.setValue("Alec");
+//            Firebase mChild = mRoot.child("Name");
+//            mChild.setValue("Alec");
 
-//                reset();
+                reset();
             }
         });
     }
