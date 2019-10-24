@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 
 import com.example.natchess.Piece;
 import com.example.natchess.R;
+import com.firebase.client.Firebase;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -79,7 +80,9 @@ public class CustomView extends View {
             {0,1,0,1,0,1,0,1},
             {1,0,1,0,1,0,1,0}};
     private ArrayList<String> legalMoves;
+    private ArrayList<String> validMoves = new ArrayList<>();
 
+    private Firebase mRootRef;
 
     public CustomView(Context context) {
         super(context);
@@ -106,6 +109,7 @@ public class CustomView extends View {
     }
 
     private void init(@Nullable AttributeSet set){
+        mRootRef = new Firebase("https://natchess-d50b2.firebaseio.com/Test");
         InitialiseBoardColors();
         allPieces = new Piece[4][8];
 
@@ -428,6 +432,7 @@ public class CustomView extends View {
         /////
         /////
 
+
             if (selected == false) {
                 if(cont) {
                     if (moveToR != -1 && moveToC != -1 && moveFromC != -1 && moveFromR != -1) {
@@ -450,6 +455,15 @@ public class CustomView extends View {
                     }
                     selected = true;
                     selectedPiece = allPieces[rs][cs];
+                    validMoves = selectedPiece.CalculateLegalMoves(allPieces);
+                    System.out.println();
+                    for (int i=0;i<validMoves.size();++i) {
+                        System.out.print(validMoves.get(i)+", ");
+                        int[] selectedPieceIndex = getIndex(validMoves.get(i));
+                        arrPaint[selectedPieceIndex[0]][selectedPieceIndex[1]].setColor(Color.rgb(128,128,0));
+                    }
+
+                    System.out.println();
                     moveFromR = pr;
                     moveFromC = pc;
                     arrPaint[pr][pc].setColor(Color.GRAY);
@@ -466,11 +480,30 @@ public class CustomView extends View {
                 } else {
                     arrPaint[pr][pc].setColor(Color.rgb(215, 162, 109));
                 }
+                for (int i=0;i<validMoves.size();++i) {
+                    int[] selectedPieceIndex = getIndex(validMoves.get(i));
+                    System.out.println("Alec trying trying");
+                    if (color[selectedPieceIndex[0]][selectedPieceIndex[1]] == 0) {
+                        System.out.println("Alec trying change 1");
+                        arrPaint[selectedPieceIndex[0]][selectedPieceIndex[1]].setColor(Color.rgb(236, 217, 121));
+                    } else {
+                        System.out.println("Alec trying changed 2");
+                        arrPaint[selectedPieceIndex[0]][selectedPieceIndex[1]].setColor(Color.rgb(215, 162, 109));
+                    }
+                }
+
                 System.out.println("Alec now change back to normal block color, its unclicked");
                 invalidate();
             } else if(selected == true){
 
-
+                for (int i=0;i<validMoves.size();++i) {
+                    int[] selectedPieceIndex = getIndex(validMoves.get(i));
+                    if (color[selectedPieceIndex[0]][selectedPieceIndex[1]] == 0) {
+                        arrPaint[selectedPieceIndex[0]][selectedPieceIndex[1]].setColor(Color.rgb(236, 217, 121));
+                    } else {
+                        arrPaint[selectedPieceIndex[0]][selectedPieceIndex[1]].setColor(Color.rgb(215, 162, 109));
+                    }
+                }
 
                 if(selectedPiece.name.equals("Knight")){
                     legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
@@ -649,6 +682,55 @@ public class CustomView extends View {
 //            }
 //        }
 
+    }
+
+    private int[] getIndex(String pos){
+//        private float color[][] =   A B C D E F G H
+//                                  8{0,1,0,1,0,1,0,1},
+//                                  7{1,0,1,0,1,0,1,0},
+//                                  6{0,1,0,1,0,1,0,1},
+//                                  5{1,0,1,0,1,0,1,0},
+//                                  4{0,1,0,1,0,1,0,1},
+//                                  3{1,0,1,0,1,0,1,0},
+//                                  2{0,1,0,1,0,1,0,1},
+//                                  1{1,0,1,0,1,0,1,0};
+
+//                                    0 1 2 3 4 5 6 7
+//                                  0{0,1,0,1,0,1,0,1},
+//                                  1{1,0,1,0,1,0,1,0},
+//                                  2{0,1,0,1,0,1,0,1},
+//                                  3{1,0,1,0,1,0,1,0},
+//                                  4{0,1,0,1,0,1,0,1},
+//                                  5{1,0,1,0,1,0,1,0},
+//                                  6{0,1,0,1,0,1,0,1},
+//                                  7{1,0,1,0,1,0,1,0};
+
+        String[] posAlpha = {"A8","B8","C8","D8","E8","F8","G8","H8",
+                          "A7","B7","C7","D7","E7","F7","G7","H7",
+                          "A6","B6","C6","D6","E6","F6","G6","H6",
+                          "A5","B5","C5","D5","E5","F5","G5","H5",
+                          "A4","B4","C4","D4","E4","F4","G4","H4",
+                          "A3","B3","C3","D3","E3","F3","G3","H3",
+                          "A2","B2","C2","D2","E2","F2","G2","H2",
+                          "A1","B1","C1","D1","E1","F1","G1","H1"};
+
+        int[][] posNum = {{0,0},{0,1},{0,2},{0,3},{0,4},{0,5},{0,6},{0,7},
+                          {1,0},{1,1},{1,2},{1,3},{1,4},{1,5},{1,6},{1,7},
+                          {2,0},{2,1},{2,2},{2,3},{2,4},{2,5},{2,6},{2,7},
+                          {3,0},{3,1},{3,2},{3,3},{3,4},{3,5},{3,6},{3,7},
+                          {4,0},{4,1},{4,2},{4,3},{4,4},{4,5},{4,6},{4,7},
+                          {5,0},{5,1},{5,2},{5,3},{5,4},{5,5},{5,6},{5,7},
+                          {6,0},{6,1},{6,2},{6,3},{6,4},{6,5},{6,6},{6,7},
+                          {7,0},{7,1},{7,2},{7,3},{7,4},{7,5},{7,6},{7,7}};
+        int arr[] = {0,0};
+
+        for(int row=0;row<posAlpha.length;++row){
+            if(pos.equals(posAlpha[row])){
+                arr = posNum[row];
+            }
+        }
+
+        return arr;
     }
 
     private void DrawChessPieces(Canvas canvas){
