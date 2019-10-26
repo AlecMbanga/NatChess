@@ -22,11 +22,11 @@ public class Piece {
                                                                     "A8","B8","C8","D8","E8","F8","G8","H8"));
 
 
-    public Piece(String name,String color, String position){
+    public Piece(String name,String color, String position,String alive){
         this.name = name;
         this.color = color;
         this.position = position;
-        this.status = "alive";
+        this.status = alive;
         this.onlinePos = position;
         this.firstMove = true;
 
