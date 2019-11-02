@@ -38,11 +38,19 @@ public class MainActivity extends AppCompatActivity {
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         Button btnLogin = findViewById(R.id.buttonLogin);
+        Button btnPlay = findViewById(R.id.buttonPlay);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 login();
+            }
+        });
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Chess.class);
+                startActivity(intent);
             }
         });
     }

@@ -155,40 +155,40 @@ public class CustomView extends View {
 //
 //        }else{
 //            System.out.println("Alec motherfucker was passed with is null ");
-//            allPieces[0][0] = new Piece("rook","black","A8","alive");
-//            allPieces[0][1] = new Piece("Knight","black","B8","alive");
-//            allPieces[0][2] = new Piece("bishop","black","C8","alive");
-//            allPieces[0][3] = new Piece("queen","black","D8","alive");
-//            allPieces[0][4] = new Piece("king","black","E8","alive");
-//            allPieces[0][5] = new Piece("bishop","black","F8","alive");
-//            allPieces[0][6] = new Piece("Knight","black","G8","alive");
-//            allPieces[0][7] = new Piece("rook","black","H8","alive");
-//            allPieces[1][0] = new Piece("pawn","black","A7","alive");
-//            allPieces[1][1] = new Piece("pawn","black","B7","alive");
-//            allPieces[1][2] = new Piece("pawn","black","C7","alive");
-//            allPieces[1][3] = new Piece("pawn","black","D7","alive");
-//            allPieces[1][4] = new Piece("pawn","black","E7","alive");
-//            allPieces[1][5] = new Piece("pawn","black","F7","alive");
-//            allPieces[1][6] = new Piece("pawn","black","G7","alive");
-//            allPieces[1][7] = new Piece("pawn","black","H7","alive");
+            allPieces[0][0] = new Piece("rook","black","A8","alive");
+            allPieces[0][1] = new Piece("Knight","black","B8","alive");
+            allPieces[0][2] = new Piece("bishop","black","C8","alive");
+            allPieces[0][3] = new Piece("queen","black","D8","alive");
+            allPieces[0][4] = new Piece("king","black","E8","alive");
+            allPieces[0][5] = new Piece("bishop","black","F8","alive");
+            allPieces[0][6] = new Piece("Knight","black","G8","alive");
+            allPieces[0][7] = new Piece("rook","black","H8","alive");
+            allPieces[1][0] = new Piece("pawn","black","A7","alive");
+            allPieces[1][1] = new Piece("pawn","black","B7","alive");
+            allPieces[1][2] = new Piece("pawn","black","C7","alive");
+            allPieces[1][3] = new Piece("pawn","black","D7","alive");
+            allPieces[1][4] = new Piece("pawn","black","E7","alive");
+            allPieces[1][5] = new Piece("pawn","black","F7","alive");
+            allPieces[1][6] = new Piece("pawn","black","G7","alive");
+            allPieces[1][7] = new Piece("pawn","black","H7","alive");
 //
 //            //white pieces arrangement
-//            allPieces[3][0] = new Piece("rook","white","A1","alive");
-//            allPieces[3][1] = new Piece("Knight","white","B1","alive");
-//            allPieces[3][2] = new Piece("bishop","white","C1","alive");
-//            allPieces[3][3] = new Piece("queen","white","D1","alive");
-//            allPieces[3][4] = new Piece("king","white","E1","alive");
-//            allPieces[3][5] = new Piece("bishop","white","F1","alive");
-//            allPieces[3][6] = new Piece("Knight","white","G1","alive");
-//            allPieces[3][7] = new Piece("rook","white","H1","alive");
-//            allPieces[2][0] = new Piece("pawn","white","A2","alive");
-//            allPieces[2][1] = new Piece("pawn","white","B2","alive");
-//            allPieces[2][2] = new Piece("pawn","white","C2","alive");
-//            allPieces[2][3] = new Piece("pawn","white","D2","alive");
-//            allPieces[2][4] = new Piece("pawn","white","E2","alive");
-//            allPieces[2][5] = new Piece("pawn","white","F2","alive");
-//            allPieces[2][6] = new Piece("pawn","white","G2","alive");
-//            allPieces[2][7] = new Piece("pawn","white","H2","alive");
+            allPieces[3][0] = new Piece("rook","white","A1","alive");
+            allPieces[3][1] = new Piece("Knight","white","B1","alive");
+            allPieces[3][2] = new Piece("bishop","white","C1","alive");
+            allPieces[3][3] = new Piece("queen","white","D1","alive");
+            allPieces[3][4] = new Piece("king","white","E1","alive");
+            allPieces[3][5] = new Piece("bishop","white","F1","alive");
+            allPieces[3][6] = new Piece("Knight","white","G1","alive");
+            allPieces[3][7] = new Piece("rook","white","H1","alive");
+            allPieces[2][0] = new Piece("pawn","white","A2","alive");
+            allPieces[2][1] = new Piece("pawn","white","B2","alive");
+            allPieces[2][2] = new Piece("pawn","white","C2","alive");
+            allPieces[2][3] = new Piece("pawn","white","D2","alive");
+            allPieces[2][4] = new Piece("pawn","white","E2","alive");
+            allPieces[2][5] = new Piece("pawn","white","F2","alive");
+            allPieces[2][6] = new Piece("pawn","white","G2","alive");
+            allPieces[2][7] = new Piece("pawn","white","H2","alive");
 //
 //
 //        }
@@ -216,1427 +216,1427 @@ public class CustomView extends View {
             System.out.println("Alec mother first drawing ");
         }
         DrawChessBoard(canvas);
-//        DrawChessPieces(canvas);
-
-
-        canvo = canvas;
-
-        mRoot = new Firebase("https://natchess-d50b2.firebaseio.com/Test/");
-
-        DrawChessPieces(canvo);
-
-        Firebase r1b = mRoot.child("r1b");
-        final String[] r1bPosition = {""};
-        final String[] r1bStatus = {""};
-        r1b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    r1bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    r1bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!r1bPosition[0].equals("") && !r1bStatus[0].equals("")){
-                    arr.add(new Piece("rook","black",r1bPosition[0],r1bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-                    ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase r2b = mRoot.child("r2b");
-        final String[] r2bPosition = {""};
-        final String[] r2bStatus = {""};
-        r2b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    r2bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    r2bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!r2bPosition[0].equals("") && !r2bStatus[0].equals("")){
-                    arr.add(new Piece("rook","black",r2bPosition[0],r2bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        //////DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-
-        Firebase r1w = mRoot.child("r1w");
-        final String[] r1wPosition = {""};
-        final String[] r1wStatus = {""};
-        r1w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    r1wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    r1wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!r1wPosition[0].equals("") && !r1wStatus[0].equals("")){
-                    arr.add(new Piece("rook","white",r1wPosition[0],r1wStatus[0]));
-                }
-
-                if(arr.size()==32){
-
-                    System.out.println("Alec mother Kid is added been greater");
-
-                    //////DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-
-        Firebase r2w = mRoot.child("r2w");
-        final String[] r2wPosition = {""};
-        final String[] r2wStatus = {""};
-        r2w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    r2wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    r2wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!r2wPosition[0].equals("") && !r2wStatus[0].equals("")){
-                    arr.add(new Piece("rook","white",r2wPosition[0],r2wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-                    //////DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-
-
-
-        Firebase b1b = mRoot.child("b1b");
-        final String[] b1bPosition = {""};
-        final String[] b1bStatus = {""};
-        b1b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    b1bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    b1bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!b1bPosition[0].equals("") && !b1bStatus[0].equals("")){
-                    arr.add(new Piece("bishop","black",b1bPosition[0],b1bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase b1w = mRoot.child("b1w");
-        final String[] b1wPosition = {""};
-        final String[] b1wStatus = {""};
-        b1w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    b1wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    b1wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!b1wPosition[0].equals("") && !b1wStatus[0].equals("")){
-                    arr.add(new Piece("bishop","white",b1wPosition[0],b1wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-
-        Firebase b2b = mRoot.child("b2b");
-        final String[] b2bPosition = {""};
-        final String[] b2bStatus = {""};
-        b2b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    b2bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    b2bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!b2bPosition[0].equals("") && !b2bStatus[0].equals("")){
-                    arr.add(new Piece("bishop","black",b2bPosition[0],b2bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase b2w = mRoot.child("b2w");
-        final String[] b2wPosition = {""};
-        final String[] b2wStatus = {""};
-        b2w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    b2wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    b2wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!b2wPosition[0].equals("") && !b2wStatus[0].equals("")){
-                    arr.add(new Piece("bishop","white",b2wPosition[0],b2wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase k1b = mRoot.child("k1b");
-        final String[] k1bPosition = {""};
-        final String[] k1bStatus = {""};
-        k1b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    k1bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    k1bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!k1bPosition[0].equals("") && !k1bStatus[0].equals("")){
-                    arr.add(new Piece("Knight","black",k1bPosition[0],k1bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-
-        Firebase k2b = mRoot.child("k2b");
-        final String[] k2bPosition = {""};
-        final String[] k2bStatus = {""};
-        k2b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    k2bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    k2bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!k2bPosition[0].equals("") && !k2bStatus[0].equals("")){
-                    arr.add(new Piece("Knight","black",k2bPosition[0],k2bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-                    ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase k1w = mRoot.child("k1w");
-        final String[] k1wPosition = {""};
-        final String[] k1wStatus = {""};
-        k1w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    k1wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    k1wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!k1wPosition[0].equals("") && !k1wStatus[0].equals("")){
-                    arr.add(new Piece("Knight","white",k1wPosition[0],k1wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase k2w = mRoot.child("k2w");
-        final String[] k2wPosition = {""};
-        final String[] k2wStatus = {""};
-        k2w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    k2wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    k2wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!k2wPosition[0].equals("") && !k2wStatus[0].equals("")){
-                    arr.add(new Piece("Knight","white",k2wPosition[0],k2wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-
-        Firebase kb = mRoot.child("kb");
-        final String[] kbPosition = {""};
-        final String[] kbStatus = {""};
-        kb.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    kbPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    kbStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!kbPosition[0].equals("") && !kbStatus[0].equals("")){
-                    arr.add(new Piece("king","black",kbPosition[0],kbStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase kw = mRoot.child("kw");
-        final String[] kwPosition = {""};
-        final String[] kwStatus = {""};
-        kw.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    kwPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    kwStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!kwPosition[0].equals("") && !kwStatus[0].equals("")){
-                    arr.add(new Piece("king","white",kwPosition[0],kwStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase qb = mRoot.child("qb");
-        final String[] qbPosition = {""};
-        final String[] qbStatus = {""};
-        qb.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    qbPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    qbStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!qbPosition[0].equals("") && !qbStatus[0].equals("")){
-                    arr.add(new Piece("queen","black",qbPosition[0],qbStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-
-        Firebase qw = mRoot.child("qw");
-        final String[] qwPosition = {""};
-        final String[] qwStatus = {""};
-        qw.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    qwPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    qwStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!qwPosition[0].equals("") && !qwStatus[0].equals("")){
-                    arr.add(new Piece("queen","white",qwPosition[0],qwStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        //p1b
-        Firebase p1b = mRoot.child("p1b");
-        final String[] p1bPosition = {""};
-        final String[] p1bStatus = {""};
-        p1b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p1bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p1bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p1bPosition[0].equals("") && !p1bStatus[0].equals("")){
-                    arr.add(new Piece("pawn","black",p1bPosition[0],p1bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase p2b = mRoot.child("p2b");
-        final String[] p2bPosition = {""};
-        final String[] p2bStatus = {""};
-        p2b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p2bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p2bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p2bPosition[0].equals("") && !p2bStatus[0].equals("")){
-                    arr.add(new Piece("pawn","black",p2bPosition[0],p2bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase p3b = mRoot.child("p3b");
-        final String[] p3bPosition = {""};
-        final String[] p3bStatus = {""};
-        p3b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p3bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p3bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p3bPosition[0].equals("") && !p3bStatus[0].equals("")){
-                    arr.add(new Piece("pawn","black",p3bPosition[0],p3bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-        Firebase p4b = mRoot.child("p4b");
-        final String[] p4bPosition = {""};
-        final String[] p4bStatus = {""};
-        p4b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p4bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p4bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p4bPosition[0].equals("") && !p4bStatus[0].equals("")){
-                    arr.add(new Piece("pawn","black",p4bPosition[0],p4bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-        Firebase p5b = mRoot.child("p5b");
-        final String[] p5bPosition = {""};
-        final String[] p5bStatus = {""};
-        p5b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p5bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p5bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p5bPosition[0].equals("") && !p5bStatus[0].equals("")){
-                    arr.add(new Piece("pawn","black",p5bPosition[0],p5bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-        Firebase p6b = mRoot.child("p6b");
-        final String[] p6bPosition = {""};
-        final String[] p6bStatus = {""};
-        p6b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p6bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p6bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p6bPosition[0].equals("") && !p6bStatus[0].equals("")){
-                    arr.add(new Piece("pawn","black",p6bPosition[0],p6bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-        Firebase p7b = mRoot.child("p7b");
-        final String[] p7bPosition = {""};
-        final String[] p7bStatus = {""};
-        p7b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p7bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p7bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p7bPosition[0].equals("") && !p7bStatus[0].equals("")){
-                    arr.add(new Piece("pawn","black",p7bPosition[0],p7bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-        Firebase p8b = mRoot.child("p8b");
-        final String[] p8bPosition = {""};
-        final String[] p8bStatus = {""};
-        p8b.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p8bPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p8bStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p8bPosition[0].equals("") && !p8bStatus[0].equals("")){
-                    arr.add(new Piece("pawn","black",p8bPosition[0],p8bStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-
-        Firebase p1w = mRoot.child("p1w");
-        final String[] p1wPosition = {""};
-        final String[] p1wStatus = {""};
-        p1w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p1wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p1wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p1wPosition[0].equals("") && !p1wStatus[0].equals("")){
-                    arr.add(new Piece("pawn","white",p1wPosition[0],p1wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase p2w = mRoot.child("p2w");
-        final String[] p2wPosition = {""};
-        final String[] p2wStatus = {""};
-        p2w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p2wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p2wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p2wPosition[0].equals("") && !p2wStatus[0].equals("")){
-                    arr.add(new Piece("pawn","white",p2wPosition[0],p2wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase p3w = mRoot.child("p3w");
-        final String[] p3wPosition = {""};
-        final String[] p3wStatus = {""};
-        p3w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p3wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p3wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p3wPosition[0].equals("") && !p3wStatus[0].equals("")){
-                    arr.add(new Piece("pawn","white",p3wPosition[0],p3wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase p4w = mRoot.child("p4w");
-        final String[] p4wPosition = {""};
-        final String[] p4wStatus = {""};
-        p4w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p4wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p4wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p4wPosition[0].equals("") && !p4wStatus[0].equals("")){
-                    arr.add(new Piece("pawn","white",p4wPosition[0],p4wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase p5w = mRoot.child("p5w");
-        final String[] p5wPosition = {""};
-        final String[] p5wStatus = {""};
-        p5w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p5wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p5wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p5wPosition[0].equals("") && !p5wStatus[0].equals("")){
-                    arr.add(new Piece("pawn","white",p5wPosition[0],p5wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase p6w = mRoot.child("p6w");
-        final String[] p6wPosition = {""};
-        final String[] p6wStatus = {""};
-        p6w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p6wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p6wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p6wPosition[0].equals("") && !p6wStatus[0].equals("")){
-                    arr.add(new Piece("pawn","white",p6wPosition[0],p6wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase p7w = mRoot.child("p7w");
-        final String[] p7wPosition = {""};
-        final String[] p7wStatus = {""};
-        p7w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p7wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p7wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p7wPosition[0].equals("") && !p7wStatus[0].equals("")){
-                    arr.add(new Piece("pawn","white",p7wPosition[0],p7wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
-
-
-        Firebase p8w = mRoot.child("p8w");
-        final String[] p8wPosition = {""};
-        final String[] p8wStatus = {""};
-        p8w.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.getKey().equals("position")){
-                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
-                    p8wPosition[0] = dataSnapshot.getValue().toString();
-                }else if(dataSnapshot.getKey().equals("status")){
-                    p8wStatus[0] = dataSnapshot.getValue().toString();
-                }
-
-                if(!p8wPosition[0].equals("") && !p8wStatus[0].equals("")){
-                    arr.add(new Piece("pawn","white",p8wPosition[0],p8wStatus[0]));
-                }
-
-                if(arr.size()==32){
-                    System.out.println("Alec mother Kid is added been greater");
-
-        ///DrawChessPieces(canvo);
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-            }
-        });
+        DrawChessPieces(canvas);
+
+
+//        canvo = canvas;
+//
+//        mRoot = new Firebase("https://natchess-d50b2.firebaseio.com/Test/");
+//
+//        DrawChessPieces(canvo);
+//
+//        Firebase r1b = mRoot.child("r1b");
+//        final String[] r1bPosition = {""};
+//        final String[] r1bStatus = {""};
+//        r1b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    r1bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    r1bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!r1bPosition[0].equals("") && !r1bStatus[0].equals("")){
+//                    arr.add(new Piece("rook","black",r1bPosition[0],r1bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//                    ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase r2b = mRoot.child("r2b");
+//        final String[] r2bPosition = {""};
+//        final String[] r2bStatus = {""};
+//        r2b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    r2bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    r2bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!r2bPosition[0].equals("") && !r2bStatus[0].equals("")){
+//                    arr.add(new Piece("rook","black",r2bPosition[0],r2bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        //////DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//
+//        Firebase r1w = mRoot.child("r1w");
+//        final String[] r1wPosition = {""};
+//        final String[] r1wStatus = {""};
+//        r1w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    r1wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    r1wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!r1wPosition[0].equals("") && !r1wStatus[0].equals("")){
+//                    arr.add(new Piece("rook","white",r1wPosition[0],r1wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//                    //////DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//
+//        Firebase r2w = mRoot.child("r2w");
+//        final String[] r2wPosition = {""};
+//        final String[] r2wStatus = {""};
+//        r2w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    r2wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    r2wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!r2wPosition[0].equals("") && !r2wStatus[0].equals("")){
+//                    arr.add(new Piece("rook","white",r2wPosition[0],r2wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//                    //////DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//
+//
+//
+//        Firebase b1b = mRoot.child("b1b");
+//        final String[] b1bPosition = {""};
+//        final String[] b1bStatus = {""};
+//        b1b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    b1bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    b1bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!b1bPosition[0].equals("") && !b1bStatus[0].equals("")){
+//                    arr.add(new Piece("bishop","black",b1bPosition[0],b1bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase b1w = mRoot.child("b1w");
+//        final String[] b1wPosition = {""};
+//        final String[] b1wStatus = {""};
+//        b1w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    b1wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    b1wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!b1wPosition[0].equals("") && !b1wStatus[0].equals("")){
+//                    arr.add(new Piece("bishop","white",b1wPosition[0],b1wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//
+//        Firebase b2b = mRoot.child("b2b");
+//        final String[] b2bPosition = {""};
+//        final String[] b2bStatus = {""};
+//        b2b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    b2bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    b2bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!b2bPosition[0].equals("") && !b2bStatus[0].equals("")){
+//                    arr.add(new Piece("bishop","black",b2bPosition[0],b2bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase b2w = mRoot.child("b2w");
+//        final String[] b2wPosition = {""};
+//        final String[] b2wStatus = {""};
+//        b2w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    b2wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    b2wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!b2wPosition[0].equals("") && !b2wStatus[0].equals("")){
+//                    arr.add(new Piece("bishop","white",b2wPosition[0],b2wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase k1b = mRoot.child("k1b");
+//        final String[] k1bPosition = {""};
+//        final String[] k1bStatus = {""};
+//        k1b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    k1bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    k1bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!k1bPosition[0].equals("") && !k1bStatus[0].equals("")){
+//                    arr.add(new Piece("Knight","black",k1bPosition[0],k1bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//
+//        Firebase k2b = mRoot.child("k2b");
+//        final String[] k2bPosition = {""};
+//        final String[] k2bStatus = {""};
+//        k2b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    k2bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    k2bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!k2bPosition[0].equals("") && !k2bStatus[0].equals("")){
+//                    arr.add(new Piece("Knight","black",k2bPosition[0],k2bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//                    ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase k1w = mRoot.child("k1w");
+//        final String[] k1wPosition = {""};
+//        final String[] k1wStatus = {""};
+//        k1w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    k1wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    k1wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!k1wPosition[0].equals("") && !k1wStatus[0].equals("")){
+//                    arr.add(new Piece("Knight","white",k1wPosition[0],k1wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase k2w = mRoot.child("k2w");
+//        final String[] k2wPosition = {""};
+//        final String[] k2wStatus = {""};
+//        k2w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    k2wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    k2wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!k2wPosition[0].equals("") && !k2wStatus[0].equals("")){
+//                    arr.add(new Piece("Knight","white",k2wPosition[0],k2wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//
+//        Firebase kb = mRoot.child("kb");
+//        final String[] kbPosition = {""};
+//        final String[] kbStatus = {""};
+//        kb.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    kbPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    kbStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!kbPosition[0].equals("") && !kbStatus[0].equals("")){
+//                    arr.add(new Piece("king","black",kbPosition[0],kbStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase kw = mRoot.child("kw");
+//        final String[] kwPosition = {""};
+//        final String[] kwStatus = {""};
+//        kw.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    kwPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    kwStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!kwPosition[0].equals("") && !kwStatus[0].equals("")){
+//                    arr.add(new Piece("king","white",kwPosition[0],kwStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase qb = mRoot.child("qb");
+//        final String[] qbPosition = {""};
+//        final String[] qbStatus = {""};
+//        qb.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    qbPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    qbStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!qbPosition[0].equals("") && !qbStatus[0].equals("")){
+//                    arr.add(new Piece("queen","black",qbPosition[0],qbStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//
+//        Firebase qw = mRoot.child("qw");
+//        final String[] qwPosition = {""};
+//        final String[] qwStatus = {""};
+//        qw.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    qwPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    qwStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!qwPosition[0].equals("") && !qwStatus[0].equals("")){
+//                    arr.add(new Piece("queen","white",qwPosition[0],qwStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        //p1b
+//        Firebase p1b = mRoot.child("p1b");
+//        final String[] p1bPosition = {""};
+//        final String[] p1bStatus = {""};
+//        p1b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p1bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p1bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p1bPosition[0].equals("") && !p1bStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","black",p1bPosition[0],p1bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase p2b = mRoot.child("p2b");
+//        final String[] p2bPosition = {""};
+//        final String[] p2bStatus = {""};
+//        p2b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p2bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p2bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p2bPosition[0].equals("") && !p2bStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","black",p2bPosition[0],p2bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase p3b = mRoot.child("p3b");
+//        final String[] p3bPosition = {""};
+//        final String[] p3bStatus = {""};
+//        p3b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p3bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p3bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p3bPosition[0].equals("") && !p3bStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","black",p3bPosition[0],p3bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//        Firebase p4b = mRoot.child("p4b");
+//        final String[] p4bPosition = {""};
+//        final String[] p4bStatus = {""};
+//        p4b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p4bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p4bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p4bPosition[0].equals("") && !p4bStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","black",p4bPosition[0],p4bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//        Firebase p5b = mRoot.child("p5b");
+//        final String[] p5bPosition = {""};
+//        final String[] p5bStatus = {""};
+//        p5b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p5bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p5bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p5bPosition[0].equals("") && !p5bStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","black",p5bPosition[0],p5bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//        Firebase p6b = mRoot.child("p6b");
+//        final String[] p6bPosition = {""};
+//        final String[] p6bStatus = {""};
+//        p6b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p6bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p6bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p6bPosition[0].equals("") && !p6bStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","black",p6bPosition[0],p6bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//        Firebase p7b = mRoot.child("p7b");
+//        final String[] p7bPosition = {""};
+//        final String[] p7bStatus = {""};
+//        p7b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p7bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p7bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p7bPosition[0].equals("") && !p7bStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","black",p7bPosition[0],p7bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//        Firebase p8b = mRoot.child("p8b");
+//        final String[] p8bPosition = {""};
+//        final String[] p8bStatus = {""};
+//        p8b.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p8bPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p8bStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p8bPosition[0].equals("") && !p8bStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","black",p8bPosition[0],p8bStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//
+//        Firebase p1w = mRoot.child("p1w");
+//        final String[] p1wPosition = {""};
+//        final String[] p1wStatus = {""};
+//        p1w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p1wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p1wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p1wPosition[0].equals("") && !p1wStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","white",p1wPosition[0],p1wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase p2w = mRoot.child("p2w");
+//        final String[] p2wPosition = {""};
+//        final String[] p2wStatus = {""};
+//        p2w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p2wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p2wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p2wPosition[0].equals("") && !p2wStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","white",p2wPosition[0],p2wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase p3w = mRoot.child("p3w");
+//        final String[] p3wPosition = {""};
+//        final String[] p3wStatus = {""};
+//        p3w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p3wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p3wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p3wPosition[0].equals("") && !p3wStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","white",p3wPosition[0],p3wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase p4w = mRoot.child("p4w");
+//        final String[] p4wPosition = {""};
+//        final String[] p4wStatus = {""};
+//        p4w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p4wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p4wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p4wPosition[0].equals("") && !p4wStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","white",p4wPosition[0],p4wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase p5w = mRoot.child("p5w");
+//        final String[] p5wPosition = {""};
+//        final String[] p5wStatus = {""};
+//        p5w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p5wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p5wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p5wPosition[0].equals("") && !p5wStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","white",p5wPosition[0],p5wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase p6w = mRoot.child("p6w");
+//        final String[] p6wPosition = {""};
+//        final String[] p6wStatus = {""};
+//        p6w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p6wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p6wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p6wPosition[0].equals("") && !p6wStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","white",p6wPosition[0],p6wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase p7w = mRoot.child("p7w");
+//        final String[] p7wPosition = {""};
+//        final String[] p7wStatus = {""};
+//        p7w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p7wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p7wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p7wPosition[0].equals("") && !p7wStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","white",p7wPosition[0],p7wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
+//
+//
+//        Firebase p8w = mRoot.child("p8w");
+//        final String[] p8wPosition = {""};
+//        final String[] p8wStatus = {""};
+//        p8w.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                if(dataSnapshot.getKey().equals("position")){
+//                    System.out.println("Alec Kid is added "+ dataSnapshot.getValue().toString());
+//                    p8wPosition[0] = dataSnapshot.getValue().toString();
+//                }else if(dataSnapshot.getKey().equals("status")){
+//                    p8wStatus[0] = dataSnapshot.getValue().toString();
+//                }
+//
+//                if(!p8wPosition[0].equals("") && !p8wStatus[0].equals("")){
+//                    arr.add(new Piece("pawn","white",p8wPosition[0],p8wStatus[0]));
+//                }
+//
+//                if(arr.size()==32){
+//                    System.out.println("Alec mother Kid is added been greater");
+//
+//        ///DrawChessPieces(canvo);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//            }
+//        });
 
 
 
@@ -2207,63 +2207,6 @@ public class CustomView extends View {
     }
 
     private void DrawChessPieces(Canvas canvas){
-
-
-
-        allPieces[0][0] = new Piece("rook","black","A8","alive");
-        allPieces[0][1] = new Piece("Knight","black","B8","alive");
-        allPieces[0][2] = new Piece("bishop","black","C8","alive");
-        allPieces[0][3] = new Piece("queen","black","D8","alive");
-        allPieces[0][4] = new Piece("king","black","E8","alive");
-        allPieces[0][5] = new Piece("bishop","black","F8","alive");
-        allPieces[0][6] = new Piece("Knight","black","G8","alive");
-        allPieces[0][7] = new Piece("rook","black","H8","alive");
-        allPieces[1][0] = new Piece("pawn","black","A7","alive");
-        allPieces[1][1] = new Piece("pawn","black","B7","alive");
-        allPieces[1][2] = new Piece("pawn","black","C7","alive");
-        allPieces[1][3] = new Piece("pawn","black","D7","alive");
-        allPieces[1][4] = new Piece("pawn","black","E7","alive");
-        allPieces[1][5] = new Piece("pawn","black","F7","alive");
-        allPieces[1][6] = new Piece("pawn","black","G7","alive");
-        allPieces[1][7] = new Piece("pawn","black","H7","alive");
-
-        //white pieces arrangement
-        allPieces[3][0] = new Piece("rook","white","A1","alive");
-        allPieces[3][1] = new Piece("Knight","white","B1","alive");
-        allPieces[3][2] = new Piece("bishop","white","C1","alive");
-        allPieces[3][3] = new Piece("queen","white","D1","alive");
-        allPieces[3][4] = new Piece("king","white","E1","alive");
-        allPieces[3][5] = new Piece("bishop","white","F1","alive");
-        allPieces[3][6] = new Piece("Knight","white","G1","alive");
-        allPieces[3][7] = new Piece("rook","white","H1","alive");
-        allPieces[2][0] = new Piece("pawn","white","A2","alive");
-        allPieces[2][1] = new Piece("pawn","white","B2","alive");
-        allPieces[2][2] = new Piece("pawn","white","C2","alive");
-        allPieces[2][3] = new Piece("pawn","white","D2","alive");
-        allPieces[2][4] = new Piece("pawn","white","E2","alive");
-        allPieces[2][5] = new Piece("pawn","white","F2","alive");
-        allPieces[2][6] = new Piece("pawn","white","G2","alive");
-        allPieces[2][7] = new Piece("pawn","white","H2","alive");
-
-        if(arr.size()==32){
-            System.out.println("Finalllllyyyyyy " + allPieces.length +" "+ allPieces[0].length );
-        }else{
-            System.out.println("Noooooooo");
-
-        }
-
-//        int j=0;
-//        for(int r=0;r<allPieces.length;++r){
-//            for(int c=0;c<allPieces[0].length;++c){
-//                allPieces[r][c] = arr.get(j);
-//                j++;
-//            }
-//        }
-
-        System.out.println("Finalllllyyyyyy nyamao" + allPieces[1][0].position+"Muskon" );
-        System.out.println("Finalllllyyyyyy nyamao" + allPieces[1][0].name+"Muskon" );
-        System.out.println("Finalllllyyyyyy nyamao" + allPieces[1][0].color+"Muskon" );
-        System.out.println("Finalllllyyyyyy nyamao" + allPieces[1][0].status+"Muskon" );
 
         //black chess pieces
         Bitmap bpawn = BitmapFactory.decodeResource(getResources(), R.mipmap.pb);
