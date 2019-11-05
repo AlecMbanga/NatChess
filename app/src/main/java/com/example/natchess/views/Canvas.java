@@ -123,39 +123,86 @@ public class Canvas extends View {
 
         //black
         r1b = new Piece("rook","black","null","alive");
+        r1b.onlineCodeName = "r1b";
         r2b = new Piece("rook","black","null","alive");
+        r2b.onlineCodeName = "r2b";
         k1b = new Piece("Knight","black","null","alive");
+        k1b.onlineCodeName = "k1b";
         k2b = new Piece("Knight","black","null","alive");
+        k2b.onlineCodeName = "k2b";
         b1b = new Piece("bishop","black","null","alive");
+        b1b.onlineCodeName = "b1b";
         b2b = new Piece("bishop","black","null","alive");
+        b2b.onlineCodeName = "b2b";
         qb = new Piece("queen","black","null","alive");
+        qb.onlineCodeName = "qb";
         kb = new Piece("king","black","null","alive");
+        kb.onlineCodeName = "kb";
         p1b = new Piece("pawn","black","null","alive");
+        p1b.onlineCodeName = "p1b";
         p2b = new Piece("pawn","black","null","alive");
+        p2b.onlineCodeName = "p2b";
         p3b = new Piece("pawn","black","null","alive");
+        p3b.onlineCodeName = "p3b";
         p4b = new Piece("pawn","black","null","alive");
+        p4b.onlineCodeName = "p4b";
         p5b = new Piece("pawn","black","null","alive");
+        p5b.onlineCodeName = "p5b";
         p6b = new Piece("pawn","black","null","alive");
+        p6b.onlineCodeName = "p6b";
         p7b = new Piece("pawn","black","null","alive");
+        p7b.onlineCodeName = "p7b";
         p8b = new Piece("pawn","black","null","alive");
+        p8b.onlineCodeName = "p8b";
 
         //white
         r1w = new Piece("rook","white","null","alive");
+        r1w.onlineCodeName = "r1w";
+
         r2w = new Piece("rook","white","null","alive");
+        r2w.onlineCodeName = "r2w";
+
         k1w = new Piece("Knight","white","null","alive");
+        k1w.onlineCodeName ="k1w";
+
         k2w = new Piece("Knight","white","null","alive");
+        k2w.onlineCodeName = "k2w";
+
         b1w = new Piece("bishop","white","null","alive");
+        b1w.onlineCodeName ="b1w";
+
         b2w = new Piece("bishop","white","null","alive");
+        b2w.onlineCodeName = "b2w";
+
         qw = new Piece("queen","white","null","alive");
+        qw.onlineCodeName ="qw";
+
         kw = new Piece("king","white","null","alive");
+        kw.onlineCodeName = "kw";
+
         p1w = new Piece("pawn","white","null","alive");
+        p1w.onlineCodeName = "p1w";
+
         p2w = new Piece("pawn","white","null","alive");
+        p2w.onlineCodeName = "p2w";
+
         p3w = new Piece("pawn","white","null","alive");
+        p3w.onlineCodeName = "p3w";
+
         p4w = new Piece("pawn","white","null","alive");
+        p4w.onlineCodeName = "p4w";
+
         p5w = new Piece("pawn","white","null","alive");
+        p5w.onlineCodeName = "p5w";
+
         p6w = new Piece("pawn","white","null","alive");
+        p6w.onlineCodeName = "p6w";
+
         p7w = new Piece("pawn","white","null","alive");
+        p7w.onlineCodeName = "p7w";
+
         p8w = new Piece("pawn","white","null","alive");
+        p8w.onlineCodeName = "p8w";
 
         InitialiseBoardColors();
 
@@ -429,47 +476,89 @@ public class Canvas extends View {
         if(resetRect.contains(event.getX(), event.getY())) {
 
             mRoot.child("p1b").child("position").setValue("A7");
+            mRoot.child("p1b").child("firstMove").setValue("true");
             mRoot.child("p2b").child("position").setValue("B7");
+            mRoot.child("p2b").child("firstMove").setValue("true");
             mRoot.child("p3b").child("position").setValue("C7");
+            mRoot.child("p3b").child("firstMove").setValue("true");
             mRoot.child("p4b").child("position").setValue("D7");
+            mRoot.child("p4b").child("firstMove").setValue("true");
             mRoot.child("p5b").child("position").setValue("E7");
+            mRoot.child("p5b").child("firstMove").setValue("true");
             mRoot.child("p6b").child("position").setValue("F7");
+            mRoot.child("p6b").child("firstMove").setValue("true");
             mRoot.child("p7b").child("position").setValue("G7");
+            mRoot.child("p7b").child("firstMove").setValue("true");
             mRoot.child("p8b").child("position").setValue("H7");
+            mRoot.child("p8b").child("firstMove").setValue("true");
 
             mRoot.child("r1b").child("position").setValue("A8");
+            mRoot.child("r1b").child("firstMove").setValue("true");
             mRoot.child("r2b").child("position").setValue("H8");
+            mRoot.child("r2b").child("firstMove").setValue("true");
             mRoot.child("k1b").child("position").setValue("B8");
+            mRoot.child("k1b").child("firstMove").setValue("true");
             mRoot.child("k2b").child("position").setValue("G8");
+            mRoot.child("k2b").child("firstMove").setValue("true");
             mRoot.child("b1b").child("position").setValue("C8");
+            mRoot.child("b1b").child("firstMove").setValue("true");
             mRoot.child("b2b").child("position").setValue("F8");
+            mRoot.child("b2b").child("firstMove").setValue("true");
             mRoot.child("qb").child("position").setValue("D8");
+            mRoot.child("qb").child("firstMove").setValue("true");
             mRoot.child("kb").child("position").setValue("E8");
+            mRoot.child("kb").child("firstMove").setValue("true");
 
             mRoot.child("r1w").child("position").setValue("A1");
+            mRoot.child("r1w").child("firstMove").setValue("true");
             mRoot.child("r2w").child("position").setValue("H1");
+            mRoot.child("r2w").child("firstMove").setValue("true");
             mRoot.child("k1w").child("position").setValue("B1");
+            mRoot.child("k1w").child("firstMove").setValue("true");
             mRoot.child("k2w").child("position").setValue("G1");
+            mRoot.child("k2w").child("firstMove").setValue("true");
             mRoot.child("b1w").child("position").setValue("C1");
+            mRoot.child("b1w").child("firstMove").setValue("true");
             mRoot.child("b2w").child("position").setValue("F1");
+            mRoot.child("b2w").child("firstMove").setValue("true");
             mRoot.child("qw").child("position").setValue("D1");
+            mRoot.child("qw").child("firstMove").setValue("true");
             mRoot.child("kw").child("position").setValue("E1");
+            mRoot.child("kw").child("firstMove").setValue("true");
 
 
-            mRoot.child("p1W").child("position").setValue("A2");
-            mRoot.child("p2W").child("position").setValue("B2");
-            mRoot.child("p3W").child("position").setValue("C2");
-            mRoot.child("p4W").child("position").setValue("D2");
-            mRoot.child("p5W").child("position").setValue("E2");
-            mRoot.child("p6W").child("position").setValue("F2");
-            mRoot.child("p7W").child("position").setValue("G2");
-            mRoot.child("p8W").child("position").setValue("H2");
+            mRoot.child("p1w").child("position").setValue("A2");
+            mRoot.child("p1w").child("firstMove").setValue("true");
+            mRoot.child("p2w").child("position").setValue("B2");
+            mRoot.child("p2w").child("firstMove").setValue("true");
+            mRoot.child("p3w").child("position").setValue("C2");
+            mRoot.child("p3w").child("firstMove").setValue("true");
+            mRoot.child("p4w").child("position").setValue("D2");
+            mRoot.child("p4w").child("firstMove").setValue("true");
+            mRoot.child("p5w").child("position").setValue("E2");
+            mRoot.child("p5w").child("firstMove").setValue("true");
+            mRoot.child("p6w").child("position").setValue("F2");
+            mRoot.child("p6w").child("firstMove").setValue("true");
+            mRoot.child("p7w").child("position").setValue("G2");
+            mRoot.child("p7w").child("firstMove").setValue("true");
+            mRoot.child("p8w").child("position").setValue("H2");
+            mRoot.child("p8w").child("firstMove").setValue("true");
 
+            moveFromR = -1;
+            moveFromC = -1;
+            moveToR = -1;
+            moveToC = -1;
 
+            selected = false;
+
+            validMoves = new ArrayList<>();
+
+            InitialiseBoardColors();
 
 
             System.out.println("Alec ayep reset yout shit");
         }
+
         return value;
     }
 
@@ -490,6 +579,16 @@ public class Canvas extends View {
         Bitmap wbishop = BitmapFactory.decodeResource(getResources(), R.mipmap.bw);
         Bitmap wqueen = BitmapFactory.decodeResource(getResources(), R.mipmap.qw);
         Bitmap wking = BitmapFactory.decodeResource(getResources(), R.mipmap.kw);
+
+
+        Bitmap border = BitmapFactory.decodeResource(getResources(), R.mipmap.border);
+        for(int i=0;i<validMoves.size();++i){
+            float[] PositionBorder = post(validMoves.get(i),canvas);
+            if(PositionBorder != null){
+                RectF r = new RectF(PositionBorder[0],PositionBorder[1],PositionBorder[2],PositionBorder[3]);
+                canvas.drawBitmap(border,null,r,null);
+            }
+        }
 
 
 
@@ -883,6 +982,8 @@ public class Canvas extends View {
                 }
             }
 
+            validMoves = new ArrayList<>();
+
             System.out.println("Alec now change back to normal block color, its unclicked");
             invalidate();
         } else if(selected == true){
@@ -897,6 +998,7 @@ public class Canvas extends View {
             }
 
             if(selectedPiece.name.equals("Knight")){
+                validMoves = new ArrayList<>();
                 legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
 
                 if(legalMoves.contains(p)){
@@ -904,6 +1006,75 @@ public class Canvas extends View {
                         System.out.println("Alec possible is "+ legalMoves.get(hh));
                     }
                     if(cont){
+                        if(allPieces[rs][cs].color.equals("black")){
+                            if(allPieces[rs][cs].onlineCodeName.equals("p1b")){
+                                mRoot.child("p1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p2b")){
+                                mRoot.child("p2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p3b")){
+                                mRoot.child("p3b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p4b")){
+                                mRoot.child("p4b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p5b")){
+                                mRoot.child("p5b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p6b")){
+                                mRoot.child("p6b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p7b")){
+                                mRoot.child("p7b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p8b")){
+                                mRoot.child("p8b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r1b")){
+                                mRoot.child("r1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r2b")){
+                                mRoot.child("r2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k1b")){
+                                mRoot.child("k1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k2b")){
+                                mRoot.child("k2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b1b")){
+                                mRoot.child("b1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b2b")){
+                                mRoot.child("b2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("qb")){
+                                mRoot.child("qb").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("kb")){
+                                mRoot.child("kb").child("position").setValue("null");
+                            }
+                        }else{
+                            if(allPieces[rs][cs].onlineCodeName.equals("p1w")){
+                                mRoot.child("p1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p2w")){
+                                mRoot.child("p2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p3w")){
+                                mRoot.child("p3w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p4w")){
+                                mRoot.child("p4w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p5w")){
+                                mRoot.child("p5w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p6w")){
+                                mRoot.child("p6w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p7w")){
+                                mRoot.child("p7w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p8w")){
+                                mRoot.child("p8w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r1w")){
+                                mRoot.child("r1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r2w")){
+                                mRoot.child("r2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k1w")){
+                                mRoot.child("k1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k2w")){
+                                mRoot.child("k2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b1w")){
+                                mRoot.child("b1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b2w")){
+                                mRoot.child("b2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("qw")){
+                                mRoot.child("qw").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("kw")){
+                                mRoot.child("kw").child("position").setValue("null");
+                            }
+                        }
                         allPieces[rs][cs].position = "null";
                     }
                     moveToR = pr;
@@ -913,9 +1084,36 @@ public class Canvas extends View {
                     selectedPiece.position = p;
                     arrPaint[pr][pc].setColor(Color.GRAY);
                     System.out.println(" to " + selectedPiece.position);
+                    System.out.println("Alec this is an onlinecode name "+selectedPiece.onlineCodeName);
+                    if(selectedPiece.color.equals("black")){
+                        if(selectedPiece.onlineCodeName.equals("k1b")){
+                            mRoot.child("k1b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("k1b").child("firstMove").setValue("false");
+                            }
+                        }else{
+                            mRoot.child("k2b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("k2b").child("firstMove").setValue("false");
+                            }
+                        }
+                    }else{
+                        if(selectedPiece.onlineCodeName.equals("k1w")){
+                            mRoot.child("k1w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("k1w").child("firstMove").setValue("false");
+                            }
+                        }else{
+                            mRoot.child("k2w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("k2w").child("firstMove").setValue("false");
+                            }
+                        }
+                    }
                     invalidate();
                 }
             }else if(selectedPiece.name.equals("pawn")){
+                validMoves = new ArrayList<>();
                 legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
 
                 if(legalMoves.contains(p)){
@@ -923,6 +1121,75 @@ public class Canvas extends View {
                         System.out.println("Alec possible is "+ legalMoves.get(hh));
                     }
                     if(cont){
+                        if(allPieces[rs][cs].color.equals("black")){
+                            if(allPieces[rs][cs].onlineCodeName.equals("p1b")){
+                                mRoot.child("p1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p2b")){
+                                mRoot.child("p2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p3b")){
+                                mRoot.child("p3b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p4b")){
+                                mRoot.child("p4b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p5b")){
+                                mRoot.child("p5b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p6b")){
+                                mRoot.child("p6b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p7b")){
+                                mRoot.child("p7b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p8b")){
+                                mRoot.child("p8b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r1b")){
+                                mRoot.child("r1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r2b")){
+                                mRoot.child("r2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k1b")){
+                                mRoot.child("k1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k2b")){
+                                mRoot.child("k2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b1b")){
+                                mRoot.child("b1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b2b")){
+                                mRoot.child("b2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("qb")){
+                                mRoot.child("qb").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("kb")){
+                                mRoot.child("kb").child("position").setValue("null");
+                            }
+                        }else{
+                            if(allPieces[rs][cs].onlineCodeName.equals("p1w")){
+                                mRoot.child("p1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p2w")){
+                                mRoot.child("p2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p3w")){
+                                mRoot.child("p3w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p4w")){
+                                mRoot.child("p4w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p5w")){
+                                mRoot.child("p5w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p6w")){
+                                mRoot.child("p6w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p7w")){
+                                mRoot.child("p7w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p8w")){
+                                mRoot.child("p8w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r1w")){
+                                mRoot.child("r1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r2w")){
+                                mRoot.child("r2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k1w")){
+                                mRoot.child("k1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k2w")){
+                                mRoot.child("k2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b1w")){
+                                mRoot.child("b1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b2w")){
+                                mRoot.child("b2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("qw")){
+                                mRoot.child("qw").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("kw")){
+                                mRoot.child("kw").child("position").setValue("null");
+                            }
+                        }
                         allPieces[rs][cs].position = "null";
                     }
                     moveToR = pr;
@@ -932,16 +1199,172 @@ public class Canvas extends View {
                     selectedPiece.position = p;
                     arrPaint[pr][pc].setColor(Color.GRAY);
                     System.out.println(" to " + selectedPiece.position);
+                    System.out.println("Alec this is an onlinecode name "+selectedPiece.onlineCodeName);
+                    if(selectedPiece.color.equals("black")){
+                        if(selectedPiece.onlineCodeName.equals("p1b")){
+                            mRoot.child("p1b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p1b").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p2b")){
+                            mRoot.child("p2b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p2b").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p3b")){
+                            mRoot.child("p3b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p3b").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p4b")){
+                            mRoot.child("p4b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p4b").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p5b")){
+                            mRoot.child("p5b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p5b").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p6b")){
+                            mRoot.child("p6b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p6b").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p7b")){
+                            mRoot.child("p7b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p7b").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p8b")){
+                            mRoot.child("p8b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p8b").child("firstMove").setValue("false");
+                            }
+                        }
+                    }else{
+                        if(selectedPiece.onlineCodeName.equals("p1w")){
+                            mRoot.child("p1w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p1w").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p2w")){
+                            mRoot.child("p2w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p2w").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p3w")){
+                            mRoot.child("p3w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p3w").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p4w")){
+                            mRoot.child("p4w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p4w").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p5w")){
+                            mRoot.child("p5w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p5w").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p6w")){
+                            mRoot.child("p6w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p6w").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p7w")){
+                            mRoot.child("p7w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p7w").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p8w")){
+                            mRoot.child("p8w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p8w").child("firstMove").setValue("false");
+                            }
+                        }
+                    }
                     invalidate();
                 }
             }
             else if(selectedPiece.name.equals("rook")){
+                validMoves = new ArrayList<>();
                 legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
                 if(legalMoves.contains(p)){
                     for(int hh=0;hh<legalMoves.size();++hh){
                         System.out.println("Alec possible is "+ legalMoves.get(hh));
                     }
                     if(cont){
+                        if(allPieces[rs][cs].color.equals("black")){
+                            if(allPieces[rs][cs].onlineCodeName.equals("p1b")){
+                                mRoot.child("p1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p2b")){
+                                mRoot.child("p2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p3b")){
+                                mRoot.child("p3b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p4b")){
+                                mRoot.child("p4b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p5b")){
+                                mRoot.child("p5b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p6b")){
+                                mRoot.child("p6b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p7b")){
+                                mRoot.child("p7b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p8b")){
+                                mRoot.child("p8b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r1b")){
+                                mRoot.child("r1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r2b")){
+                                mRoot.child("r2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k1b")){
+                                mRoot.child("k1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k2b")){
+                                mRoot.child("k2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b1b")){
+                                mRoot.child("b1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b2b")){
+                                mRoot.child("b2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("qb")){
+                                mRoot.child("qb").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("kb")){
+                                mRoot.child("kb").child("position").setValue("null");
+                            }
+                        }else{
+                            if(allPieces[rs][cs].onlineCodeName.equals("p1w")){
+                                mRoot.child("p1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p2w")){
+                                mRoot.child("p2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p3w")){
+                                mRoot.child("p3w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p4w")){
+                                mRoot.child("p4w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p5w")){
+                                mRoot.child("p5w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p6w")){
+                                mRoot.child("p6w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p7w")){
+                                mRoot.child("p7w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p8w")){
+                                mRoot.child("p8w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r1w")){
+                                mRoot.child("r1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r2w")){
+                                mRoot.child("r2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k1w")){
+                                mRoot.child("k1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k2w")){
+                                mRoot.child("k2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b1w")){
+                                mRoot.child("b1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b2w")){
+                                mRoot.child("b2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("qw")){
+                                mRoot.child("qw").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("kw")){
+                                mRoot.child("kw").child("position").setValue("null");
+                            }
+                        }
                         allPieces[rs][cs].position = "null";
                     }
                     moveToR = pr;
@@ -951,16 +1374,112 @@ public class Canvas extends View {
                     selectedPiece.position = p;
                     arrPaint[pr][pc].setColor(Color.GRAY);
                     System.out.println(" to " + selectedPiece.position);
+                    System.out.println("Alec this is an onlinecode name "+selectedPiece.onlineCodeName);
+                    if(selectedPiece.color.equals("black")){
+                        if(selectedPiece.onlineCodeName.equals("r1b")){
+                            mRoot.child("r1b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("r1b").child("firstMove").setValue("false");
+                            }
+                        }else{
+                            mRoot.child("r2b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("r2b").child("firstMove").setValue("false");
+                            }
+                        }
+                    }else{
+                        if(selectedPiece.onlineCodeName.equals("r1w")){
+                            mRoot.child("r1w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("r1w").child("firstMove").setValue("false");
+                            }
+                        }else{
+                            mRoot.child("r2w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("r2w").child("firstMove").setValue("false");
+                            }
+                        }
+                    }
                     invalidate();
                 }
             }
             else if(selectedPiece.name.equals("bishop")){
+                validMoves = new ArrayList<>();
                 legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
                 if(legalMoves.contains(p)){
                     for(int hh=0;hh<legalMoves.size();++hh){
                         System.out.println("Alec possible is "+ legalMoves.get(hh));
                     }
                     if(cont){
+                        if(allPieces[rs][cs].color.equals("black")){
+                            if(allPieces[rs][cs].onlineCodeName.equals("p1b")){
+                                mRoot.child("p1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p2b")){
+                                mRoot.child("p2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p3b")){
+                                mRoot.child("p3b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p4b")){
+                                mRoot.child("p4b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p5b")){
+                                mRoot.child("p5b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p6b")){
+                                mRoot.child("p6b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p7b")){
+                                mRoot.child("p7b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p8b")){
+                                mRoot.child("p8b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r1b")){
+                                mRoot.child("r1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r2b")){
+                                mRoot.child("r2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k1b")){
+                                mRoot.child("k1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k2b")){
+                                mRoot.child("k2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b1b")){
+                                mRoot.child("b1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b2b")){
+                                mRoot.child("b2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("qb")){
+                                mRoot.child("qb").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("kb")){
+                                mRoot.child("kb").child("position").setValue("null");
+                            }
+                        }else{
+                            if(allPieces[rs][cs].onlineCodeName.equals("p1w")){
+                                mRoot.child("p1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p2w")){
+                                mRoot.child("p2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p3w")){
+                                mRoot.child("p3w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p4w")){
+                                mRoot.child("p4w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p5w")){
+                                mRoot.child("p5w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p6w")){
+                                mRoot.child("p6w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p7w")){
+                                mRoot.child("p7w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p8w")){
+                                mRoot.child("p8w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r1w")){
+                                mRoot.child("r1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r2w")){
+                                mRoot.child("r2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k1w")){
+                                mRoot.child("k1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k2w")){
+                                mRoot.child("k2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b1w")){
+                                mRoot.child("b1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b2w")){
+                                mRoot.child("b2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("qw")){
+                                mRoot.child("qw").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("kw")){
+                                mRoot.child("kw").child("position").setValue("null");
+                            }
+                        }
                         allPieces[rs][cs].position = "null";
                     }
                     moveToR = pr;
@@ -970,16 +1489,112 @@ public class Canvas extends View {
                     selectedPiece.position = p;
                     arrPaint[pr][pc].setColor(Color.GRAY);
                     System.out.println(" to " + selectedPiece.position);
+                    System.out.println("Alec this is an onlinecode name "+selectedPiece.onlineCodeName);
+                    if(selectedPiece.color.equals("black")){
+                        if(selectedPiece.onlineCodeName.equals("b1b")){
+                            mRoot.child("b1b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("b1b").child("firstMove").setValue("false");
+                            }
+                        }else{
+                            mRoot.child("b2b").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("b2b").child("firstMove").setValue("false");
+                            }
+                        }
+                    }else{
+                        if(selectedPiece.onlineCodeName.equals("b1w")){
+                            mRoot.child("b1w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("b1w").child("firstMove").setValue("false");
+                            }
+                        }else{
+                            mRoot.child("b2w").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("b2w").child("firstMove").setValue("false");
+                            }
+                        }
+                    }
                     invalidate();
                 }
             }
             else if(selectedPiece.name.equals("queen")){
+                validMoves = new ArrayList<>();
                 legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
                 if(legalMoves.contains(p)){
                     for(int hh=0;hh<legalMoves.size();++hh){
                         System.out.println("Alec possible is "+ legalMoves.get(hh));
                     }
                     if(cont){
+                        if(allPieces[rs][cs].color.equals("black")){
+                            if(allPieces[rs][cs].onlineCodeName.equals("p1b")){
+                                mRoot.child("p1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p2b")){
+                                mRoot.child("p2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p3b")){
+                                mRoot.child("p3b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p4b")){
+                                mRoot.child("p4b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p5b")){
+                                mRoot.child("p5b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p6b")){
+                                mRoot.child("p6b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p7b")){
+                                mRoot.child("p7b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p8b")){
+                                mRoot.child("p8b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r1b")){
+                                mRoot.child("r1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r2b")){
+                                mRoot.child("r2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k1b")){
+                                mRoot.child("k1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k2b")){
+                                mRoot.child("k2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b1b")){
+                                mRoot.child("b1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b2b")){
+                                mRoot.child("b2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("qb")){
+                                mRoot.child("qb").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("kb")){
+                                mRoot.child("kb").child("position").setValue("null");
+                            }
+                        }else{
+                            if(allPieces[rs][cs].onlineCodeName.equals("p1w")){
+                                mRoot.child("p1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p2w")){
+                                mRoot.child("p2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p3w")){
+                                mRoot.child("p3w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p4w")){
+                                mRoot.child("p4w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p5w")){
+                                mRoot.child("p5w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p6w")){
+                                mRoot.child("p6w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p7w")){
+                                mRoot.child("p7w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p8w")){
+                                mRoot.child("p8w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r1w")){
+                                mRoot.child("r1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r2w")){
+                                mRoot.child("r2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k1w")){
+                                mRoot.child("k1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k2w")){
+                                mRoot.child("k2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b1w")){
+                                mRoot.child("b1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b2w")){
+                                mRoot.child("b2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("qw")){
+                                mRoot.child("qw").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("kw")){
+                                mRoot.child("kw").child("position").setValue("null");
+                            }
+                        }
                         allPieces[rs][cs].position = "null";
                     }
                     moveToR = pr;
@@ -989,16 +1604,102 @@ public class Canvas extends View {
                     selectedPiece.position = p;
                     arrPaint[pr][pc].setColor(Color.GRAY);
                     System.out.println(" to " + selectedPiece.position);
+                    System.out.println("Alec this is an onlinecode name "+selectedPiece.onlineCodeName);
+                    if(selectedPiece.color.equals("black")){
+                        if(selectedPiece.onlineCodeName.equals("qb")) {
+                            mRoot.child("qb").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("qb").child("firstMove").setValue("false");
+                            }
+                        }
+                    }else{
+                        if(selectedPiece.onlineCodeName.equals("qw")){
+                            mRoot.child("qw").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("qw").child("firstMove").setValue("false");
+                            }
+                        }
+                    }
                     invalidate();
                 }
             }
             else if(selectedPiece.name.equals("king")){
+                validMoves = new ArrayList<>();
                 legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
                 if(legalMoves.contains(p)){
                     for(int hh=0;hh<legalMoves.size();++hh){
                         System.out.println("Alec possible is "+ legalMoves.get(hh));
                     }
                     if(cont){
+                        if(allPieces[rs][cs].color.equals("black")){
+                            if(allPieces[rs][cs].onlineCodeName.equals("p1b")){
+                                mRoot.child("p1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p2b")){
+                                mRoot.child("p2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p3b")){
+                                mRoot.child("p3b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p4b")){
+                                mRoot.child("p4b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p5b")){
+                                mRoot.child("p5b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p6b")){
+                                mRoot.child("p6b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p7b")){
+                                mRoot.child("p7b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p8b")){
+                                mRoot.child("p8b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r1b")){
+                                mRoot.child("r1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r2b")){
+                                mRoot.child("r2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k1b")){
+                                mRoot.child("k1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k2b")){
+                                mRoot.child("k2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b1b")){
+                                mRoot.child("b1b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b2b")){
+                                mRoot.child("b2b").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("qb")){
+                                mRoot.child("qb").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("kb")){
+                                mRoot.child("kb").child("position").setValue("null");
+                            }
+                        }else{
+                            if(allPieces[rs][cs].onlineCodeName.equals("p1w")){
+                                mRoot.child("p1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p2w")){
+                                mRoot.child("p2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p3w")){
+                                mRoot.child("p3w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p4w")){
+                                mRoot.child("p4w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p5w")){
+                                mRoot.child("p5w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p6w")){
+                                mRoot.child("p6w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p7w")){
+                                mRoot.child("p7w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("p8w")){
+                                mRoot.child("p8w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r1w")){
+                                mRoot.child("r1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("r2w")){
+                                mRoot.child("r2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k1w")){
+                                mRoot.child("k1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("k2w")){
+                                mRoot.child("k2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b1w")){
+                                mRoot.child("b1w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("b2w")){
+                                mRoot.child("b2w").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("qw")){
+                                mRoot.child("qw").child("position").setValue("null");
+                            }else if(allPieces[rs][cs].onlineCodeName.equals("kw")){
+                                mRoot.child("kw").child("position").setValue("null");
+                            }
+                        }
                         allPieces[rs][cs].position = "null";
                     }
                     moveToR = pr;
@@ -1008,6 +1709,22 @@ public class Canvas extends View {
                     selectedPiece.position = p;
                     arrPaint[pr][pc].setColor(Color.GRAY);
                     System.out.println(" to " + selectedPiece.position);
+                    System.out.println("Alec this is an onlinecode name "+selectedPiece.onlineCodeName);
+                    if(selectedPiece.color.equals("black")){
+                        if(selectedPiece.onlineCodeName.equals("kb")) {
+                            mRoot.child("kb").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("kb").child("firstMove").setValue("false");
+                            }
+                        }
+                    }else{
+                        if(selectedPiece.onlineCodeName.equals("kw")){
+                            mRoot.child("kw").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("kw").child("firstMove").setValue("false");
+                            }
+                        }
+                    }
                     invalidate();
                 }
             }

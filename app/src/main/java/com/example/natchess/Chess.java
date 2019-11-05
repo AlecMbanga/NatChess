@@ -41,6 +41,28 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p1bF = p1bb.child("firstMove");
+        p1bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p1b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p1b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
 
         Firebase p2bb = mRoot.child("p2b");
         Firebase p2b = p2bb.child("position");
@@ -59,6 +81,28 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p2bF = p2bb.child("firstMove");
+        p2bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p2b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p2b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
 
         Firebase p3bb = mRoot.child("p3b");
         Firebase p3b = p3bb.child("position");
@@ -77,6 +121,28 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p3bF = p3bb.child("firstMove");
+        p3bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p3b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p3b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
 
         Firebase p4bb = mRoot.child("p4b");
         Firebase p4b = p4bb.child("position");
@@ -95,6 +161,28 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p4bF = p4bb.child("firstMove");
+        p4bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p4b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p4b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
 
         Firebase p5bb = mRoot.child("p5b");
         Firebase p5b = p5bb.child("position");
@@ -113,6 +201,29 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p5bF = p5bb.child("firstMove");
+        p5bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p5b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p5b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+
 
         Firebase p6bb = mRoot.child("p6b");
         Firebase p6b = p6bb.child("position");
@@ -131,6 +242,29 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p6bF = p6bb.child("firstMove");
+        p6bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p6b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p6b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+
 
         Firebase p7bb = mRoot.child("p7b");
         Firebase p7b = p7bb.child("position");
@@ -149,6 +283,28 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p7bF = p7bb.child("firstMove");
+        p7bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p7b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p7b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
 
         Firebase p8bb = mRoot.child("p8b");
         Firebase p8b = p8bb.child("position");
@@ -167,6 +323,28 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p8bF = p8bb.child("firstMove");
+        p8bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p8b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p8b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
 
         Firebase r1bb = mRoot.child("r1b");
         Firebase r1b = r1bb.child("position");
@@ -185,6 +363,27 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase r1bF = r1bb.child("firstMove");
+        r1bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.r1b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.r1b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
 
         Firebase r2bb = mRoot.child("r2b");
         Firebase r2b = r2bb.child("position");
@@ -203,6 +402,27 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase r2bF = r2bb.child("firstMove");
+        r2bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.r2b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.r2b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
 
         Firebase k1bb = mRoot.child("k1b");
         Firebase k1b = k1bb.child("position");
@@ -221,6 +441,28 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase k1bF = k1bb.child("firstMove");
+        k1bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.k1b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.k1b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
 
         Firebase k2bb = mRoot.child("k2b");
         Firebase k2b = k2bb.child("position");
@@ -239,6 +481,27 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase k2bF = k2bb.child("firstMove");
+        k2bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.k2b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.k2b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
 
         Firebase b1bb = mRoot.child("b1b");
         Firebase b1b = b1bb.child("position");
@@ -257,6 +520,28 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase b1bF = b1bb.child("firstMove");
+        b1bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.b1b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.b1b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
 
         Firebase b2bb = mRoot.child("b2b");
         Firebase b2b = b2bb.child("position");
@@ -275,6 +560,28 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase b2bF = b2bb.child("firstMove");
+        b2bF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.b2b.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.b2b.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
 
         Firebase kbb = mRoot.child("kb");
         Firebase kb = kbb.child("position");
@@ -285,6 +592,25 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.kb.position =dataSnapshot.getValue(String.class);
                     canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase kbF = kbb.child("firstMove");
+        kbF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.kb.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.kb.firstMove = false;
+                    }
                 }
             }
 
@@ -311,6 +637,25 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase qbF = qbb.child("firstMove");
+        qbF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.qb.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.qb.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         Firebase p1wb = mRoot.child("p1w");
         Firebase p1w = p1wb.child("position");
@@ -329,6 +674,26 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p1wF = p1wb.child("firstMove");
+        p1wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p1w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p1w.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
 
         Firebase p2wb = mRoot.child("p2w");
         Firebase p2w = p2wb.child("position");
@@ -347,6 +712,26 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p2wF = p2wb.child("firstMove");
+        p2wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p2w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p2w.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
 
         Firebase p3wb = mRoot.child("p3w");
         Firebase p3w = p3wb.child("position");
@@ -357,6 +742,25 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p3w.position =dataSnapshot.getValue(String.class);
                     canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p3wF = p3wb.child("firstMove");
+        p3wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p3w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p3w.firstMove = false;
+                    }
                 }
             }
 
@@ -383,6 +787,27 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p4wF = p4wb.child("firstMove");
+        p4wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p4w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p4w.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
 
         Firebase p5wb = mRoot.child("p5w");
         Firebase p5w = p5wb.child("position");
@@ -393,6 +818,25 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p5w.position =dataSnapshot.getValue(String.class);
                     canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p5wF = p5wb.child("firstMove");
+        p5wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p5w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p5w.firstMove = false;
+                    }
                 }
             }
 
@@ -419,6 +863,27 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p6wF = p6wb.child("firstMove");
+        p6wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p6w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p6w.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
 
         Firebase p7wb = mRoot.child("p7w");
         Firebase p7w = p7wb.child("position");
@@ -437,6 +902,26 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p7wF = p7wb.child("firstMove");
+        p7wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p7w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p7w.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
 
         Firebase p8wb = mRoot.child("p8w");
         Firebase p8w = p8wb.child("position");
@@ -455,6 +940,27 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase p8wF = p8wb.child("firstMove");
+        p8wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.p8w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p8w.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
 
         Firebase r1wb = mRoot.child("r1w");
         Firebase r1w = r1wb.child("position");
@@ -473,6 +979,27 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase r1wF = r1wb.child("firstMove");
+        r1wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.r1w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.r1w.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
 
         Firebase r2wb = mRoot.child("r2w");
         Firebase r2w = r2wb.child("position");
@@ -491,6 +1018,26 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase r2wF = r2wb.child("firstMove");
+        r2wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.r2w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.r2w.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
 
         Firebase k1wb = mRoot.child("k1w");
         Firebase k1w = k1wb.child("position");
@@ -509,6 +1056,27 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase k1wF = k1wb.child("firstMove");
+        k1wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.k1w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.k1w.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
 
         Firebase k2wb = mRoot.child("k2w");
         Firebase k2w = k2wb.child("position");
@@ -527,6 +1095,27 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase k2wF = k2wb.child("firstMove");
+        k2wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.k2w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.k2w.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
 
         Firebase b1wb = mRoot.child("b1w");
         Firebase b1w = b1wb.child("position");
@@ -545,6 +1134,27 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase b1wF = b1wb.child("firstMove");
+        b1wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.b1w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.b1w.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
 
         Firebase b2wb = mRoot.child("b2w");
         Firebase b2w = b2wb.child("position");
@@ -555,6 +1165,25 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.b2w.position =dataSnapshot.getValue(String.class);
                     canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase b2wF = b2wb.child("firstMove");
+        b2wF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.b2w.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.b2w.firstMove = false;
+                    }
                 }
             }
 
@@ -581,6 +1210,26 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+        Firebase kwF = kwb.child("firstMove");
+        kwF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.kw.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.kw.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
 
 
         Firebase qwb = mRoot.child("qw");
@@ -592,6 +1241,25 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.qw.position =dataSnapshot.getValue(String.class);
                     canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase qwF = qwb.child("firstMove");
+        qwF.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+                    if(value.equals("true")){
+                        canvas.qw.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.qw.firstMove = false;
+                    }
                 }
             }
 

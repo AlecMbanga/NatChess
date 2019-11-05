@@ -2142,21 +2142,43 @@ public class Piece {
             String posibility2 = Character.toString(alphaRemove1) + Integer.toString(num-1);
             String posibility3 = Character.toString(alphaAdd1) + Integer.toString(num-1);
 
+            String posibility4 = Character.toString(alpha) + Integer.toString(num-2);
 
-            if(board.contains(posibility)){
-                boolean hasBlack = false;
-                for(int r=0;r<allPieces.length;++r){
-                    for(int c=0;c<allPieces[0].length;++c){
-                        if(allPieces[r][c].position.equals(posibility) && allPieces[r][c].color.equals("black")){
-                            hasBlack = true;
+
+            if(firstMove){
+                if(board.contains(posibility4)){
+                    boolean occupied = false;
+                    for(int r=0;r<allPieces.length;++r){
+                        for(int c=0;c<allPieces[0].length;++c){
+                            if(allPieces[r][c].position.equals(posibility4)){
+                                occupied = true;
+                                break;
+                            }
+                        }
+                        if(occupied){
                             break;
                         }
                     }
-                    if(hasBlack){
+                    if(occupied==false){
+                        moves.add(posibility4);
+                    }
+                }
+            }
+
+            if(board.contains(posibility)){
+                boolean occupied = false;
+                for(int r=0;r<allPieces.length;++r){
+                    for(int c=0;c<allPieces[0].length;++c){
+                        if(allPieces[r][c].position.equals(posibility)){
+                            occupied = true;
+                            break;
+                        }
+                    }
+                    if(occupied){
                         break;
                     }
                 }
-                if(hasBlack==false){
+                if(occupied==false){
                     moves.add(posibility);
                 }
             }
@@ -2205,11 +2227,35 @@ public class Piece {
             String posibility2 = Character.toString(alphaRemove1) + Integer.toString(num+1);
             String posibility3 = Character.toString(alphaAdd1) + Integer.toString(num+1);
 
+            String posibility4 = Character.toString(alpha) + Integer.toString(num+2);
+
+
+            if(firstMove){
+                if(board.contains(posibility4)){
+                    boolean hasWhite = false;
+                    for(int r=0;r<allPieces.length;++r){
+                        for(int c=0;c<allPieces[0].length;++c){
+                            if(allPieces[r][c].position.equals(posibility4)){
+                                hasWhite = true;
+                                break;
+                            }
+
+                        }
+                        if(hasWhite){
+                            break;
+                        }
+                    }
+                    if(hasWhite==false){
+                        moves.add(posibility4);
+                    }
+                }
+            }
+
             if(board.contains(posibility)){
                 boolean hasWhite = false;
                 for(int r=0;r<allPieces.length;++r){
                     for(int c=0;c<allPieces[0].length;++c){
-                        if(allPieces[r][c].position.equals(posibility) && allPieces[r][c].color.equals("white")){
+                        if(allPieces[r][c].position.equals(posibility)){
                             hasWhite = true;
                             break;
                         }
