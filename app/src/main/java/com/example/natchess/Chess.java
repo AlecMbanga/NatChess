@@ -56,7 +56,7 @@ public class Chess extends AppCompatActivity {
 
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p1b.position =dataSnapshot.getValue(String.class);
-                    if(dataSnapshot.getValue(String.class).equals("A1") || dataSnapshot.getValue(String.class).equals("B1") || dataSnapshot.getValue(String.class).equals("D1")){
+                    if(dataSnapshot.getValue(String.class).equals("A1") || dataSnapshot.getValue(String.class).equals("B1") || dataSnapshot.getValue(String.class).equals("C1") || dataSnapshot.getValue(String.class).equals("D1") || dataSnapshot.getValue(String.class).equals("E1") || dataSnapshot.getValue(String.class).equals("F1") || dataSnapshot.getValue(String.class).equals("G1") || dataSnapshot.getValue(String.class).equals("B1")){
                         crownDialog c = new crownDialog();
                         c.show(getSupportFragmentManager(),"crown Dialog");
 
@@ -1298,6 +1298,2532 @@ public class Chess extends AppCompatActivity {
 
             }
         });
+
+
+        /////
+        Firebase p1bbQueen = mRoot.child("p1bQueen");
+        final Firebase p1bQueen = p1bbQueen.child("position");
+        p1bQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p1bQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p1bFQueen = p1bbQueen.child("firstMove");
+        p1bFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p1bQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p1bQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p1bbBishop = mRoot.child("p1bBishop");
+        final Firebase p1bBishop = p1bbBishop.child("position");
+        p1bBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p1bBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p1bFBishop = p1bbBishop.child("firstMove");
+        p1bFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p1bBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p1bBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p1bbKnight = mRoot.child("p1bKnight");
+        final Firebase p1bKnight = p1bbKnight.child("position");
+        p1bKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p1bKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p1bFKnight = p1bbKnight.child("firstMove");
+        p1bFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p1bKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p1bKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p1bbRook = mRoot.child("p1bRook");
+        final Firebase p1bRook = p1bbRook.child("position");
+        p1bRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p1bRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p1bFRook = p1bbRook.child("firstMove");
+        p1bFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p1bRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p1bRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p2bbQueen = mRoot.child("p2bQueen");
+        final Firebase p2bQueen = p2bbQueen.child("position");
+        p2bQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p2bQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p2bFQueen = p2bbQueen.child("firstMove");
+        p2bFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p2bQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p2bQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p2bbBishop = mRoot.child("p2bBishop");
+        final Firebase p2bBishop = p2bbBishop.child("position");
+        p2bBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p2bBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p2bFBishop = p2bbBishop.child("firstMove");
+        p2bFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p2bBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p2bBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p2bbKnight = mRoot.child("p2bKnight");
+        final Firebase p2bKnight = p2bbKnight.child("position");
+        p2bKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p2bKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p2bFKnight = p2bbKnight.child("firstMove");
+        p2bFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p2bKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p2bKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p2bbRook = mRoot.child("p2bRook");
+        final Firebase p2bRook = p2bbRook.child("position");
+        p2bRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p2bRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p2bFRook = p2bbRook.child("firstMove");
+        p2bFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p2bRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p2bRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p3bbQueen = mRoot.child("p3bQueen");
+        final Firebase p3bQueen = p3bbQueen.child("position");
+        p3bQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p3bQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p3bFQueen = p3bbQueen.child("firstMove");
+        p3bFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p3bQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p3bQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p3bbBishop = mRoot.child("p3bBishop");
+        final Firebase p3bBishop = p3bbBishop.child("position");
+        p3bBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p3bBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p3bFBishop = p3bbBishop.child("firstMove");
+        p3bFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p3bBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p3bBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p3bbKnight = mRoot.child("p3bKnight");
+        final Firebase p3bKnight = p3bbKnight.child("position");
+        p3bKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p3bKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p3bFKnight = p3bbKnight.child("firstMove");
+        p3bFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p3bKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p3bKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p3bbRook = mRoot.child("p3bRook");
+        final Firebase p3bRook = p3bbRook.child("position");
+        p3bRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p3bRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p3bFRook = p3bbRook.child("firstMove");
+        p3bFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p3bRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p3bRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p4bbQueen = mRoot.child("p4bQueen");
+        final Firebase p4bQueen = p4bbQueen.child("position");
+        p4bQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p4bQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p4bFQueen = p4bbQueen.child("firstMove");
+        p4bFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p4bQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p4bQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p4bbBishop = mRoot.child("p4bBishop");
+        final Firebase p4bBishop = p4bbBishop.child("position");
+        p4bBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p4bBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p4bFBishop = p4bbBishop.child("firstMove");
+        p4bFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p4bBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p4bBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p4bbKnight = mRoot.child("p4bKnight");
+        final Firebase p4bKnight = p4bbKnight.child("position");
+        p4bKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p4bKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p4bFKnight = p4bbKnight.child("firstMove");
+        p4bFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p4bKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p4bKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p4bbRook = mRoot.child("p4bRook");
+        final Firebase p4bRook = p4bbRook.child("position");
+        p4bRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p4bRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p4bFRook = p4bbRook.child("firstMove");
+        p4bFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p4bRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p4bRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p5bbQueen = mRoot.child("p5bQueen");
+        final Firebase p5bQueen = p5bbQueen.child("position");
+        p5bQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p5bQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p5bFQueen = p5bbQueen.child("firstMove");
+        p5bFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p5bQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p5bQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p5bbBishop = mRoot.child("p5bBishop");
+        final Firebase p5bBishop = p5bbBishop.child("position");
+        p5bBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p5bBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p5bFBishop = p5bbBishop.child("firstMove");
+        p5bFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p5bBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p5bBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p5bbKnight = mRoot.child("p5bKnight");
+        final Firebase p5bKnight = p5bbKnight.child("position");
+        p5bKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p5bKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p5bFKnight = p5bbKnight.child("firstMove");
+        p5bFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p5bKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p5bKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p5bbRook = mRoot.child("p5bRook");
+        final Firebase p5bRook = p5bbRook.child("position");
+        p5bRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p5bRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p5bFRook = p5bbRook.child("firstMove");
+        p5bFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p5bRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p5bRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p6bbQueen = mRoot.child("p6bQueen");
+        final Firebase p6bQueen = p6bbQueen.child("position");
+        p6bQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p6bQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p6bFQueen = p6bbQueen.child("firstMove");
+        p6bFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p6bQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p6bQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p6bbBishop = mRoot.child("p6bBishop");
+        final Firebase p6bBishop = p6bbBishop.child("position");
+        p6bBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p6bBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p6bFBishop = p6bbBishop.child("firstMove");
+        p6bFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p6bBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p6bBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p6bbKnight = mRoot.child("p6bKnight");
+        final Firebase p6bKnight = p6bbKnight.child("position");
+        p6bKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p6bKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p6bFKnight = p6bbKnight.child("firstMove");
+        p6bFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p6bKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p6bKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p6bbRook = mRoot.child("p6bRook");
+        final Firebase p6bRook = p6bbRook.child("position");
+        p6bRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p6bRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p6bFRook = p6bbRook.child("firstMove");
+        p6bFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p6bRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p6bRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p7bbQueen = mRoot.child("p7bQueen");
+        final Firebase p7bQueen = p7bbQueen.child("position");
+        p7bQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p7bQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p7bFQueen = p7bbQueen.child("firstMove");
+        p7bFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p7bQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p7bQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p7bbBishop = mRoot.child("p7bBishop");
+        final Firebase p7bBishop = p7bbBishop.child("position");
+        p7bBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p7bBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p7bFBishop = p7bbBishop.child("firstMove");
+        p7bFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p7bBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p7bBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p7bbKnight = mRoot.child("p7bKnight");
+        final Firebase p7bKnight = p7bbKnight.child("position");
+        p7bKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p7bKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p7bFKnight = p7bbKnight.child("firstMove");
+        p7bFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p7bKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p7bKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p7bbRook = mRoot.child("p7bRook");
+        final Firebase p7bRook = p7bbRook.child("position");
+        p7bRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p7bRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p7bFRook = p7bbRook.child("firstMove");
+        p7bFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p7bRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p7bRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p8bbQueen = mRoot.child("p8bQueen");
+        final Firebase p8bQueen = p8bbQueen.child("position");
+        p8bQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p8bQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p8bFQueen = p8bbQueen.child("firstMove");
+        p8bFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p8bQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p8bQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p8bbBishop = mRoot.child("p8bBishop");
+        final Firebase p8bBishop = p8bbBishop.child("position");
+        p8bBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p8bBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p8bFBishop = p8bbBishop.child("firstMove");
+        p8bFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p8bBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p8bBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p8bbKnight = mRoot.child("p8bKnight");
+        final Firebase p8bKnight = p8bbKnight.child("position");
+        p8bKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p8bKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p8bFKnight = p8bbKnight.child("firstMove");
+        p8bFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p8bKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p8bKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p8bbRook = mRoot.child("p8bRook");
+        final Firebase p8bRook = p8bbRook.child("position");
+        p8bRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p8bRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p8bFRook = p8bbRook.child("firstMove");
+        p8bFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p8bRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p8bRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+
+
+        /////white
+        Firebase p1wbQueen = mRoot.child("p1wQueen");
+        final Firebase p1wQueen = p1wbQueen.child("position");
+        p1wQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p1wQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p1wFQueen = p1wbQueen.child("firstMove");
+        p1wFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p1wQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p1wQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p1wbBishop = mRoot.child("p1wBishop");
+        final Firebase p1wBishop = p1wbBishop.child("position");
+        p1wBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p1wBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p1wFBishop = p1wbBishop.child("firstMove");
+        p1wFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p1wBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p1wBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p1wbKnight = mRoot.child("p1wKnight");
+        final Firebase p1wKnight = p1wbKnight.child("position");
+        p1wKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p1wKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p1wFKnight = p1wbKnight.child("firstMove");
+        p1wFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p1wKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p1wKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p1wbRook = mRoot.child("p1wRook");
+        final Firebase p1wRook = p1wbRook.child("position");
+        p1wRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p1wRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p1wFRook = p1wbRook.child("firstMove");
+        p1wFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p1wRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p1wRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p2wbQueen = mRoot.child("p2wQueen");
+        final Firebase p2wQueen = p2wbQueen.child("position");
+        p2wQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p2wQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p2wFQueen = p2wbQueen.child("firstMove");
+        p2wFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p2wQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p2wQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p2wbBishop = mRoot.child("p2wBishop");
+        final Firebase p2wBishop = p2wbBishop.child("position");
+        p2wBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p2wBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p2wFBishop = p2wbBishop.child("firstMove");
+        p2wFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p2wBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p2wBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p2wbKnight = mRoot.child("p2wKnight");
+        final Firebase p2wKnight = p2wbKnight.child("position");
+        p2wKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p2wKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p2wFKnight = p2wbKnight.child("firstMove");
+        p2wFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p2wKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p2wKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p2wbRook = mRoot.child("p2wRook");
+        final Firebase p2wRook = p2wbRook.child("position");
+        p2wRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p2wRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p2wFRook = p2wbRook.child("firstMove");
+        p2wFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p2wRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p2wRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p3wbQueen = mRoot.child("p3wQueen");
+        final Firebase p3wQueen = p3wbQueen.child("position");
+        p3wQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p3wQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p3wFQueen = p3wbQueen.child("firstMove");
+        p3wFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p3wQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p3wQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p3wbBishop = mRoot.child("p3wBishop");
+        final Firebase p3wBishop = p3wbBishop.child("position");
+        p3wBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p3wBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p3wFBishop = p3wbBishop.child("firstMove");
+        p3wFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p3wBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p3wBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p3wbKnight = mRoot.child("p3wKnight");
+        final Firebase p3wKnight = p3wbKnight.child("position");
+        p3wKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p3wKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p3wFKnight = p3wbKnight.child("firstMove");
+        p3wFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p3wKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p3wKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p3wbRook = mRoot.child("p3wRook");
+        final Firebase p3wRook = p3wbRook.child("position");
+        p3wRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p3wRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p3wFRook = p3wbRook.child("firstMove");
+        p3wFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p3wRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p3wRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p4wbQueen = mRoot.child("p4wQueen");
+        final Firebase p4wQueen = p4wbQueen.child("position");
+        p4wQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p4wQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p4wFQueen = p4wbQueen.child("firstMove");
+        p4wFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p4wQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p4wQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p4wbBishop = mRoot.child("p4wBishop");
+        final Firebase p4wBishop = p4wbBishop.child("position");
+        p4wBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p4wBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p4wFBishop = p4wbBishop.child("firstMove");
+        p4wFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p4wBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p4wBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p4wbKnight = mRoot.child("p4wKnight");
+        final Firebase p4wKnight = p4wbKnight.child("position");
+        p4wKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p4wKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p4wFKnight = p4wbKnight.child("firstMove");
+        p4wFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p4wKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p4wKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p4wbRook = mRoot.child("p4wRook");
+        final Firebase p4wRook = p4wbRook.child("position");
+        p4wRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p4wRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p4wFRook = p4wbRook.child("firstMove");
+        p4wFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p4wRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p4wRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p5wbQueen = mRoot.child("p5wQueen");
+        final Firebase p5wQueen = p5wbQueen.child("position");
+        p5wQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p5wQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p5wFQueen = p5wbQueen.child("firstMove");
+        p5wFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p5wQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p5wQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p5wbBishop = mRoot.child("p5wBishop");
+        final Firebase p5wBishop = p5wbBishop.child("position");
+        p5wBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p5wBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p5wFBishop = p5wbBishop.child("firstMove");
+        p5wFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p5wBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p5wBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p5wbKnight = mRoot.child("p5wKnight");
+        final Firebase p5wKnight = p5wbKnight.child("position");
+        p5wKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p5wKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p5wFKnight = p5wbKnight.child("firstMove");
+        p5wFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p5wKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p5wKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p5wbRook = mRoot.child("p5wRook");
+        final Firebase p5wRook = p5wbRook.child("position");
+        p5wRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p5wRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p5wFRook = p5wbRook.child("firstMove");
+        p5wFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p5wRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p5wRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p6wbQueen = mRoot.child("p6wQueen");
+        final Firebase p6wQueen = p6wbQueen.child("position");
+        p6wQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p6wQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p6wFQueen = p6wbQueen.child("firstMove");
+        p6wFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p6wQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p6wQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p6wbBishop = mRoot.child("p6wBishop");
+        final Firebase p6wBishop = p6wbBishop.child("position");
+        p6wBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p6wBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p6wFBishop = p6wbBishop.child("firstMove");
+        p6wFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p6wBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p6wBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p6wbKnight = mRoot.child("p6wKnight");
+        final Firebase p6wKnight = p6wbKnight.child("position");
+        p6wKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p6wKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p6wFKnight = p6wbKnight.child("firstMove");
+        p6wFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p6wKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p6wKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p6wbRook = mRoot.child("p6wRook");
+        final Firebase p6wRook = p6wbRook.child("position");
+        p6wRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p6wRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p6wFRook = p6wbRook.child("firstMove");
+        p6wFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p6wRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p6wRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p7wbQueen = mRoot.child("p7wQueen");
+        final Firebase p7wQueen = p7wbQueen.child("position");
+        p7wQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p7wQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p7wFQueen = p7wbQueen.child("firstMove");
+        p7wFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p7wQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p7wQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p7wbBishop = mRoot.child("p7wBishop");
+        final Firebase p7wBishop = p7wbBishop.child("position");
+        p7wBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p7wBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p7wFBishop = p7wbBishop.child("firstMove");
+        p7wFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p7wBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p7wBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p7wbKnight = mRoot.child("p7wKnight");
+        final Firebase p7wKnight = p7wbKnight.child("position");
+        p7wKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p7wKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p7wFKnight = p7wbKnight.child("firstMove");
+        p7wFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p7wKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p7wKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p7wbRook = mRoot.child("p7wRook");
+        final Firebase p7wRook = p7wbRook.child("position");
+        p7wRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p7wRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p7wFRook = p7wbRook.child("firstMove");
+        p7wFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p7wRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p7wRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+        Firebase p8wbQueen = mRoot.child("p8wQueen");
+        final Firebase p8wQueen = p8wbQueen.child("position");
+        p8wQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p8wQueen.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p8wFQueen = p8wbQueen.child("firstMove");
+        p8wFQueen.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p8wQueen.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p8wQueen.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p8wbBishop = mRoot.child("p8wBishop");
+        final Firebase p8wBishop = p8wbBishop.child("position");
+        p8wBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p8wBishop.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p8wFBishop = p8wbBishop.child("firstMove");
+        p8wFBishop.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p8wBishop.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p8wBishop.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p8wbKnight = mRoot.child("p8wKnight");
+        final Firebase p8wKnight = p8wbKnight.child("position");
+        p8wKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p8wKnight.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p8wFKnight = p8wbKnight.child("firstMove");
+        p8wFKnight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p8wKnight.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p8wKnight.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+        Firebase p8wbRook = mRoot.child("p8wRook");
+        final Firebase p8wRook = p8wbRook.child("position");
+        p8wRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("position")) {
+                    canvas.p8wRook.position =dataSnapshot.getValue(String.class);
+                    canvas.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        Firebase p8wFRook = p8wbRook.child("firstMove");
+        p8wFRook.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("firstMove")) {
+                    String value = dataSnapshot.getValue().toString();
+
+                    if(value.equals("true")){
+                        canvas.p8wRook.firstMove = true;
+                    }else if(value.equals("false")){
+                        canvas.p8wRook.firstMove = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+
+
+        ////
+
+
+
+
+
 
 
     }
