@@ -88,6 +88,11 @@ public class Canvas extends View {
     private RectF b1wScale;
     private RectF b2wScale;
 
+    private Paint paintPositionBlock;
+    private Paint paintPositionText;
+    private Paint paintPositionTextDown;
+
+
     private boolean selected;
     private Piece selectedPiece;
     private int moveFromR;
@@ -817,22 +822,44 @@ public class Canvas extends View {
 
     private void DrawChessBoard(android.graphics.Canvas canvas){
         arrRect = new RectF[8][8];
-        float height = (canvas.getHeight()/3) + (canvas.getHeight()/3);
+
+        float sideH = (canvas.getWidth()/8)/4;
+        float sideW = (((canvas.getHeight()/3) + (canvas.getHeight()/3))/8)/4;
+
+
+        float height = ((canvas.getHeight()/3) + (canvas.getHeight()/3))-sideW;
+        float width = canvas.getWidth()-sideH;
 
         float topAdd = height/8;
         float bottomAdd = height/8;
-        float leftAdd = canvas.getWidth()/8;
-        float rightAdd = canvas.getWidth()/8;
+        float leftAdd = width/8;
+        float rightAdd = width/8;
 
+        float sideHTo = ((height/8)/2);
+        float sideHToAdd = ((height/8)/2)*2;
+
+        float sideWto = ((width/8)/2)+sideH;
+        float sideWtoAdd = ((width/8)/2)*2;
+
+        paintPositionText.setTextSize(sideH);
+        paintPositionTextDown.setTextSize(sideW);
+
+        String[] arr = {"A","B","C","D","E","F","G","H"};
 
         float top = 0;
         float bottom = height/8;
 
         for(int r=0;r<8;++r){
-            float right = canvas.getWidth()/8;
-            float left = 0;
+            float right = width/8+sideH;
+            float left = sideH;
             for(int c=0;c<8;++c){
 
+                if(r==0){
+                    //draw down horizontal index position
+                    canvas.drawRect(left, (height/8)*8, right, ((height/8)*8)+sideW, paintPositionBlock);
+                    canvas.drawText(arr[c], sideWto, ((height/8)*8)+sideW ,paintPositionTextDown);
+                    sideWto +=sideWtoAdd;
+                }
                 RectF rect = new RectF(left,top,right,bottom);
                 arrRect[r][c] = rect;
                 if(color[r][c]==0){
@@ -843,6 +870,13 @@ public class Canvas extends View {
                 left+=leftAdd;
                 right+=rightAdd;
             }
+
+            //draw left vertical index positions
+            canvas.drawRect(0, top, sideH, bottom, paintPositionBlock);
+            canvas.drawText(Integer.toString(8-r), sideH/2, sideHTo,paintPositionText);
+
+            sideHTo += sideHToAdd;
+
             bottom+=bottomAdd;
             top+=topAdd;
         }
@@ -850,6 +884,18 @@ public class Canvas extends View {
     }
 
     private void InitialiseBoardColors(){
+
+        paintPositionBlock = new Paint();
+        paintPositionBlock.setColor(Color.BLACK);
+        paintPositionBlock.setStyle(Paint.Style.FILL);
+        paintPositionText= new Paint();
+        paintPositionText.setColor(Color.WHITE);
+        paintPositionText.setTextAlign(Paint.Align.CENTER);
+        paintPositionTextDown= new Paint();
+        paintPositionTextDown.setColor(Color.WHITE);
+        paintPositionTextDown.setTextAlign(Paint.Align.CENTER);
+
+
         arrPaint = new Paint[8][8];
         for(int row=0;row<8;++row){
             for(int col=0;col<8;++col){
@@ -1845,454 +1891,463 @@ public class Canvas extends View {
 
     private float[] post(String p, android.graphics.Canvas canvas){
 
-        float height = (canvas.getHeight()/3) + (canvas.getHeight()/3);
-        float w = ((float)canvas.getWidth())/8;
+
+        float sideW = (((canvas.getHeight()/3) + (canvas.getHeight()/3))/8)/4;
+
+
+        float height = ((canvas.getHeight()/3) + (canvas.getHeight()/3))-sideW;
+
+
+        float sideH = (canvas.getWidth()/8)/4;
+        float width = canvas.getWidth()-sideH;
+
+        float w = width/8;
         float h = height/8;
         float[] results = new float[4];
 
         if(p.equals("A8")){
-            results[0] = 0;
+            results[0] = 0+sideH;
             results[1] = 0;
-            results[2] = w;
+            results[2] = w+sideH;
             results[3] = h;
             return results;
         }else if(p.equals("B8")){
-            results[0] = w;
+            results[0] = w+sideH;
             results[1] = 0;
-            results[2] = w*2;
+            results[2] = w*2+sideH;
             results[3] = h;
             return results;
         }else if(p.equals("C8")){
-            results[0] = w*2;
+            results[0] = w*2+sideH;
             results[1] = 0;
-            results[2] = w*3;
+            results[2] = w*3+sideH;
             results[3] = h;
             return results;
         }else if(p.equals("D8")){
-            results[0] = w*3;
+            results[0] = w*3+sideH;
             results[1] = 0;
-            results[2] = w*4;
+            results[2] = w*4+sideH;
             results[3] = h;
             return results;
 
         }else if(p.equals("E8")){
-            results[0] = w*4;
+            results[0] = w*4+sideH;
             results[1] = 0;
-            results[2] = w*5;
+            results[2] = w*5+sideH;
             results[3] = h;
             return results;
 
         }else if(p.equals("F8")){
-            results[0] = w*5;
+            results[0] = w*5+sideH;
             results[1] = 0;
-            results[2] = w*6;
+            results[2] = w*6+sideH;
             results[3] = h;
             return results;
 
         }else if(p.equals("G8")){
-            results[0] = w*6;
+            results[0] = w*6+sideH;
             results[1] = 0;
-            results[2] = w*7;
+            results[2] = w*7+sideH;
             results[3] = h;
             return results;
 
-        }else if(p.equals("H8")){results[0] = 0;
-            results[0] = w*7;
+        }else if(p.equals("H8")){
+            results[0] = w*7+sideH;
             results[1] = 0;
-            results[2] = w*8;
+            results[2] = w*8+sideH;
             results[3] = h;
             return results;
 
 
         }else if(p.equals("A7")){
-            results[0] = 0;
+            results[0] = 0+sideH;
             results[1] = h;
-            results[2] = w;
+            results[2] = w+sideH;
             results[3] = h*2;
             return results;
 
 
         }else if(p.equals("B7")){
-            results[0] = w;
+            results[0] = w+sideH;
             results[1] = h;
-            results[2] = w*2;
+            results[2] = w*2+sideH;
             results[3] = h*2;
             return results;
 
         }else if(p.equals("C7")){
-            results[0] = w*2;
+            results[0] = w*2+sideH;
             results[1] = h;
-            results[2] = w*3;
+            results[2] = w*3+sideH;
             results[3] = h*2;
             return results;
 
         }else if(p.equals("D7")){
-            results[0] = w*3;
+            results[0] = w*3+sideH;
             results[1] = h;
-            results[2] = w*4;
+            results[2] = w*4+sideH;
             results[3] = h*2;
             return results;
 
         }else if(p.equals("E7")){
-            results[0] = w*4;
+            results[0] = w*4+sideH;
             results[1] = h;
-            results[2] = w*5;
+            results[2] = w*5+sideH;
             results[3] = h*2;
             return results;
 
         }else if(p.equals("F7")){
-            results[0] = w*5;
+            results[0] = w*5+sideH;
             results[1] = h;
-            results[2] = w*6;
+            results[2] = w*6+sideH;
             results[3] = h*2;
             return results;
         }else if(p.equals("G7")){
-            results[0] = w*6;
+            results[0] = w*6+sideH;
             results[1] = h;
-            results[2] = w*7;
+            results[2] = w*7+sideH;
             results[3] = h*2;
             return results;
 
         }else if(p.equals("H7")){
-            results[0] = w*7;
+            results[0] = w*7+sideH;
             results[1] = h;
-            results[2] = w*8;
+            results[2] = w*8+sideH;
             results[3] = h*2;
             return results;
 
         }else if(p.equals("A6")){
-            results[0] = 0;
+            results[0] = 0+sideH;
             results[1] = h*2;
-            results[2] = w;
+            results[2] = w+sideH;
             results[3] = h*3;
             return results;
 
         }else if(p.equals("B6")){
-            results[0] = w;
+            results[0] = w+sideH;
             results[1] = h*2;
-            results[2] = w*2;
+            results[2] = w*2+sideH;
             results[3] = h*3;
             return results;
 
         }else if(p.equals("C6")){
-            results[0] = w*2;
+            results[0] = w*2+sideH;
             results[1] = h*2;
-            results[2] = w*3;
+            results[2] = w*3+sideH;
             results[3] = h*3;
             return results;
 
         }else if(p.equals("D6")){
-            results[0] = w*3;
+            results[0] = w*3+sideH;
             results[1] = h*2;
-            results[2] = w*4;
+            results[2] = w*4+sideH;
             results[3] = h*3;
             return results;
 
         }else if(p.equals("E6")){
-            results[0] = w*4;
+            results[0] = w*4+sideH;
             results[1] = h*2;
-            results[2] = w*5;
+            results[2] = w*5+sideH;
             results[3] = h*3;
             return results;
 
         }else if(p.equals("F6")){
-            results[0] = w*5;
+            results[0] = w*5+sideH;
             results[1] = h*2;
-            results[2] = w*6;
+            results[2] = w*6+sideH;
             results[3] = h*3;
             return results;
 
         }else if(p.equals("G6")){
-            results[0] = w*6;
+            results[0] = w*6+sideH;
             results[1] = h*2;
-            results[2] = w*7;
+            results[2] = w*7+sideH;
             results[3] = h*3;
             return results;
 
         }else if(p.equals("H6")){
-            results[0] = w*7;
+            results[0] = w*7+sideH;
             results[1] = h*2;
-            results[2] = w*8;
+            results[2] = w*8+sideH;
             results[3] = h*3;
             return results;
 
         }else if(p.equals("A5")){
-            results[0] = 0;
+            results[0] = 0+sideH;
             results[1] = h*3;
-            results[2] = w;
+            results[2] = w+sideH;
             results[3] = h*4;
             return results;
 
         }else if(p.equals("B5")){
-            results[0] = w;
+            results[0] = w+sideH;
             results[1] = h*3;
-            results[2] = w*2;
+            results[2] = w*2+sideH;
             results[3] = h*4;
             return results;
 
         }else if(p.equals("C5")){
-            results[0] = w*2;
+            results[0] = w*2+sideH;
             results[1] = h*3;
-            results[2] = w*3;
+            results[2] = w*3+sideH;
             results[3] = h*4;
             return results;
 
         }else if(p.equals("D5")){
-            results[0] = w*3;
+            results[0] = w*3+sideH;
             results[1] = h*3;
-            results[2] = w*4;
+            results[2] = w*4+sideH;
             results[3] = h*4;
             return results;
 
         }else if(p.equals("E5")){
-            results[0] = w*4;
+            results[0] = w*4+sideH;
             results[1] = h*3;
-            results[2] = w*5;
+            results[2] = w*5+sideH;
             results[3] = h*4;
             return results;
 
         }else if(p.equals("F5")){
-            results[0] = w*5;
+            results[0] = w*5+sideH;
             results[1] = h*3;
-            results[2] = w*6;
+            results[2] = w*6+sideH;
             results[3] = h*4;
             return results;
 
         }else if(p.equals("G5")){
-            results[0] = w*6;
+            results[0] = w*6+sideH;
             results[1] = h*3;
-            results[2] = w*7;
+            results[2] = w*7+sideH;
             results[3] = h*4;
             return results;
 
         }else if(p.equals("H5")){
-            results[0] = w*7;
+            results[0] = w*7+sideH;
             results[1] = h*3;
-            results[2] = w*8;
+            results[2] = w*8+sideH;
             results[3] = h*4;
             return results;
 
         }else if(p.equals("A4")){
-            results[0] = 0;
+            results[0] = 0+sideH;
             results[1] = h*4;
-            results[2] = w;
+            results[2] = w+sideH;
             results[3] = h*5;
             return results;
 
         }else if(p.equals("B4")){
-            results[0] = w;
+            results[0] = w+sideH;
             results[1] = h*4;
-            results[2] = w*2;
+            results[2] = w*2+sideH;
             results[3] = h*5;
             return results;
 
         }else if(p.equals("C4")){
-            results[0] = w*2;
+            results[0] = w*2+sideH;
             results[1] = h*4;
-            results[2] = w*3;
+            results[2] = w*3+sideH;
             results[3] = h*5;
             return results;
 
         }else if(p.equals("D4")){
-            results[0] = w*3;
+            results[0] = w*3+sideH;
             results[1] = h*4;
-            results[2] = w*4;
+            results[2] = w*4+sideH;
             results[3] = h*5;
             return results;
 
         }else if(p.equals("E4")){
-            results[0] = w*4;
+            results[0] = w*4+sideH;
             results[1] = h*4;
-            results[2] = w*5;
+            results[2] = w*5+sideH;
             results[3] = h*5;
             return results;
 
         }else if(p.equals("F4")){
-            results[0] = w*5;
+            results[0] = w*5+sideH;
             results[1] = h*4;
-            results[2] = w*6;
+            results[2] = w*6+sideH;
             results[3] = h*5;
             return results;
 
         }else if(p.equals("G4")){
-            results[0] = w*6;
+            results[0] = w*6+sideH;
             results[1] = h*4;
-            results[2] = w*7;
+            results[2] = w*7+sideH;
             results[3] = h*5;
             return results;
 
         }else if(p.equals("H4")){
-            results[0] = w*7;
+            results[0] = w*7+sideH;
             results[1] = h*4;
-            results[2] = w*8;
+            results[2] = w*8+sideH;
             results[3] = h*5;
             return results;
 
         }else if(p.equals("A3")){
-            results[0] = 0;
+            results[0] = 0+sideH;
             results[1] = h*5;
-            results[2] = w;
+            results[2] = w+sideH;
             results[3] = h*6;
             return results;
 
         }else if(p.equals("B3")){
-            results[0] = w;
+            results[0] = w+sideH;
             results[1] = h*5;
-            results[2] = w*2;
+            results[2] = w*2+sideH;
             results[3] = h*6;
             return results;
 
         }else if(p.equals("C3")){
-            results[0] = w*2;
+            results[0] = w*2+sideH;
             results[1] = h*5;
-            results[2] = w*3;
+            results[2] = w*3+sideH;
             results[3] = h*6;
             return results;
 
         }else if(p.equals("D3")){
-            results[0] = w*3;
+            results[0] = w*3+sideH;
             results[1] = h*5;
-            results[2] = w*4;
+            results[2] = w*4+sideH;
             results[3] = h*6;
             return results;
 
         }else if(p.equals("E3")){
-            results[0] = w*4;
+            results[0] = w*4+sideH;
             results[1] = h*5;
-            results[2] = w*5;
+            results[2] = w*5+sideH;
             results[3] = h*6;
             return results;
 
         }else if(p.equals("F3")){
-            results[0] = w*5;
+            results[0] = w*5+sideH;
             results[1] = h*5;
-            results[2] = w*6;
+            results[2] = w*6+sideH;
             results[3] = h*6;
             return results;
 
         }else if(p.equals("G3")){
-            results[0] = w*6;
+            results[0] = w*6+sideH;
             results[1] = h*5;
-            results[2] = w*7;
+            results[2] = w*7+sideH;
             results[3] = h*6;
             return results;
 
         }else if(p.equals("H3")){
-            results[0] = w*7;
+            results[0] = w*7+sideH;
             results[1] = h*5;
-            results[2] = w*8;
+            results[2] = w*8+sideH;
             results[3] = h*6;
             return results;
 
         }else if(p.equals("A2")){
-            results[0] = 0;
+            results[0] = 0+sideH;
             results[1] = h*6;
-            results[2] = w;
+            results[2] = w+sideH;
             results[3] = h*7;
             return results;
 
         }else if(p.equals("B2")){
-            results[0] = w;
+            results[0] = w+sideH;
             results[1] = h*6;
-            results[2] = w*2;
+            results[2] = w*2+sideH;
             results[3] = h*7;
             return results;
 
         }else if(p.equals("C2")){
-            results[0] = w*2;
+            results[0] = w*2+sideH;
             results[1] = h*6;
-            results[2] = w*3;
+            results[2] = w*3+sideH;
             results[3] = h*7;
             return results;
 
         }else if(p.equals("D2")){
-            results[0] = w*3;
+            results[0] = w*3+sideH;
             results[1] = h*6;
-            results[2] = w*4;
+            results[2] = w*4+sideH;
             results[3] = h*7;
             return results;
 
         }else if(p.equals("E2")){
-            results[0] = w*4;
+            results[0] = w*4+sideH;
             results[1] = h*6;
-            results[2] = w*5;
+            results[2] = w*5+sideH;
             results[3] = h*7;
             return results;
 
         }else if(p.equals("F2")){
-            results[0] = w*5;
+            results[0] = w*5+sideH;
             results[1] = h*6;
-            results[2] = w*6;
+            results[2] = w*6+sideH;
             results[3] = h*7;
             return results;
 
         }else if(p.equals("G2")){
-            results[0] = w*6;
+            results[0] = w*6+sideH;
             results[1] = h*6;
-            results[2] = w*7;
+            results[2] = w*7+sideH;
             results[3] = h*7;
             return results;
 
         }else if(p.equals("H2")){
-            results[0] = w*7;
+            results[0] = w*7+sideH;
             results[1] = h*6;
-            results[2] = w*8;
+            results[2] = w*8+sideH;
             results[3] = h*7;
             return results;
 
         }else if(p.equals("A1")){
-            results[0] = 0;
+            results[0] = 0+sideH;
             results[1] = h*7;
-            results[2] = w;
+            results[2] = w+sideH;
             results[3] = h*8;
             return results;
 
         }else if(p.equals("B1")){
-            results[0] = w;
+            results[0] = w+sideH;
             results[1] = h*7;
-            results[2] = w*2;
+            results[2] = w*2+sideH;
             results[3] = h*8;
             return results;
 
         }else if(p.equals("C1")){
-            results[0] = w*2;
+            results[0] = w*2+sideH;
             results[1] = h*7;
-            results[2] = w*3;
+            results[2] = w*3+sideH;
             results[3] = h*8;
             return results;
 
         }else if(p.equals("D1")){
-            results[0] = w*3;
+            results[0] = w*3+sideH;
             results[1] = h*7;
-            results[2] = w*4;
+            results[2] = w*4+sideH;
             results[3] = h*8;
             return results;
 
         }else if(p.equals("E1")){
-            results[0] = w*4;
+            results[0] = w*4+sideH;
             results[1] = h*7;
-            results[2] = w*5;
+            results[2] = w*5+sideH;
             results[3] = h*8;
             return results;
 
         }else if(p.equals("F1")){
-            results[0] = w*5;
+            results[0] = w*5+sideH;
             results[1] = h*7;
-            results[2] = w*6;
+            results[2] = w*6+sideH;
             results[3] = h*8;
             return results;
 
         }else if(p.equals("G1")){
-            results[0] = w*6;
+            results[0] = w*6+sideH;
             results[1] = h*7;
-            results[2] = w*7;
+            results[2] = w*7+sideH;
             results[3] = h*8;
             return results;
 
         }else if(p.equals("H1")){   //H1
-            results[0] = w*7;
+            results[0] = w*7+sideH;
             results[1] = h*7;
-            results[2] = w*8;
+            results[2] = w*8+sideH;
             results[3] = h*8;
             return results;
         }
