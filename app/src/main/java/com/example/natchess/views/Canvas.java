@@ -115,11 +115,31 @@ public class Canvas extends View {
             {0,1,0,1,0,1,0,1},
             {1,0,1,0,1,0,1,0}};
 
-
     public Canvas(Context context) {
         super(context);
         init(null);
     }
+
+    public Canvas(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        init(attrs);
+    }
+
+    public Canvas(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(attrs);
+    }
+
+    public Canvas(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        init(attrs);
+    }
+
+
+//    public Canvas(Context context) {
+//        super(context);
+//        init(null);
+//    }
 
     private void init(@Nullable AttributeSet set){
 

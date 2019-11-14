@@ -2,7 +2,10 @@ package com.example.natchess;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 
 import com.example.natchess.views.Canvas;
@@ -14,24 +17,51 @@ import com.firebase.client.ValueEventListener;
 public class Chess extends AppCompatActivity {
 
     private Firebase mRoot;
+    private Canvas canvas;
+
+//    Dialog die;
+//    Button b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final Canvas canvas = new Canvas(this);
-        setContentView(canvas);
+        setContentView(R.layout.activity_chess);
+//        final Canvas canvas = new Canvas(this);
+        canvas = (Canvas)findViewById(R.id.chess_board);
+//        setContentView(R.layout.activity_chess);
+
+//        die = new Dialog(this);
+//        die.setContentView(R.layout.pop);
+//        die.setCanceledOnTouchOutside(false);
+//        die.show();
+////        b.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                die.dismiss();
+//                System.out.println("alec");
+//            }
+//        });
+
 
         mRoot = new Firebase("https://natchess-d50b2.firebaseio.com/Test/");
 
 
+//        b = findViewById(R.id.rock);
+
         Firebase p1bb = mRoot.child("p1b");
-        Firebase p1b = p1bb.child("position");
+        final Firebase p1b = p1bb.child("position");
         p1b.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p1b.position =dataSnapshot.getValue(String.class);
+                    if(dataSnapshot.getValue(String.class).equals("A1") || dataSnapshot.getValue(String.class).equals("B1") || dataSnapshot.getValue(String.class).equals("D1")){
+                        crownDialog c = new crownDialog();
+                        c.show(getSupportFragmentManager(),"crown Dialog");
+
+
+                    }
                     canvas.invalidate();
                 }
             }
