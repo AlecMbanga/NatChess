@@ -12,6 +12,8 @@ public class Piece {
     public String onlinePos;
     public String onlineCodeName;
     public boolean firstMove;
+    public boolean EnPassant;
+    public String prevPosition;
     public ArrayList<String> board = new ArrayList<String>(Arrays.asList("A1","B1","C1","D1","E1","F1","G1","H1",
                                                                     "A2","B2","C2","D2","E2","F2","G2","H2",
                                                                     "A3","B3","C3","D3","E3","F3","G3","H3",
@@ -29,7 +31,8 @@ public class Piece {
         this.status = alive;
         this.onlinePos = position;
         this.firstMove = true;
-
+        this.EnPassant = false;
+        this.prevPosition = "null";
     }
 
     public ArrayList<String> CalculateLegalMoves(Piece[][] allPieces){
@@ -2145,25 +2148,6 @@ public class Piece {
             String posibility4 = Character.toString(alpha) + Integer.toString(num-2);
 
 
-            if(firstMove){
-                if(board.contains(posibility4)){
-                    boolean occupied = false;
-                    for(int r=0;r<allPieces.length;++r){
-                        for(int c=0;c<allPieces[0].length;++c){
-                            if(allPieces[r][c].position.equals(posibility4)){
-                                occupied = true;
-                                break;
-                            }
-                        }
-                        if(occupied){
-                            break;
-                        }
-                    }
-                    if(occupied==false){
-                        moves.add(posibility4);
-                    }
-                }
-            }
 
             if(board.contains(posibility)){
                 boolean occupied = false;
@@ -2180,6 +2164,26 @@ public class Piece {
                 }
                 if(occupied==false){
                     moves.add(posibility);
+
+                    if(firstMove){
+                        if(board.contains(posibility4)){
+                            boolean occ = false;
+                            for(int r=0;r<allPieces.length;++r){
+                                for(int c=0;c<allPieces[0].length;++c){
+                                    if(allPieces[r][c].position.equals(posibility4)){
+                                        occ = true;
+                                        break;
+                                    }
+                                }
+                                if(occ){
+                                    break;
+                                }
+                            }
+                            if(occ==false){
+                                moves.add(posibility4);
+                            }
+                        }
+                    }
                 }
             }
 
@@ -2230,26 +2234,7 @@ public class Piece {
             String posibility4 = Character.toString(alpha) + Integer.toString(num+2);
 
 
-            if(firstMove){
-                if(board.contains(posibility4)){
-                    boolean hasWhite = false;
-                    for(int r=0;r<allPieces.length;++r){
-                        for(int c=0;c<allPieces[0].length;++c){
-                            if(allPieces[r][c].position.equals(posibility4)){
-                                hasWhite = true;
-                                break;
-                            }
 
-                        }
-                        if(hasWhite){
-                            break;
-                        }
-                    }
-                    if(hasWhite==false){
-                        moves.add(posibility4);
-                    }
-                }
-            }
 
             if(board.contains(posibility)){
                 boolean hasWhite = false;
@@ -2267,6 +2252,27 @@ public class Piece {
                 }
                 if(hasWhite==false){
                     moves.add(posibility);
+
+                    if(firstMove){
+                        if(board.contains(posibility4)){
+                            boolean has = false;
+                            for(int r=0;r<allPieces.length;++r){
+                                for(int c=0;c<allPieces[0].length;++c){
+                                    if(allPieces[r][c].position.equals(posibility4)){
+                                        has = true;
+                                        break;
+                                    }
+                                }
+                                if(has){
+                                    break;
+                                }
+                            }
+                            if(has==false){
+                                moves.add(posibility4);
+                            }
+                        }
+                    }
+
                 }
             }
 

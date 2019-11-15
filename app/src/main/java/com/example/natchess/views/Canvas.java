@@ -788,20 +788,36 @@ public class Canvas extends View {
 
             mRoot.child("p1b").child("position").setValue("A7");
             mRoot.child("p1b").child("firstMove").setValue("true");
+            mRoot.child("p1b").child("EnPassant").setValue("false");
+            mRoot.child("p1b").child("prevPosition").setValue("null");
             mRoot.child("p2b").child("position").setValue("B7");
             mRoot.child("p2b").child("firstMove").setValue("true");
+            mRoot.child("p2b").child("EnPassant").setValue("false");
+            mRoot.child("p2b").child("prevPosition").setValue("null");
             mRoot.child("p3b").child("position").setValue("C7");
             mRoot.child("p3b").child("firstMove").setValue("true");
+            mRoot.child("p3b").child("EnPassant").setValue("false");
+            mRoot.child("p3b").child("prevPosition").setValue("null");
             mRoot.child("p4b").child("position").setValue("D7");
             mRoot.child("p4b").child("firstMove").setValue("true");
+            mRoot.child("p4b").child("EnPassant").setValue("false");
+            mRoot.child("p4b").child("prevPosition").setValue("null");
             mRoot.child("p5b").child("position").setValue("E7");
             mRoot.child("p5b").child("firstMove").setValue("true");
+            mRoot.child("p5b").child("EnPassant").setValue("false");
+            mRoot.child("p5b").child("prevPosition").setValue("null");
             mRoot.child("p6b").child("position").setValue("F7");
             mRoot.child("p6b").child("firstMove").setValue("true");
+            mRoot.child("p6b").child("EnPassant").setValue("false");
+            mRoot.child("p6b").child("prevPosition").setValue("null");
             mRoot.child("p7b").child("position").setValue("G7");
             mRoot.child("p7b").child("firstMove").setValue("true");
+            mRoot.child("p7b").child("EnPassant").setValue("false");
+            mRoot.child("p6b").child("prevPosition").setValue("null");
             mRoot.child("p8b").child("position").setValue("H7");
             mRoot.child("p8b").child("firstMove").setValue("true");
+            mRoot.child("p8b").child("EnPassant").setValue("false");
+            mRoot.child("p8b").child("prevPosition").setValue("null");
 
             mRoot.child("r1b").child("position").setValue("A8");
             mRoot.child("r1b").child("firstMove").setValue("true");
@@ -840,20 +856,36 @@ public class Canvas extends View {
 
             mRoot.child("p1w").child("position").setValue("A2");
             mRoot.child("p1w").child("firstMove").setValue("true");
+            mRoot.child("p1w").child("EnPassant").setValue("false");
+            mRoot.child("p1w").child("prevPosition").setValue("null");
             mRoot.child("p2w").child("position").setValue("B2");
             mRoot.child("p2w").child("firstMove").setValue("true");
+            mRoot.child("p2w").child("EnPassant").setValue("false");
+            mRoot.child("p2w").child("prevPosition").setValue("null");
             mRoot.child("p3w").child("position").setValue("C2");
             mRoot.child("p3w").child("firstMove").setValue("true");
+            mRoot.child("p3w").child("EnPassant").setValue("false");
+            mRoot.child("p3w").child("prevPosition").setValue("null");
             mRoot.child("p4w").child("position").setValue("D2");
             mRoot.child("p4w").child("firstMove").setValue("true");
+            mRoot.child("p4w").child("EnPassant").setValue("false");
+            mRoot.child("p4w").child("prevPosition").setValue("null");
             mRoot.child("p5w").child("position").setValue("E2");
             mRoot.child("p5w").child("firstMove").setValue("true");
+            mRoot.child("p5w").child("EnPassant").setValue("false");
+            mRoot.child("p5w").child("prevPosition").setValue("null");
             mRoot.child("p6w").child("position").setValue("F2");
             mRoot.child("p6w").child("firstMove").setValue("true");
+            mRoot.child("p6w").child("EnPassant").setValue("false");
+            mRoot.child("p6w").child("prevPosition").setValue("null");
             mRoot.child("p7w").child("position").setValue("G2");
             mRoot.child("p7w").child("firstMove").setValue("true");
+            mRoot.child("p7w").child("EnPassant").setValue("false");
+            mRoot.child("p7w").child("prevPosition").setValue("null");
             mRoot.child("p8w").child("position").setValue("H2");
             mRoot.child("p8w").child("firstMove").setValue("true");
+            mRoot.child("p8w").child("EnPassant").setValue("false");
+            mRoot.child("p8w").child("prevPosition").setValue("null");
 
 
             mRoot.child("p1bRook").child("position").setValue("null");
@@ -2304,6 +2336,7 @@ public class Canvas extends View {
                     moveToC = pc;
                     selected = false;
                     System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
+                    selectedPiece.prevPosition = selectedPiece.position;
                     selectedPiece.position = p;
                     arrPaint[pr][pc].setColor(Color.GRAY);
                     System.out.println(" to " + selectedPiece.position);
@@ -2311,41 +2344,49 @@ public class Canvas extends View {
                     if(selectedPiece.color.equals("black")){
                         if(selectedPiece.onlineCodeName.equals("p1b")){
                             mRoot.child("p1b").child("position").setValue(p);
+                            mRoot.child("p1b").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p1b").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p2b")){
                             mRoot.child("p2b").child("position").setValue(p);
+                            mRoot.child("p2b").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p2b").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p3b")){
                             mRoot.child("p3b").child("position").setValue(p);
+                            mRoot.child("p3b").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p3b").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p4b")){
                             mRoot.child("p4b").child("position").setValue(p);
+                            mRoot.child("p4b").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p4b").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p5b")){
                             mRoot.child("p5b").child("position").setValue(p);
+                            mRoot.child("p5b").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p5b").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p6b")){
                             mRoot.child("p6b").child("position").setValue(p);
+                            mRoot.child("p6b").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p6b").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p7b")){
                             mRoot.child("p7b").child("position").setValue(p);
+                            mRoot.child("p7b").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p7b").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p8b")){
                             mRoot.child("p8b").child("position").setValue(p);
+                            mRoot.child("p8b").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p8b").child("firstMove").setValue("false");
                             }
@@ -2353,41 +2394,49 @@ public class Canvas extends View {
                     }else{
                         if(selectedPiece.onlineCodeName.equals("p1w")){
                             mRoot.child("p1w").child("position").setValue(p);
+                            mRoot.child("p1w").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p1w").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p2w")){
                             mRoot.child("p2w").child("position").setValue(p);
+                            mRoot.child("p2w").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p2w").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p3w")){
                             mRoot.child("p3w").child("position").setValue(p);
+                            mRoot.child("p3w").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p3w").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p4w")){
                             mRoot.child("p4w").child("position").setValue(p);
+                            mRoot.child("p4w").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p4w").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p5w")){
                             mRoot.child("p5w").child("position").setValue(p);
+                            mRoot.child("p5w").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p5w").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p6w")){
                             mRoot.child("p6w").child("position").setValue(p);
+                            mRoot.child("p6w").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p6w").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p7w")){
                             mRoot.child("p7w").child("position").setValue(p);
+                            mRoot.child("p7w").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p7w").child("firstMove").setValue("false");
                             }
                         }else if(selectedPiece.onlineCodeName.equals("p8w")){
                             mRoot.child("p8w").child("position").setValue(p);
+                            mRoot.child("p8w").child("prevPosition").setValue(selectedPiece.prevPosition);
                             if(selectedPiece.firstMove){
                                 mRoot.child("p8w").child("firstMove").setValue("false");
                             }
