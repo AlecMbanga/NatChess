@@ -392,76 +392,76 @@ public class Canvas extends View {
 
 
         /////white
-        p1wRook = new Piece("rook","black","null","alive");
+        p1wRook = new Piece("rook","white","null","alive");
         p1wRook.onlineCodeName = "p1wRook";
-        p1wQueen = new Piece("queen","black","null","alive");
+        p1wQueen = new Piece("queen","white","null","alive");
         p1wQueen.onlineCodeName = "p1wQueen";
-        p1wKnight = new Piece("Knight","black","null","alive");
+        p1wKnight = new Piece("Knight","white","null","alive");
         p1wKnight.onlineCodeName = "p1wKnight";
-        p1wBishop = new Piece("bishop","black","null","alive");
+        p1wBishop = new Piece("bishop","white","null","alive");
         p1wBishop.onlineCodeName = "p1wBishop";
 
-        p2wRook = new Piece("rook","black","null","alive");
+        p2wRook = new Piece("rook","white","null","alive");
         p2wRook.onlineCodeName = "p2wRook";
-        p2wQueen = new Piece("queen","black","null","alive");
+        p2wQueen = new Piece("queen","white","null","alive");
         p2wQueen.onlineCodeName = "p2wQueen";
-        p2wKnight = new Piece("Knight","black","null","alive");
+        p2wKnight = new Piece("Knight","white","null","alive");
         p2wKnight.onlineCodeName = "p2wKnight";
-        p2wBishop = new Piece("bishop","black","null","alive");
+        p2wBishop = new Piece("bishop","white","null","alive");
         p2wBishop.onlineCodeName = "p2wBishop";
 
-        p3wRook = new Piece("rook","black","null","alive");
+        p3wRook = new Piece("rook","white","null","alive");
         p3wRook.onlineCodeName = "p3wRook";
-        p3wQueen = new Piece("queen","black","null","alive");
+        p3wQueen = new Piece("queen","white","null","alive");
         p3wQueen.onlineCodeName = "p3wQueen";
-        p3wKnight = new Piece("Knight","black","null","alive");
+        p3wKnight = new Piece("Knight","white","null","alive");
         p3wKnight.onlineCodeName = "p3wKnight";
-        p3wBishop = new Piece("bishop","black","null","alive");
+        p3wBishop = new Piece("bishop","white","null","alive");
         p3wBishop.onlineCodeName = "p3wBishop";
 
-        p4wRook = new Piece("rook","black","null","alive");
+        p4wRook = new Piece("rook","white","null","alive");
         p4wRook.onlineCodeName = "p4wRook";
-        p4wQueen = new Piece("queen","black","null","alive");
+        p4wQueen = new Piece("queen","white","null","alive");
         p4wQueen.onlineCodeName = "p4wQueen";
-        p4wKnight = new Piece("Knight","black","null","alive");
+        p4wKnight = new Piece("Knight","white","null","alive");
         p4wKnight.onlineCodeName = "p4wKnight";
-        p4wBishop = new Piece("bishop","black","null","alive");
+        p4wBishop = new Piece("bishop","white","null","alive");
         p4wBishop.onlineCodeName = "p4wBishop";
 
-        p5wRook = new Piece("rook","black","null","alive");
+        p5wRook = new Piece("rook","white","null","alive");
         p5wRook.onlineCodeName = "p5wRook";
-        p5wQueen = new Piece("queen","black","null","alive");
+        p5wQueen = new Piece("queen","white","null","alive");
         p5wQueen.onlineCodeName = "p5wQueen";
-        p5wKnight = new Piece("Knight","black","null","alive");
+        p5wKnight = new Piece("Knight","white","null","alive");
         p5wKnight.onlineCodeName = "p5wKnight";
-        p5wBishop = new Piece("bishop","black","null","alive");
+        p5wBishop = new Piece("bishop","white","null","alive");
         p5wBishop.onlineCodeName = "p5wBishop";
 
-        p6wRook = new Piece("rook","black","null","alive");
+        p6wRook = new Piece("rook","white","null","alive");
         p6wRook.onlineCodeName = "p6wRook";
-        p6wQueen = new Piece("queen","black","null","alive");
+        p6wQueen = new Piece("queen","white","null","alive");
         p6wQueen.onlineCodeName = "p6wQueen";
-        p6wKnight = new Piece("Knight","black","null","alive");
+        p6wKnight = new Piece("Knight","white","null","alive");
         p6wKnight.onlineCodeName = "p6wKnight";
-        p6wBishop = new Piece("bishop","black","null","alive");
+        p6wBishop = new Piece("bishop","white","null","alive");
         p6wBishop.onlineCodeName = "p6wBishop";
 
-        p7wRook = new Piece("rook","black","null","alive");
+        p7wRook = new Piece("rook","white","null","alive");
         p7wRook.onlineCodeName = "p7wRook";
-        p7wQueen = new Piece("queen","black","null","alive");
+        p7wQueen = new Piece("queen","white","null","alive");
         p7wQueen.onlineCodeName = "p7wQueen";
-        p7wKnight = new Piece("Knight","black","null","alive");
+        p7wKnight = new Piece("Knight","white","null","alive");
         p7wKnight.onlineCodeName = "p7wKnight";
-        p7wBishop = new Piece("bishop","black","null","alive");
+        p7wBishop = new Piece("bishop","white","null","alive");
         p7wBishop.onlineCodeName = "p7wBishop";
 
-        p8wRook = new Piece("rook","black","null","alive");
+        p8wRook = new Piece("rook","white","null","alive");
         p8wRook.onlineCodeName = "p8wRook";
-        p8wQueen = new Piece("queen","black","null","alive");
+        p8wQueen = new Piece("queen","white","null","alive");
         p8wQueen.onlineCodeName = "p8wQueen";
-        p8wKnight = new Piece("Knight","black","null","alive");
+        p8wKnight = new Piece("Knight","white","null","alive");
         p8wKnight.onlineCodeName = "p8wKnight";
-        p8wBishop = new Piece("bishop","black","null","alive");
+        p8wBishop = new Piece("bishop","white","null","alive");
         p8wBishop.onlineCodeName = "p8wBishop";
 
 
@@ -2119,10 +2119,50 @@ public class Canvas extends View {
                             if(selectedPiece.firstMove){
                                 mRoot.child("k1b").child("firstMove").setValue("false");
                             }
-                        }else{
+                        }else if(selectedPiece.onlineCodeName.equals("k2b")){
                             mRoot.child("k2b").child("position").setValue(p);
                             if(selectedPiece.firstMove){
                                 mRoot.child("k2b").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p1bKnight")){
+                            mRoot.child("p1bKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p1bKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p2bKnight")){
+                            mRoot.child("p2bKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p2bKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p3bKnight")){
+                            mRoot.child("p3bKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p3bKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p4bKnight")){
+                            mRoot.child("p4bKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p4bKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p5bKnight")){
+                            mRoot.child("p5bKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p5bKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p6bKnight")){
+                            mRoot.child("p6bKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p6bKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p7bKnight")){
+                            mRoot.child("p7bKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p7bKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p8bKnight")){
+                            mRoot.child("p8bKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p8bKnight").child("firstMove").setValue("false");
                             }
                         }
                     }else{
@@ -2131,10 +2171,50 @@ public class Canvas extends View {
                             if(selectedPiece.firstMove){
                                 mRoot.child("k1w").child("firstMove").setValue("false");
                             }
-                        }else{
+                        }else if(selectedPiece.onlineCodeName.equals("k2w")){
                             mRoot.child("k2w").child("position").setValue(p);
                             if(selectedPiece.firstMove){
                                 mRoot.child("k2w").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p1wKnight")){
+                            mRoot.child("p1wKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p1wKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p2wKnight")){
+                            mRoot.child("p2wKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p2wKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p3wKnight")){
+                            mRoot.child("p3wKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p3wKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p4wKnight")){
+                            mRoot.child("p4wKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p4wKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p5wKnight")){
+                            mRoot.child("p5wKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p5wKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p6wKnight")){
+                            mRoot.child("p6wKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p6wKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p7wKnight")){
+                            mRoot.child("p7wKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p7wKnight").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p8wKnight")){
+                            mRoot.child("p8wKnight").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p8wKnight").child("firstMove").setValue("false");
                             }
                         }
                     }
@@ -2400,6 +2480,8 @@ public class Canvas extends View {
                     selected = false;
                     System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
                     selectedPiece.position = p;
+
+
                     arrPaint[pr][pc].setColor(Color.GRAY);
                     System.out.println(" to " + selectedPiece.position);
                     System.out.println("Alec this is an onlinecode name "+selectedPiece.onlineCodeName);
@@ -2409,11 +2491,67 @@ public class Canvas extends View {
                             if(selectedPiece.firstMove){
                                 mRoot.child("r1b").child("firstMove").setValue("false");
                             }
-                        }else{
+                        }else if(selectedPiece.onlineCodeName.equals("r2b")){
                             mRoot.child("r2b").child("position").setValue(p);
                             if(selectedPiece.firstMove){
                                 mRoot.child("r2b").child("firstMove").setValue("false");
                             }
+                        }else if(selectedPiece.onlineCodeName.equals("p1bRook")){
+
+                            mRoot.child("p1bRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p1bRook").child("firstMove").setValue("false");
+                            }
+
+                        }else if(selectedPiece.onlineCodeName.equals("p2bRook")){
+
+                            mRoot.child("p2bRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p2bRook").child("firstMove").setValue("false");
+                            }
+
+                        }else if(selectedPiece.onlineCodeName.equals("p3bRook")){
+
+                            mRoot.child("p3bRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p3bRook").child("firstMove").setValue("false");
+                            }
+
+                        }else if(selectedPiece.onlineCodeName.equals("p4bRook")){
+
+                            mRoot.child("p4bRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p4bRook").child("firstMove").setValue("false");
+                            }
+
+                        }else if(selectedPiece.onlineCodeName.equals("p5bRook")){
+
+                            mRoot.child("p5bRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p5bRook").child("firstMove").setValue("false");
+                            }
+
+                        }else if(selectedPiece.onlineCodeName.equals("p6bRook")){
+
+                            mRoot.child("p6bRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p6bRook").child("firstMove").setValue("false");
+                            }
+
+                        }else if(selectedPiece.onlineCodeName.equals("p7bRook")){
+
+                            mRoot.child("p7bRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p7bRook").child("firstMove").setValue("false");
+                            }
+
+                        }else if(selectedPiece.onlineCodeName.equals("p8bRook")){
+
+                            mRoot.child("p8bRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p8bRook").child("firstMove").setValue("false");
+                            }
+
                         }
                     }else{
                         if(selectedPiece.onlineCodeName.equals("r1w")){
@@ -2421,10 +2559,58 @@ public class Canvas extends View {
                             if(selectedPiece.firstMove){
                                 mRoot.child("r1w").child("firstMove").setValue("false");
                             }
-                        }else{
+                        }else if(selectedPiece.onlineCodeName.equals("r2w")){
                             mRoot.child("r2w").child("position").setValue(p);
                             if(selectedPiece.firstMove){
                                 mRoot.child("r2w").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p1wRook")){
+
+                            mRoot.child("p1wRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p1wRook").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p2wRook")){
+
+                            mRoot.child("p2wRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p2wRook").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p3wRook")){
+
+                            mRoot.child("p3wRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p3wRook").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p4wRook")){
+
+                            mRoot.child("p4wRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p4wRook").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p5wRook")){
+
+                            mRoot.child("p5wRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p5wRook").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p6wRook")){
+
+                            mRoot.child("p6wRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p6wRook").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p7wRook")){
+
+                            mRoot.child("p7wRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p7wRook").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p8wRook")){
+
+                            mRoot.child("p8wRook").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p8wRook").child("firstMove").setValue("false");
                             }
                         }
                     }
@@ -2524,10 +2710,50 @@ public class Canvas extends View {
                             if(selectedPiece.firstMove){
                                 mRoot.child("b1b").child("firstMove").setValue("false");
                             }
-                        }else{
+                        }else if(selectedPiece.onlineCodeName.equals("b2b")){
                             mRoot.child("b2b").child("position").setValue(p);
                             if(selectedPiece.firstMove){
                                 mRoot.child("b2b").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p1bBishop")){
+                            mRoot.child("p1bBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p1bBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p2bBishop")){
+                            mRoot.child("p2bBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p2bBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p3bBishop")){
+                            mRoot.child("p3bBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p3bBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p4bBishop")){
+                            mRoot.child("p4bBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p4bBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p5bBishop")){
+                            mRoot.child("p5bBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p5bBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p6bBishop")){
+                            mRoot.child("p6bBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p6bBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p7bBishop")){
+                            mRoot.child("p7bBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p7bBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p8bBishop")){
+                            mRoot.child("p8bBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p8bBishop").child("firstMove").setValue("false");
                             }
                         }
                     }else{
@@ -2536,10 +2762,50 @@ public class Canvas extends View {
                             if(selectedPiece.firstMove){
                                 mRoot.child("b1w").child("firstMove").setValue("false");
                             }
-                        }else{
+                        }else if(selectedPiece.onlineCodeName.equals("b2w")){
                             mRoot.child("b2w").child("position").setValue(p);
                             if(selectedPiece.firstMove){
                                 mRoot.child("b2w").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p1wBishop")){
+                            mRoot.child("p1wBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p1wBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p2wBishop")){
+                            mRoot.child("p2wBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p2wBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p3wBishop")){
+                            mRoot.child("p3wBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p3wBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p4wBishop")){
+                            mRoot.child("p4wBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p4wBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p5wBishop")){
+                            mRoot.child("p5wBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p5wBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p6wBishop")){
+                            mRoot.child("p6wBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p6wBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p7wBishop")){
+                            mRoot.child("p7wBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p7wBishop").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p8wBishop")){
+                            mRoot.child("p8wBishop").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p8wBishop").child("firstMove").setValue("false");
                             }
                         }
                     }
@@ -2639,12 +2905,92 @@ public class Canvas extends View {
                             if(selectedPiece.firstMove){
                                 mRoot.child("qb").child("firstMove").setValue("false");
                             }
+                        }else if(selectedPiece.onlineCodeName.equals("p1bQueen")) {
+                            mRoot.child("p1bQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p1bQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p2bQueen")) {
+                            mRoot.child("p2bQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p2bQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p3bQueen")) {
+                            mRoot.child("p3bQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p3bQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p4bQueen")) {
+                            mRoot.child("p4bQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p4bQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p5bQueen")) {
+                            mRoot.child("p5bQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p5bQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p6bQueen")) {
+                            mRoot.child("p6bQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p6bQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p7bQueen")) {
+                            mRoot.child("p7bQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p7bQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p8bQueen")) {
+                            mRoot.child("p8bQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p8bQueen").child("firstMove").setValue("false");
+                            }
                         }
                     }else{
                         if(selectedPiece.onlineCodeName.equals("qw")){
                             mRoot.child("qw").child("position").setValue(p);
                             if(selectedPiece.firstMove){
                                 mRoot.child("qw").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p1wQueen")) {
+                            mRoot.child("p1wQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p1wQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p2wQueen")) {
+                            mRoot.child("p2wQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p2wQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p3wQueen")) {
+                            mRoot.child("p3wQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p3wQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p4wQueen")) {
+                            mRoot.child("p4wQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p4wQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p5wQueen")) {
+                            mRoot.child("p5wQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p5wQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p6wQueen")) {
+                            mRoot.child("p6wQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p6wQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p7wQueen")) {
+                            mRoot.child("p7wQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p7wQueen").child("firstMove").setValue("false");
+                            }
+                        }else if(selectedPiece.onlineCodeName.equals("p8wQueen")) {
+                            mRoot.child("p8wQueen").child("position").setValue(p);
+                            if(selectedPiece.firstMove){
+                                mRoot.child("p8wQueen").child("firstMove").setValue("false");
                             }
                         }
                     }
