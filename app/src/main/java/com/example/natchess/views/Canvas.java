@@ -1773,8 +1773,8 @@ public class Canvas extends View {
         float leftAdd = width/8;
         float rightAdd = width/8;
 
-        float sideHTo = ((height/8)/2);
-        float sideHToAdd = ((height/8)/2)*2;
+        float sideHTo = ((height/8)/2)+((height/8)/7);
+        float sideHToAdd = ((height/8)/2)+((height/8)/2);
 
         float sideWto = ((width/8)/2)+sideH;
         float sideWtoAdd = ((width/8)/2)*2;
