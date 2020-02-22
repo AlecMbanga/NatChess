@@ -1969,11 +1969,14 @@ public class Canvas extends View {
 
 
 
-
-        for(int r = 0;r<allPieces.length;++r){
-            for(int c = 0;c<allPieces[0].length;++c){
+        //checking which piece is clicked on
+        for(int r = 0;r<allPieces.length;++r)
+        {
+            for(int c = 0;c<allPieces[0].length;++c)
+            {
                 if(cont) break;
-                if(allPieces[r][c].position.equals(p)){
+                if(allPieces[r][c].position.equals(p))
+                {
                     cont = true;
                     System.out.println("Alec this block contains a "+ allPieces[r][c].color + " " + allPieces[r][c].name);
                     rs = r;
@@ -1983,9 +1986,14 @@ public class Canvas extends View {
             if(cont) break;
         }
 
-        if (selected == false) {
-            if(cont) {
-                if (moveToR != -1 && moveToC != -1 && moveFromC != -1 && moveFromR != -1) {
+        //If there's no selected piece already
+        if (selected == false)
+        {
+            // if there's a piece in that selected box
+            if(cont)
+            {
+                if (moveToR != -1 && moveToC != -1 && moveFromC != -1 && moveFromR != -1)
+                {
                     if (color[moveFromR][moveFromC] == 0) {
                         arrPaint[moveFromR][moveFromC].setColor(Color.rgb(236, 217, 121));
                     } else {
@@ -2020,7 +2028,9 @@ public class Canvas extends View {
                 System.out.println("Alec now color this to grey, its clicked");
                 invalidate();
             }
-        } else if (selectedPiece.position.equals(p)) {
+        }
+        else if (selectedPiece.position.equals(p))
+        {
             selected = false;
             selectedPiece = null;
             moveFromC = -1;
@@ -2046,7 +2056,9 @@ public class Canvas extends View {
 
             System.out.println("Alec now change back to normal block color, its unclicked");
             invalidate();
-        } else if(selected == true){
+        }
+        else if(selected == true)
+        {
 
             for (int i=0;i<validMoves.size();++i) {
                 int[] selectedPieceIndex = getIndex(validMoves.get(i));
@@ -2057,7 +2069,8 @@ public class Canvas extends View {
                 }
             }
 
-            if(selectedPiece.name.equals("Knight")){
+            if(selectedPiece.name.equals("Knight"))
+            {
                 validMoves = new ArrayList<>();
                 legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
 
@@ -2252,15 +2265,19 @@ public class Canvas extends View {
                     }
                     invalidate();
                 }
-            }else if(selectedPiece.name.equals("pawn")){
+            }
+            else if(selectedPiece.name.equals("pawn"))
+            {
                 validMoves = new ArrayList<>();
                 legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
 
-                if(legalMoves.contains(p)){
+                if(legalMoves.contains(p))
+                {
                     for(int hh=0;hh<legalMoves.size();++hh){
                         System.out.println("Alec possible is "+ legalMoves.get(hh));
                     }
-                    if(cont){
+                    if(cont)
+                    {
                         if(allPieces[rs][cs].color.equals("black")){
                             if(allPieces[rs][cs].onlineCodeName.equals("p1b")){
                                 mRoot.child("p1b").child("position").setValue("null");
@@ -2341,7 +2358,15 @@ public class Canvas extends View {
                     arrPaint[pr][pc].setColor(Color.GRAY);
                     System.out.println(" to " + selectedPiece.position);
                     System.out.println("Alec this is an onlinecode name "+selectedPiece.onlineCodeName);
-                    if(selectedPiece.color.equals("black")){
+                    /*
+
+
+                    good place to check for en passant move, check if a new move and check if it moved 2 step ahead then make enpassant boolean true and set prev move
+
+
+                     */
+                    if(selectedPiece.color.equals("black"))
+                    {
                         if(selectedPiece.onlineCodeName.equals("p1b")){
                             mRoot.child("p1b").child("position").setValue(p);
                             mRoot.child("p1b").child("prevPosition").setValue(selectedPiece.prevPosition);
@@ -2391,7 +2416,8 @@ public class Canvas extends View {
                                 mRoot.child("p8b").child("firstMove").setValue("false");
                             }
                         }
-                    }else{
+                    }
+                    else{
                         if(selectedPiece.onlineCodeName.equals("p1w")){
                             mRoot.child("p1w").child("position").setValue(p);
                             mRoot.child("p1w").child("prevPosition").setValue(selectedPiece.prevPosition);
@@ -2445,7 +2471,8 @@ public class Canvas extends View {
                     invalidate();
                 }
             }
-            else if(selectedPiece.name.equals("rook")){
+            else if(selectedPiece.name.equals("rook"))
+            {
                 validMoves = new ArrayList<>();
                 legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
                 if(legalMoves.contains(p)){
@@ -2666,7 +2693,8 @@ public class Canvas extends View {
                     invalidate();
                 }
             }
-            else if(selectedPiece.name.equals("bishop")){
+            else if(selectedPiece.name.equals("bishop"))
+            {
                 validMoves = new ArrayList<>();
                 legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
                 if(legalMoves.contains(p)){
@@ -2861,7 +2889,8 @@ public class Canvas extends View {
                     invalidate();
                 }
             }
-            else if(selectedPiece.name.equals("queen")){
+            else if(selectedPiece.name.equals("queen"))
+            {
                 validMoves = new ArrayList<>();
                 legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
                 if(legalMoves.contains(p)){
@@ -3046,7 +3075,8 @@ public class Canvas extends View {
                     invalidate();
                 }
             }
-            else if(selectedPiece.name.equals("king")){
+            else if(selectedPiece.name.equals("king"))
+            {
                 validMoves = new ArrayList<>();
                 legalMoves = selectedPiece.CalculateLegalMoves(allPieces);
                 if(legalMoves.contains(p)){
