@@ -2260,6 +2260,7 @@ public class Piece {
                 }
                 if(hasWhite) {
                     moves.add(posibility5_1);
+                    moves.add("EnPassant");
                 }
 
             }
@@ -2281,6 +2282,7 @@ public class Piece {
                 }
                 if(hasWhite) {
                     moves.add(posibility6_1);
+                    moves.add("EnPassant");
                 }
 
             }
@@ -2399,6 +2401,7 @@ public class Piece {
                 }
                 if(hasBlack) {
                     moves.add(posibility5_1);
+                    moves.add("EnPassant");
                 }
 
             }
@@ -2420,6 +2423,7 @@ public class Piece {
                 }
                 if(hasBlack) {
                     moves.add(posibility6_1);
+                    moves.add("EnPassant");
                 }
 
             }

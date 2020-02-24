@@ -121,6 +121,7 @@ public class Canvas extends View {
     public Piece p8wQueen;
     public Piece p8wBishop;
     public Piece p8wKnight;
+    public Piece LastMovedPiece;
 
 
     private RectF p1Scale;
@@ -282,6 +283,10 @@ public class Canvas extends View {
     private void init(@Nullable AttributeSet set){
 
         mRoot = new Firebase("https://natchess-d50b2.firebaseio.com/Test/");
+
+        LastMovedPiece = new Piece("null","null","null","null");
+        LastMovedPiece.onlineCodeName = "null";
+        LastMovedPiece.prevPosition = "null";
 
 
         //black
@@ -858,7 +863,16 @@ public class Canvas extends View {
             qw.EnPassant = false;
 
 
-            mRoot.child("LastPieceMove").setValue("null");
+            mRoot.child("LastMovedPiece").child("position").setValue("null");
+            LastMovedPiece.position = "null";
+            mRoot.child("LastMovedPiece").child("color").setValue("null");
+            LastMovedPiece.color = "null";
+            mRoot.child("LastMovedPiece").child("name").setValue("null");
+            LastMovedPiece.name = "null";
+            mRoot.child("LastMovedPiece").child("onlineCodeName").setValue("null");
+            LastMovedPiece.onlineCodeName = "null";
+            mRoot.child("LastMovedPiece").child("prevPosition").setValue("null");
+            LastMovedPiece.prevPosition = "null";
 
             mRoot.child("p1b").child("position").setValue("A7");
             mRoot.child("p1b").child("firstMove").setValue("true");
@@ -2093,7 +2107,7 @@ public class Canvas extends View {
                 {
                     System.out.print(validMoves.get(i)+", ");
 
-                    if(!validMoves.get(i).equals("yes"))
+                    if(!validMoves.get(i).equals("yes") && !validMoves.get(i).equals("EnPassant"))
                     {
                         int[] selectedPieceIndex = getIndex(validMoves.get(i));
                         arrPaint[selectedPieceIndex[0]][selectedPieceIndex[1]].setColor(Color.rgb(128,128,0));
@@ -2436,6 +2450,154 @@ public class Canvas extends View {
                     selected = false;
                     System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
                     System.out.println(" to " + p);
+
+                    if(legalMoves.contains("EnPassant"))
+                    {
+                        if(selectedPiece.color.equals("black"))
+                        {
+                            int num = (int)LastMovedPiece.position.charAt(1)-48;
+                            char alpha = (char)(LastMovedPiece.position.charAt(0));
+                            String posibility = Character.toString(alpha) + Integer.toString(num-1);
+                            if(posibility.equals(p))
+                            {
+                                boolean found = false;
+                                int rrr = 0;
+                                int ccc = 0;
+                                for(int r = 0;r<allPieces.length;++r)
+                                {
+                                    for(int c = 0;c<allPieces[0].length;++c)
+                                    {
+                                        if(found) break;
+                                        if(allPieces[r][c].position.equals(LastMovedPiece.position))
+                                        {
+                                            found = true;
+                                            rrr = r;
+                                            ccc = c;
+                                        }
+                                    }
+                                    if(found) break;
+                                }
+                                if(found)
+                                {
+                                    allPieces[rrr][ccc].position = "null";
+
+                                    if(allPieces[rrr][ccc].onlineCodeName.equals("p1w")){
+                                        mRoot.child("p1w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p2w")){
+                                        mRoot.child("p2w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p3w")){
+                                        mRoot.child("p3w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p4w")){
+                                        mRoot.child("p4w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p5w")){
+                                        mRoot.child("p5w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p6w")){
+                                        mRoot.child("p6w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p7w")){
+                                        mRoot.child("p7w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p8w")){
+                                        mRoot.child("p8w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("r1w")){
+                                        mRoot.child("r1w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("r2w")){
+                                        mRoot.child("r2w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("k1w")){
+                                        mRoot.child("k1w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("k2w")){
+                                        mRoot.child("k2w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("b1w")){
+                                        mRoot.child("b1w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("b2w")){
+                                        mRoot.child("b2w").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("qw")){
+                                        mRoot.child("qw").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("kw")){
+                                        mRoot.child("kw").child("position").setValue("null");
+                                    }
+
+                                }
+
+                            }
+
+                        }else{
+                            int num = (int)LastMovedPiece.position.charAt(1)-48;
+                            char alpha = (char)(LastMovedPiece.position.charAt(0));
+                            String posibility = Character.toString(alpha) + Integer.toString(num+1);
+                            if(posibility.equals(p))
+                            {
+                                boolean found = false;
+                                int rrr = 0;
+                                int ccc = 0;
+                                for(int r = 0;r<allPieces.length;++r)
+                                {
+                                    for(int c = 0;c<allPieces[0].length;++c)
+                                    {
+                                        if(found) break;
+                                        if(allPieces[r][c].position.equals(LastMovedPiece.position))
+                                        {
+                                            found = true;
+                                            rrr = r;
+                                            ccc = c;
+                                        }
+                                    }
+                                    if(found) break;
+                                }
+                                if(found)
+                                {
+                                    allPieces[rrr][ccc].position = "null";
+
+                                    if(allPieces[rrr][ccc].onlineCodeName.equals("p1b")){
+                                        mRoot.child("p1b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p2b")){
+                                        mRoot.child("p2b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p3b")){
+                                        mRoot.child("p3b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p4b")){
+                                        mRoot.child("p4b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p5b")){
+                                        mRoot.child("p5b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p6b")){
+                                        mRoot.child("p6b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p7b")){
+                                        mRoot.child("p7b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("p8b")){
+                                        mRoot.child("p8b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("r1b")){
+                                        mRoot.child("r1b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("r2b")){
+                                        mRoot.child("r2b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("k1b")){
+                                        mRoot.child("k1b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("k2b")){
+                                        mRoot.child("k2b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("b1b")){
+                                        mRoot.child("b1b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("b2b")){
+                                        mRoot.child("b2b").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("qb")){
+                                        mRoot.child("qb").child("position").setValue("null");
+                                    }else if(allPieces[rrr][ccc].onlineCodeName.equals("kb")){
+                                        mRoot.child("kb").child("position").setValue("null");
+                                    }
+
+                                }
+                            }
+
+                        }
+
+                    }
+
+                    mRoot.child("LastMovedPiece").child("position").setValue(p);
+                    LastMovedPiece.position = p;
+                    mRoot.child("LastMovedPiece").child("color").setValue(selectedPiece.color);
+                    LastMovedPiece.color = selectedPiece.color;
+                    mRoot.child("LastMovedPiece").child("onlineCodeName").setValue(selectedPiece.onlineCodeName);
+                    LastMovedPiece.onlineCodeName = selectedPiece.onlineCodeName;
+                    mRoot.child("LastMovedPiece").child("name").setValue(selectedPiece.name);
+                    LastMovedPiece.name = selectedPiece.name;
+                    mRoot.child("LastMovedPiece").child("prevPosition").setValue(selectedPiece.position);
+                    LastMovedPiece.prevPosition = selectedPiece.position;
+
                     if(selectedPiece.firstMove)
                     {
                         selectedPiece.firstMove = false;
