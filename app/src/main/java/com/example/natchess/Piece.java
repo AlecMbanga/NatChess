@@ -2131,13 +2131,15 @@ public class Piece {
         return moves;
     }
 
-    public ArrayList<String> pawnMoves(Piece[][] allPieces){
+    public ArrayList<String> pawnMoves(Piece[][] allPieces)
+    {
         ArrayList<String> moves = new ArrayList<>();
 
         int num = (int)position.charAt(1)-48;
         char alpha = (char)(position.charAt(0));
 
-        if(color.equals("black")){
+        if(color.equals("black"))
+        {
             String posibility = Character.toString(alpha) + Integer.toString(num-1);
 
             char alphaRemove1 = (char)(position.charAt(0)-1);
@@ -2147,30 +2149,45 @@ public class Piece {
 
             String posibility4 = Character.toString(alpha) + Integer.toString(num-2);
 
+            //help with en passant move
+            String posibility5_1 = Character.toString(alphaRemove1) + Integer.toString(num-1);
+            String posibility5_2 = Character.toString(alphaRemove1) + Integer.toString(num);
+            String posibility6_1 = Character.toString(alphaAdd1) + Integer.toString(num-1);
+            String posibility6_2 = Character.toString(alphaAdd1) + Integer.toString(num);
 
 
             if(board.contains(posibility)){
                 boolean occupied = false;
-                for(int r=0;r<allPieces.length;++r){
-                    for(int c=0;c<allPieces[0].length;++c){
-                        if(allPieces[r][c].position.equals(posibility)){
+                for(int r=0;r<allPieces.length;++r)
+                {
+                    for(int c=0;c<allPieces[0].length;++c)
+                    {
+                        if(allPieces[r][c].position.equals(posibility))
+                        {
                             occupied = true;
                             break;
                         }
                     }
-                    if(occupied){
+                    if(occupied)
+                    {
                         break;
                     }
                 }
-                if(occupied==false){
+                if(occupied==false)
+                {
                     moves.add(posibility);
 
-                    if(firstMove){
-                        if(board.contains(posibility4)){
+                    if(firstMove)
+                    {
+                        if(board.contains(posibility4))
+                        {
                             boolean occ = false;
-                            for(int r=0;r<allPieces.length;++r){
-                                for(int c=0;c<allPieces[0].length;++c){
-                                    if(allPieces[r][c].position.equals(posibility4)){
+                            for(int r=0;r<allPieces.length;++r)
+                            {
+                                for(int c=0;c<allPieces[0].length;++c)
+                                {
+                                    if(allPieces[r][c].position.equals(posibility4))
+                                    {
                                         occ = true;
                                         break;
                                     }
@@ -2181,13 +2198,15 @@ public class Piece {
                             }
                             if(occ==false){
                                 moves.add(posibility4);
+                                moves.add("yes");
                             }
                         }
                     }
                 }
             }
 
-            if(board.contains(posibility2)){
+            if(board.contains(posibility2))
+            {
                 boolean hasWhite = false;
                 for(int r=0;r<allPieces.length;++r){
                     for(int c=0;c<allPieces[0].length;++c){
@@ -2207,7 +2226,8 @@ public class Piece {
 
             if(board.contains(posibility3)){
                 boolean hasWhite = false;
-                for(int r=0;r<allPieces.length;++r){
+                for(int r=0;r<allPieces.length;++r)
+                {
                     for(int c=0;c<allPieces[0].length;++c){
                         if(allPieces[r][c].position.equals(posibility3) && allPieces[r][c].color.equals("white")){
                             hasWhite = true;
@@ -2223,6 +2243,48 @@ public class Piece {
                 }
             }
 
+            if(board.contains(posibility5_1) && board.contains(posibility5_2))
+            {
+                boolean hasWhite = false;
+                for(int r=0;r<allPieces.length;++r)
+                {
+                    for(int c=0;c<allPieces[0].length;++c){
+                        if(allPieces[r][c].position.equals(posibility5_2) && allPieces[r][c].color.equals("white") && allPieces[r][c].EnPassant){
+                            hasWhite = true;
+                            break;
+                        }
+                    }
+                    if(hasWhite){
+                        break;
+                    }
+                }
+                if(hasWhite) {
+                    moves.add(posibility5_1);
+                }
+
+            }
+
+            if(board.contains(posibility6_1) && board.contains(posibility6_2))
+            {
+                boolean hasWhite = false;
+                for(int r=0;r<allPieces.length;++r)
+                {
+                    for(int c=0;c<allPieces[0].length;++c){
+                        if(allPieces[r][c].position.equals(posibility6_2) && allPieces[r][c].color.equals("white") && allPieces[r][c].EnPassant){
+                            hasWhite = true;
+                            break;
+                        }
+                    }
+                    if(hasWhite){
+                        break;
+                    }
+                }
+                if(hasWhite) {
+                    moves.add(posibility6_1);
+                }
+
+            }
+
         }else {
             String posibility = Character.toString(alpha) + Integer.toString(num+1);
 
@@ -2232,6 +2294,12 @@ public class Piece {
             String posibility3 = Character.toString(alphaAdd1) + Integer.toString(num+1);
 
             String posibility4 = Character.toString(alpha) + Integer.toString(num+2);
+
+            String posibility5_1 = Character.toString(alphaRemove1) + Integer.toString(num+1);
+            String posibility5_2 = Character.toString(alphaRemove1) + Integer.toString(num);
+
+            String posibility6_1 = Character.toString(alphaAdd1) + Integer.toString(num+1);
+            String posibility6_2 = Character.toString(alphaAdd1) + Integer.toString(num);
 
 
 
@@ -2269,6 +2337,7 @@ public class Piece {
                             }
                             if(has==false){
                                 moves.add(posibility4);
+                                moves.add("yes");
                             }
                         }
                     }
@@ -2311,6 +2380,50 @@ public class Piece {
                     moves.add(posibility3);
                 }
             }
+
+
+            if(board.contains(posibility5_1) && board.contains(posibility5_2))
+            {
+                boolean hasBlack = false;
+                for(int r=0;r<allPieces.length;++r)
+                {
+                    for(int c=0;c<allPieces[0].length;++c){
+                        if(allPieces[r][c].position.equals(posibility5_2) && allPieces[r][c].color.equals("black") && allPieces[r][c].EnPassant){
+                            hasBlack = true;
+                            break;
+                        }
+                    }
+                    if(hasBlack){
+                        break;
+                    }
+                }
+                if(hasBlack) {
+                    moves.add(posibility5_1);
+                }
+
+            }
+
+            if(board.contains(posibility6_1) && board.contains(posibility6_2))
+            {
+                boolean hasBlack = false;
+                for(int r=0;r<allPieces.length;++r)
+                {
+                    for(int c=0;c<allPieces[0].length;++c){
+                        if(allPieces[r][c].position.equals(posibility6_2) && allPieces[r][c].color.equals("black") && allPieces[r][c].EnPassant){
+                            hasBlack = true;
+                            break;
+                        }
+                    }
+                    if(hasBlack){
+                        break;
+                    }
+                }
+                if(hasBlack) {
+                    moves.add(posibility6_1);
+                }
+
+            }
+
         }
 
         return moves;
