@@ -62,11 +62,27 @@ public class Piece {
         ArrayList<String> takenBlocks = new ArrayList<>();
         ArrayList<String> takenBlocksColor = new ArrayList<>();
 
+        Piece r1b = new Piece("rook","black","null","alive");
+        Piece r2b = new Piece("rook","black","null","alive");
+        Piece r1w = new Piece("rook","white","null","alive");
+        Piece r2w = new Piece("rook","white","null","alive");
+
         for(int r=0;r<allPieces.length;++r){
             for(int c=0;c<allPieces[0].length;++c){
                 if(!allPieces[r][c].equals("null")){
                     takenBlocks.add(allPieces[r][c].position);
                     takenBlocksColor.add(allPieces[r][c].color);
+                }
+
+                //Assigning rookies to help with castling move
+                if(allPieces[r][c].onlineCodeName.equals("r1b")){
+                    r1b = allPieces[r][c];
+                }else if(allPieces[r][c].onlineCodeName.equals("r2b")){
+                    r2b = allPieces[r][c];
+                }else if(allPieces[r][c].onlineCodeName.equals("r1w")){
+                    r1w = allPieces[r][c];
+                }else if(allPieces[r][c].onlineCodeName.equals("r2w")){
+                    r2w = allPieces[r][c];
                 }
             }
         }
@@ -75,7 +91,12 @@ public class Piece {
         char alpha = (char)(position.charAt(0));
 
         char alphaRemove1 = (char)(position.charAt(0)-1);
+        char alphaRemove2 = (char)(position.charAt(0)-2);
+        char alphaRemove3 = (char)(position.charAt(0)-3);
+        char alphaRemove4 = (char)(position.charAt(0)-4);
         char alphaAdd1 = (char)(position.charAt(0)+1);
+        char alphaAdd2 = (char)(position.charAt(0)+2);
+        char alphaAdd3 = (char)(position.charAt(0)+3);
 
         int numRemove1 = num-1;
         int numAdd1 = num+1;
@@ -103,6 +124,16 @@ public class Piece {
 
         //down right
         String posibility8 = Character.toString(alphaAdd1) + Integer.toString(numRemove1);
+
+        //castling right
+        String posibility9_1 = Character.toString(alphaAdd2) + Integer.toString(num);
+        String posibility9_2R = Character.toString(alphaAdd3) + Integer.toString(num);
+
+
+        //castling left
+        String posibility10_1 = Character.toString(alphaRemove2) + Integer.toString(num);
+        String posibility10_2 = Character.toString(alphaRemove3) + Integer.toString(num);
+        String posibility10_3R = Character.toString(alphaRemove4) + Integer.toString(num);
 
 
         //up move
@@ -158,6 +189,16 @@ public class Piece {
         }else{
             if(board.contains(posibility4)){
                 moves.add(posibility4);
+
+                //castling move
+                if(color.equals("white") && firstMove && board.contains(posibility10_1) && board.contains(posibility10_2) && board.contains(posibility10_3R) && !takenBlocks.contains(posibility10_1) && !takenBlocks.contains(posibility10_2) && r1w.position.equals(posibility10_3R) && r1w.firstMove)
+                {
+                    moves.add("castlingL");
+                }else if(color.equals("black") && firstMove && board.contains(posibility10_1) && board.contains(posibility10_2) && board.contains(posibility10_3R) && !takenBlocks.contains(posibility10_1) && !takenBlocks.contains(posibility10_2) && r1b.position.equals(posibility10_3R) && r1b.firstMove)
+                {
+                    moves.add("castlingL");
+                }
+
             }
         }
 
@@ -170,8 +211,17 @@ public class Piece {
                 moves.add(posibility5);
             }
         }else{
-            if(board.contains(posibility5)){
+            if(board.contains(posibility5))
+            {
                 moves.add(posibility5);
+
+                //castling move
+                if(color.equals("white") && firstMove && !takenBlocks.contains(posibility9_1) && board.contains(posibility9_1) && board.contains(posibility9_2R) && r2w.firstMove && r2w.position.equals(posibility9_2R))
+                {
+                    moves.add("castlingR");
+                }else if(color.equals("black") && firstMove && !takenBlocks.contains(posibility9_1) && board.contains(posibility9_1) && board.contains(posibility9_2R) && r2b.firstMove && r2b.position.equals(posibility9_2R)){
+                    moves.add("castlingR");
+                }
             }
         }
 
@@ -217,6 +267,16 @@ public class Piece {
             }
         }
 
+
+        if(moves.contains("castlingR"))
+        {
+            moves.add(posibility9_1);
+        }
+
+        if(moves.contains("castlingL"))
+        {
+            moves.add(posibility10_1);
+        }
 
         return moves;
     }

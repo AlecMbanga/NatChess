@@ -2107,7 +2107,7 @@ public class Canvas extends View {
                 {
                     System.out.print(validMoves.get(i)+", ");
 
-                    if(!validMoves.get(i).equals("yes") && !validMoves.get(i).equals("EnPassant"))
+                    if(!validMoves.get(i).equals("yes") && !validMoves.get(i).equals("EnPassant") && !validMoves.get(i).equals("castlingR") && !validMoves.get(i).equals("castlingL"))
                     {
                         int[] selectedPieceIndex = getIndex(validMoves.get(i));
                         arrPaint[selectedPieceIndex[0]][selectedPieceIndex[1]].setColor(Color.rgb(128,128,0));
@@ -3482,17 +3482,46 @@ public class Canvas extends View {
                     System.out.println(" to " + selectedPiece.position);
                     System.out.println("Alec this is an onlinecode name "+selectedPiece.onlineCodeName);
                     if(selectedPiece.color.equals("black")){
+
+
                         if(selectedPiece.onlineCodeName.equals("kb")) {
                             mRoot.child("kb").child("position").setValue(p);
                             if(selectedPiece.firstMove){
                                 mRoot.child("kb").child("firstMove").setValue("false");
                             }
                         }
+
+                        if(legalMoves.contains("castlingR") || legalMoves.contains("castlingL"))
+                        {
+                            if(p.equals("G8"))
+                            {
+                                r2b.position = "F8";
+                                mRoot.child("r2b").child("position").setValue("F8");
+                            }else if(p.equals("C8"))
+                            {
+                                r1b.position = "D8";
+                                mRoot.child("r1b").child("position").setValue("D8");
+                            }
+                        }
+
                     }else{
                         if(selectedPiece.onlineCodeName.equals("kw")){
                             mRoot.child("kw").child("position").setValue(p);
                             if(selectedPiece.firstMove){
                                 mRoot.child("kw").child("firstMove").setValue("false");
+                            }
+                        }
+
+                        if(legalMoves.contains("castlingR") || legalMoves.contains("castlingL"))
+                        {
+                            if(p.equals("G1"))
+                            {
+                                r2w.position = "F1";
+                                mRoot.child("r2w").child("position").setValue("F1");
+                            }else if(p.equals("C1"))
+                            {
+                                r1w.position = "D1";
+                                mRoot.child("r1w").child("position").setValue("D1");
                             }
                         }
                     }
