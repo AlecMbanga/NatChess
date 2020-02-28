@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
@@ -1188,15 +1189,31 @@ public class Canvas extends View {
         return value;
     }
 
+    //function to rotate bitmaps images(Here I used it to rotate black pieces)
+    public Bitmap rotateBitmap(Bitmap original, float degrees) {
+        Matrix matrix = new Matrix();
+        matrix.preRotate(degrees);
+        Bitmap rotatedBitmap = Bitmap.createBitmap(original, 0, 0, original.getWidth(), original.getHeight(), matrix, true);
+        original.recycle();
+        return rotatedBitmap;
+    }
+
     private void DrawChessPiece(android.graphics.Canvas canvas) {
 
         //black chess pieces
-        Bitmap bpawn = BitmapFactory.decodeResource(getResources(), R.mipmap.pb);
-        Bitmap brook = BitmapFactory.decodeResource(getResources(), R.mipmap.rb);
-        Bitmap bnight = BitmapFactory.decodeResource(getResources(), R.mipmap.nb);
-        Bitmap bbishop = BitmapFactory.decodeResource(getResources(), R.mipmap.bb);
-        Bitmap bqueen = BitmapFactory.decodeResource(getResources(), R.mipmap.qb);
-        Bitmap bking = BitmapFactory.decodeResource(getResources(), R.mipmap.kb);
+        Bitmap bpawnNotRotated = BitmapFactory.decodeResource(getResources(), R.mipmap.pb);
+        Bitmap brookNotRotated = BitmapFactory.decodeResource(getResources(), R.mipmap.rb);
+        Bitmap bnightNotRotated = BitmapFactory.decodeResource(getResources(), R.mipmap.nb);
+        Bitmap bbishopNotRotated = BitmapFactory.decodeResource(getResources(), R.mipmap.bb);
+        Bitmap bqueenNotRotated = BitmapFactory.decodeResource(getResources(), R.mipmap.qb);
+        Bitmap bkingNotRotated = BitmapFactory.decodeResource(getResources(), R.mipmap.kb);
+
+        Bitmap bpawn = rotateBitmap(bpawnNotRotated,180);
+        Bitmap brook = rotateBitmap(brookNotRotated,180);
+        Bitmap bnight = rotateBitmap(bnightNotRotated,180);
+        Bitmap bbishop = rotateBitmap(bbishopNotRotated,180);
+        Bitmap bqueen = rotateBitmap(bqueenNotRotated,180);
+        Bitmap bking = rotateBitmap(bkingNotRotated,180);
 
         //white chess pieces
         Bitmap wpawn = BitmapFactory.decodeResource(getResources(), R.mipmap.pw);
@@ -1213,6 +1230,7 @@ public class Canvas extends View {
             if(PositionBorder != null){
                 RectF r = new RectF(PositionBorder[0],PositionBorder[1],PositionBorder[2],PositionBorder[3]);
                 canvas.drawBitmap(border,null,r,null);
+
             }
         }
 
