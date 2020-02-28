@@ -1831,7 +1831,6 @@ public class Canvas extends View {
             canvas.drawBitmap(wnight,null,p7wKnightScale,null);
         }
 
-
         float[] Positionp8wRook = post(p8wRook.position,canvas);
         if(Positionp8wRook!=null){
             p8wRookScale = new RectF(Positionp8wRook[0],Positionp8wRook[1],Positionp8wRook[2],Positionp8wRook[3]);
@@ -1839,30 +1838,26 @@ public class Canvas extends View {
         }
 
         float[] Positionp8wQueen = post(p8wQueen.position,canvas);
-        if(Positionp8wQueen!=null){
+        if(Positionp8wQueen!=null)
+        {
             p8wQueenScale = new RectF(Positionp8wQueen[0],Positionp8wQueen[1],Positionp8wQueen[2],Positionp8wQueen[3]);
             canvas.drawBitmap(wqueen,null,p8wQueenScale,null);
         }
 
         float[] Positionp8wBishop = post(p8wBishop.position,canvas);
-        if(Positionp8wBishop!=null){
+        if(Positionp8wBishop!=null)
+        {
             p8wBishopScale = new RectF(Positionp8wBishop[0],Positionp8wBishop[1],Positionp8wBishop[2],Positionp8wBishop[3]);
             canvas.drawBitmap(wbishop,null,p8wBishopScale,null);
         }
 
         float[] Positionp8wKnight = post(p8wKnight.position,canvas);
-        if(Positionp8wKnight!=null){
+        if(Positionp8wKnight!=null)
+        {
             p8wKnightScale = new RectF(Positionp8wKnight[0],Positionp8wKnight[1],Positionp8wKnight[2],Positionp8wKnight[3]);
             canvas.drawBitmap(wnight,null,p8wKnightScale,null);
         }
-
-        /////
-
-
-
     }
-
-
 
     private void DrawChessBoard(android.graphics.Canvas canvas){
         arrRect = new RectF[8][8];
@@ -1956,8 +1951,6 @@ public class Canvas extends View {
         }
 
     }
-
-
 
     public void paintMove(int pr, int pc, String p,int rs, int cs, boolean cont){
         //extracting info of clicked piece
@@ -2074,7 +2067,6 @@ public class Canvas extends View {
         allPieces[10][7] = p8wBishop;
 
 
-
         //checking which piece is clicked on
         for(int r = 0;r<allPieces.length;++r)
         {
@@ -2172,7 +2164,6 @@ public class Canvas extends View {
         }
         else if(selected == true)
         {
-
             for (int i=0;i<validMoves.size();++i) {
                 int[] selectedPieceIndex = getIndex(validMoves.get(i));
                 if (color[selectedPieceIndex[0]][selectedPieceIndex[1]] == 0) {
@@ -2263,6 +2254,19 @@ public class Canvas extends View {
                         }
                         allPieces[rs][cs].position = "null";
                     }
+
+                    //update last moved piece info
+                    mRoot.child("LastMovedPiece").child("position").setValue(p);
+                    LastMovedPiece.position = p;
+                    mRoot.child("LastMovedPiece").child("color").setValue(selectedPiece.color);
+                    LastMovedPiece.color = selectedPiece.color;
+                    mRoot.child("LastMovedPiece").child("onlineCodeName").setValue(selectedPiece.onlineCodeName);
+                    LastMovedPiece.onlineCodeName = selectedPiece.onlineCodeName;
+                    mRoot.child("LastMovedPiece").child("name").setValue(selectedPiece.name);
+                    LastMovedPiece.name = selectedPiece.name;
+                    mRoot.child("LastMovedPiece").child("prevPosition").setValue(selectedPiece.position);
+                    LastMovedPiece.prevPosition = selectedPiece.position;
+
                     moveToR = pr;
                     moveToC = pc;
                     selected = false;
@@ -2323,7 +2327,8 @@ public class Canvas extends View {
                                 mRoot.child("p8bKnight").child("firstMove").setValue("false");
                             }
                         }
-                    }else{
+                    }
+                    else{
                         if(selectedPiece.onlineCodeName.equals("k1w")){
                             mRoot.child("k1w").child("position").setValue(p);
                             if(selectedPiece.firstMove){
@@ -2389,6 +2394,8 @@ public class Canvas extends View {
                     for(int hh=0;hh<legalMoves.size();++hh){
                         System.out.println("Alec possible is "+ legalMoves.get(hh));
                     }
+
+                    //if the box selected to move to contains a another piece
                     if(cont)
                     {
                         if(allPieces[rs][cs].color.equals("black"))
@@ -2640,15 +2647,6 @@ public class Canvas extends View {
 
                     System.out.println("Alec this is an onlinecode name "+selectedPiece.onlineCodeName);
 
-
-
-                    /*
-
-
-                    good place to check for en passant move, check if a new move and check if it moved 2 step ahead then make enpassant boolean true and set prev move
-
-
-                     */
                     if(selectedPiece.color.equals("black"))
                     {
                         if(selectedPiece.onlineCodeName.equals("p1b")){
@@ -2887,6 +2885,19 @@ public class Canvas extends View {
                         }
                         allPieces[rs][cs].position = "null";
                     }
+
+                    //update last moved piece info
+                    mRoot.child("LastMovedPiece").child("position").setValue(p);
+                    LastMovedPiece.position = p;
+                    mRoot.child("LastMovedPiece").child("color").setValue(selectedPiece.color);
+                    LastMovedPiece.color = selectedPiece.color;
+                    mRoot.child("LastMovedPiece").child("onlineCodeName").setValue(selectedPiece.onlineCodeName);
+                    LastMovedPiece.onlineCodeName = selectedPiece.onlineCodeName;
+                    mRoot.child("LastMovedPiece").child("name").setValue(selectedPiece.name);
+                    LastMovedPiece.name = selectedPiece.name;
+                    mRoot.child("LastMovedPiece").child("prevPosition").setValue(selectedPiece.position);
+                    LastMovedPiece.prevPosition = selectedPiece.position;
+
                     moveToR = pr;
                     moveToC = pc;
                     selected = false;
@@ -3109,6 +3120,19 @@ public class Canvas extends View {
                         }
                         allPieces[rs][cs].position = "null";
                     }
+
+                    //update last moved piece info
+                    mRoot.child("LastMovedPiece").child("position").setValue(p);
+                    LastMovedPiece.position = p;
+                    mRoot.child("LastMovedPiece").child("color").setValue(selectedPiece.color);
+                    LastMovedPiece.color = selectedPiece.color;
+                    mRoot.child("LastMovedPiece").child("onlineCodeName").setValue(selectedPiece.onlineCodeName);
+                    LastMovedPiece.onlineCodeName = selectedPiece.onlineCodeName;
+                    mRoot.child("LastMovedPiece").child("name").setValue(selectedPiece.name);
+                    LastMovedPiece.name = selectedPiece.name;
+                    mRoot.child("LastMovedPiece").child("prevPosition").setValue(selectedPiece.position);
+                    LastMovedPiece.prevPosition = selectedPiece.position;
+
                     moveToR = pr;
                     moveToC = pc;
                     selected = false;
@@ -3305,6 +3329,19 @@ public class Canvas extends View {
                         }
                         allPieces[rs][cs].position = "null";
                     }
+
+                    //update last moved piece info
+                    mRoot.child("LastMovedPiece").child("position").setValue(p);
+                    LastMovedPiece.position = p;
+                    mRoot.child("LastMovedPiece").child("color").setValue(selectedPiece.color);
+                    LastMovedPiece.color = selectedPiece.color;
+                    mRoot.child("LastMovedPiece").child("onlineCodeName").setValue(selectedPiece.onlineCodeName);
+                    LastMovedPiece.onlineCodeName = selectedPiece.onlineCodeName;
+                    mRoot.child("LastMovedPiece").child("name").setValue(selectedPiece.name);
+                    LastMovedPiece.name = selectedPiece.name;
+                    mRoot.child("LastMovedPiece").child("prevPosition").setValue(selectedPiece.position);
+                    LastMovedPiece.prevPosition = selectedPiece.position;
+
                     moveToR = pr;
                     moveToC = pc;
                     selected = false;
@@ -3491,6 +3528,19 @@ public class Canvas extends View {
                         }
                         allPieces[rs][cs].position = "null";
                     }
+
+                    //update last moved piece info
+                    mRoot.child("LastMovedPiece").child("position").setValue(p);
+                    LastMovedPiece.position = p;
+                    mRoot.child("LastMovedPiece").child("color").setValue(selectedPiece.color);
+                    LastMovedPiece.color = selectedPiece.color;
+                    mRoot.child("LastMovedPiece").child("onlineCodeName").setValue(selectedPiece.onlineCodeName);
+                    LastMovedPiece.onlineCodeName = selectedPiece.onlineCodeName;
+                    mRoot.child("LastMovedPiece").child("name").setValue(selectedPiece.name);
+                    LastMovedPiece.name = selectedPiece.name;
+                    mRoot.child("LastMovedPiece").child("prevPosition").setValue(selectedPiece.position);
+                    LastMovedPiece.prevPosition = selectedPiece.position;
+
                     moveToR = pr;
                     moveToC = pc;
                     selected = false;
@@ -3546,68 +3596,7 @@ public class Canvas extends View {
                     invalidate();
                 }
             }
-//                else {
-//                    if(cont){
-//                        allPieces[rs][cs].position = "null";
-//                    }
-//                    moveToR = pr;
-//                    moveToC = pc;
-//                    selected = false;
-//                    System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
-//                    selectedPiece.position = p;
-//                    arrPaint[pr][pc].setColor(Color.GRAY);
-//                    System.out.println(" to " + selectedPiece.position);
-//                    invalidate();
-//                }
-
-
-
-
         }
-
-//        else {
-//            if(selected==true){
-//
-//                if(selectedPiece.name.equals("Knight")){
-//                    legalMoves = selectedPiece.CalculateLegalMoves();
-//                    if(legalMoves.contains(p)){
-//                        moveToR = pr;
-//                        moveToC = pc;
-//                        selected = false;
-//                        System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
-//                        selectedPiece.position = p;
-//                        arrPaint[pr][pc].setColor(Color.GRAY);
-//                        System.out.println(" to " + selectedPiece.position);
-//                        invalidate();
-//                    }
-//
-//                }else if(selectedPiece.name.equals("pawn")){
-//                    legalMoves = selectedPiece.CalculateLegalMoves();
-//                    System.out.println(legalMoves.size());
-//                    if(legalMoves.contains(p)){
-//                        moveToR = pr;
-//                        moveToC = pc;
-//                        selected = false;
-//                        System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
-//                        selectedPiece.position = p;
-//                        arrPaint[pr][pc].setColor(Color.GRAY);
-//                        System.out.println(" to " + selectedPiece.position);
-//                        invalidate();
-//                    }
-//                }
-//                else {
-//                    moveToR = pr;
-//                    moveToC = pc;
-//                    selected = false;
-//                    System.out.print("Alec this is a move of " + selectedPiece.color + " " + selectedPiece.name + " from " + selectedPiece.position);
-//                    selectedPiece.position = p;
-//                    arrPaint[pr][pc].setColor(Color.GRAY);
-//                    System.out.println(" to " + selectedPiece.position);
-//                    invalidate();
-//                }
-//            }
-//        }
-
     }
 
 
