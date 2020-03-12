@@ -36,6 +36,21 @@ public class Chess extends AppCompatActivity {
         mRoot = new Firebase("https://natchess-d50b2.firebaseio.com/Test/");
 
 
+        Firebase Turn = mRoot.child("Turn");
+        Turn.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("Turn")) {
+                    canvas.Turn = dataSnapshot.getValue(String.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
         Firebase LastMovedPiece = mRoot.child("LastMovedPiece");
         final Firebase LastMovedPiecePosition = LastMovedPiece.child("position");
         LastMovedPiecePosition.addValueEventListener(new ValueEventListener() {
