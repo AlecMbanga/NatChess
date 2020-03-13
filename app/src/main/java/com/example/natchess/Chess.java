@@ -58,8 +58,10 @@ public class Chess extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 if(dataSnapshot.getKey().equals("position")) {
-                    canvas.LastMovedPiece.position =dataSnapshot.getValue(String.class);
-                    canvas.invalidate();
+//                    canvas.LastMovedPiece.position =dataSnapshot.getValue(String.class);
+                    if(!dataSnapshot.getValue(String.class).equals("null")) {
+                        canvas.colorBoxMovedTo(dataSnapshot.getValue(String.class));
+                    }
                 }
             }
 
@@ -127,8 +129,10 @@ public class Chess extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 if(dataSnapshot.getKey().equals("prevPosition")) {
-                    canvas.LastMovedPiece.prevPosition =dataSnapshot.getValue(String.class);
-                    canvas.invalidate();
+//                    canvas.LastMovedPiece.prevPosition =dataSnapshot.getValue(String.class);
+                    if(!dataSnapshot.getValue(String.class).equals("null")) {
+                        canvas.colorBoxMovedFrom(dataSnapshot.getValue(String.class));
+                    }
                 }
             }
 

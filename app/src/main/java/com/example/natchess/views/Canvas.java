@@ -1956,6 +1956,38 @@ public class Canvas extends View {
 
     }
 
+    // grey color previous move using last move piece retrieved on online database
+    public void colorBoxMovedFrom(String box){
+
+        int lastMove[] = getIndex(LastMovedPiece.prevPosition);
+        if (color[lastMove[0]][lastMove[1]] == 0) {
+            arrPaint[lastMove[0]][lastMove[1]].setColor(Color.rgb(236, 217, 121));
+        } else {
+            arrPaint[lastMove[0]][lastMove[1]].setColor(Color.rgb(215, 162, 109));
+        }
+        LastMovedPiece.prevPosition = box;
+
+        int Box[] = getIndex(box);
+        arrPaint[Box[0]][Box[1]].setColor(Color.GRAY);
+        invalidate();
+    }
+
+    public void colorBoxMovedTo(String box){
+
+        int lastMove[] = getIndex(LastMovedPiece.position);
+        if (color[lastMove[0]][lastMove[1]] == 0) {
+            arrPaint[lastMove[0]][lastMove[1]].setColor(Color.rgb(236, 217, 121));
+        } else {
+            arrPaint[lastMove[0]][lastMove[1]].setColor(Color.rgb(215, 162, 109));
+        }
+        LastMovedPiece.position = box;
+
+
+        int Box[] = getIndex(box);
+        arrPaint[Box[0]][Box[1]].setColor(Color.GRAY);
+        invalidate();
+    }
+
     public void paintMove(int pr, int pc, String p,int rs, int cs, boolean cont){
         //extracting info of clicked piece
 
