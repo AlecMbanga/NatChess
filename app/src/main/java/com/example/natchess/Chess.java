@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 import com.example.natchess.views.Canvas;
@@ -51,6 +52,42 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase whiteChecked = mRoot.child("whiteChecked");
+        whiteChecked.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("whiteChecked")) {
+                    canvas.whiteChecked = dataSnapshot.getValue(String.class);
+                    if(dataSnapshot.getValue(String.class).equals("true")){
+                        Toast.makeText(getApplicationContext(),"CHECK",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+        Firebase blackChecked = mRoot.child("blackChecked");
+        blackChecked.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getKey().equals("blackChecked")) {
+                    canvas.blackChecked = dataSnapshot.getValue(String.class);
+                    if(dataSnapshot.getValue(String.class).equals("true")){
+                        Toast.makeText(getApplicationContext(),"CHECK",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
         Firebase LastMovedPiece = mRoot.child("LastMovedPiece");
         final Firebase LastMovedPiecePosition = LastMovedPiece.child("position");
         LastMovedPiecePosition.addValueEventListener(new ValueEventListener() {
@@ -60,7 +97,36 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
 //                    canvas.LastMovedPiece.position =dataSnapshot.getValue(String.class);
                     if(!dataSnapshot.getValue(String.class).equals("null")) {
-                        canvas.colorBoxMovedTo(dataSnapshot.getValue(String.class));
+                        if (canvas.LastMovedPiece.position.equals("null")) {
+                            canvas.LastMovedPiece.position = dataSnapshot.getValue(String.class);
+                            canvas.colorBoxMovedTo(dataSnapshot.getValue(String.class));
+                        }else{
+                            canvas.colorBoxMovedTo(dataSnapshot.getValue(String.class));
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+        final Firebase LastMovedPiecePrevPosition = LastMovedPiece.child("prevPosition");
+        LastMovedPiecePrevPosition.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getKey().equals("prevPosition")) {
+//                    canvas.LastMovedPiece.prevPosition =dataSnapshot.getValue(String.class);
+                    if(!dataSnapshot.getValue(String.class).equals("null")) {
+                        if (canvas.LastMovedPiece.prevPosition.equals("null")) {
+                            canvas.LastMovedPiece.prevPosition = dataSnapshot.getValue(String.class);
+                            canvas.colorBoxMovedFrom(dataSnapshot.getValue(String.class));
+                        }else{
+                            canvas.colorBoxMovedFrom(dataSnapshot.getValue(String.class));
+                        }
                     }
                 }
             }
@@ -122,28 +188,6 @@ public class Chess extends AppCompatActivity {
 
             }
         });
-
-        final Firebase LastMovedPiecePrevPosition = LastMovedPiece.child("prevPosition");
-        LastMovedPiecePrevPosition.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if(dataSnapshot.getKey().equals("prevPosition")) {
-//                    canvas.LastMovedPiece.prevPosition =dataSnapshot.getValue(String.class);
-                    if(!dataSnapshot.getValue(String.class).equals("null")) {
-                        canvas.colorBoxMovedFrom(dataSnapshot.getValue(String.class));
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
-
-
-
 
         Firebase p1bb = mRoot.child("p1b");
         final Firebase p1b = p1bb.child("position");
