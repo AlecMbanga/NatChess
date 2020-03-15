@@ -8,8 +8,10 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 
 import androidx.annotation.Nullable;
@@ -232,6 +234,8 @@ public class Canvas extends View {
     private Paint paintPositionText;
     private Paint paintPositionTextDown;
 
+    public String whiteChecked;
+    public String blackChecked;
 
     private boolean selected;
     private Piece selectedPiece;
@@ -289,6 +293,8 @@ public class Canvas extends View {
         LastMovedPiece.onlineCodeName = "null";
         LastMovedPiece.prevPosition = "null";
 
+        whiteChecked = "";
+        blackChecked = "";
 
         //black
         r1b = new Piece("rook","black","null","alive");
@@ -864,6 +870,10 @@ public class Canvas extends View {
             kw.EnPassant = false;
             qw.EnPassant = false;
 
+            mRoot.child("whiteChecked").setValue("false");
+            whiteChecked = "";
+            mRoot.child("blackChecked").setValue("false");
+            blackChecked = "";
 
             mRoot.child("LastMovedPiece").child("position").setValue("null");
             LastMovedPiece.position = "null";
@@ -2128,24 +2138,49 @@ public class Canvas extends View {
             {
                     if(allPieces[rs][cs].color.equals(Turn))
                     {
-                        if (moveToR != -1 && moveToC != -1 && moveFromC != -1 && moveFromR != -1) {
-                            if (color[moveFromR][moveFromC] == 0) {
-                                arrPaint[moveFromR][moveFromC].setColor(Color.rgb(236, 217, 121));
-                            } else {
-                                arrPaint[moveFromR][moveFromC].setColor(Color.rgb(215, 162, 109));
-                            }
-
-                            if (color[moveToR][moveToC] == 0) {
-                                arrPaint[moveToR][moveToC].setColor(Color.rgb(236, 217, 121));
-                            } else {
-                                arrPaint[moveToR][moveToC].setColor(Color.rgb(215, 162, 109));
-                            }
-                            moveFromR = -1;
-                            moveFromC = -1;
-                            moveToR = -1;
-                            moveToC = -1;
-                            System.out.println("Alec clear grey color of previous move");
+                        //clear last moved
+                        int lastMovePos[] = getIndex(LastMovedPiece.position);
+                        if (color[lastMovePos[0]][lastMovePos[1]] == 0) {
+                            arrPaint[lastMovePos[0]][lastMovePos[1]].setColor(Color.rgb(236, 217, 121));
+                        } else {
+                            arrPaint[lastMovePos[0]][lastMovePos[1]].setColor(Color.rgb(215, 162, 109));
                         }
+                        if (color[lastMovePos[0]][lastMovePos[1]] == 0) {
+                            arrPaint[lastMovePos[0]][lastMovePos[1]].setColor(Color.rgb(236, 217, 121));
+                        } else {
+                            arrPaint[lastMovePos[0]][lastMovePos[1]].setColor(Color.rgb(215, 162, 109));
+                        }
+
+                        int lastMovePrevPos[] = getIndex(LastMovedPiece.prevPosition);
+                        if (color[lastMovePrevPos[0]][lastMovePrevPos[1]] == 0) {
+                            arrPaint[lastMovePrevPos[0]][lastMovePrevPos[1]].setColor(Color.rgb(236, 217, 121));
+                        } else {
+                            arrPaint[lastMovePrevPos[0]][lastMovePrevPos[1]].setColor(Color.rgb(215, 162, 109));
+                        }
+                        if (color[lastMovePrevPos[0]][lastMovePrevPos[1]] == 0) {
+                            arrPaint[lastMovePrevPos[0]][lastMovePrevPos[1]].setColor(Color.rgb(236, 217, 121));
+                        } else {
+                            arrPaint[lastMovePrevPos[0]][lastMovePrevPos[1]].setColor(Color.rgb(215, 162, 109));
+                        }
+
+//                        if (moveToR != -1 && moveToC != -1 && moveFromC != -1 && moveFromR != -1) {
+//                            if (color[moveFromR][moveFromC] == 0) {
+//                                arrPaint[moveFromR][moveFromC].setColor(Color.rgb(236, 217, 121));
+//                            } else {
+//                                arrPaint[moveFromR][moveFromC].setColor(Color.rgb(215, 162, 109));
+//                            }
+//
+//                            if (color[moveToR][moveToC] == 0) {
+//                                arrPaint[moveToR][moveToC].setColor(Color.rgb(236, 217, 121));
+//                            } else {
+//                                arrPaint[moveToR][moveToC].setColor(Color.rgb(215, 162, 109));
+//                            }
+//                            moveFromR = -1;
+//                            moveFromC = -1;
+//                            moveToR = -1;
+//                            moveToC = -1;
+//                            System.out.println("Alec clear grey color of previous move");
+//                        }
                         selected = true;
                         selectedPiece = allPieces[rs][cs];
                         validMoves = selectedPiece.CalculateLegalMoves(allPieces);
@@ -2293,7 +2328,7 @@ public class Canvas extends View {
 
                     //update last moved piece info
                     mRoot.child("LastMovedPiece").child("position").setValue(p);
-                    LastMovedPiece.position = p;
+//                    LastMovedPiece.position = p;
                     mRoot.child("LastMovedPiece").child("color").setValue(selectedPiece.color);
                     LastMovedPiece.color = selectedPiece.color;
                     mRoot.child("LastMovedPiece").child("onlineCodeName").setValue(selectedPiece.onlineCodeName);
@@ -2301,7 +2336,7 @@ public class Canvas extends View {
                     mRoot.child("LastMovedPiece").child("name").setValue(selectedPiece.name);
                     LastMovedPiece.name = selectedPiece.name;
                     mRoot.child("LastMovedPiece").child("prevPosition").setValue(selectedPiece.position);
-                    LastMovedPiece.prevPosition = selectedPiece.position;
+//                    LastMovedPiece.prevPosition = selectedPiece.position;
 
                     moveToR = pr;
                     moveToC = pc;
@@ -2419,6 +2454,39 @@ public class Canvas extends View {
                             if(selectedPiece.firstMove){
                                 mRoot.child("p8wKnight").child("firstMove").setValue("false");
                             }
+                        }
+                    }
+
+                    ArrayList<String> allLegalMoves = new ArrayList<>();
+
+                    if(selectedPiece.color.equals("white")){
+                        for(int rrow = 0;rrow<allPieces.length;++rrow){
+                            if(rrow !=0 || rrow != 1 || rrow !=11 || rrow !=4 || rrow !=5 || rrow !=6) {
+                                for (int ccol = 0; ccol < allPieces[0].length; ++ccol) {
+                                    if(!allPieces[rrow][ccol].position.equals("null")) {
+                                        ArrayList<String> ll = allPieces[rrow][ccol].CalculateLegalMoves(allPieces);
+                                        allLegalMoves.addAll(ll);
+                                    }
+                                }
+                            }
+                        }
+                        if(allLegalMoves.contains(allPieces[0][4].position)){
+                            mRoot.child("blackChecked").setValue("true");
+                        }
+
+                    }else{
+                        for(int rrow = 0;rrow<allPieces.length;++rrow){
+                            if(rrow !=3 || rrow != 2 || rrow !=7 || rrow !=8 || rrow !=9 || rrow !=10) {
+                                for (int ccol = 0; ccol < allPieces[0].length; ++ccol) {
+                                    if(!allPieces[rrow][ccol].position.equals("null")) {
+                                        ArrayList<String> ll = allPieces[rrow][ccol].CalculateLegalMoves(allPieces);
+                                        allLegalMoves.addAll(ll);
+                                    }
+                                }
+                            }
+                        }
+                        if(allLegalMoves.contains(allPieces[3][4].position)){
+                            mRoot.child("whiteChecked").setValue("true");
                         }
                     }
                     invalidate();
@@ -2653,7 +2721,7 @@ public class Canvas extends View {
                     }
 
                     mRoot.child("LastMovedPiece").child("position").setValue(p);
-                    LastMovedPiece.position = p;
+//                    LastMovedPiece.position = p;
                     mRoot.child("LastMovedPiece").child("color").setValue(selectedPiece.color);
                     LastMovedPiece.color = selectedPiece.color;
                     mRoot.child("LastMovedPiece").child("onlineCodeName").setValue(selectedPiece.onlineCodeName);
@@ -2661,7 +2729,7 @@ public class Canvas extends View {
                     mRoot.child("LastMovedPiece").child("name").setValue(selectedPiece.name);
                     LastMovedPiece.name = selectedPiece.name;
                     mRoot.child("LastMovedPiece").child("prevPosition").setValue(selectedPiece.position);
-                    LastMovedPiece.prevPosition = selectedPiece.position;
+//                    LastMovedPiece.prevPosition = selectedPiece.position;
 
                     if(selectedPiece.firstMove)
                     {
@@ -2844,6 +2912,38 @@ public class Canvas extends View {
                         mRoot.child("p8b").child("EnPassant").setValue("false");
 
                     }
+                    ArrayList<String> allLegalMoves = new ArrayList<>();
+
+                    if(selectedPiece.color.equals("white")){
+                        for(int rrow = 0;rrow<allPieces.length;++rrow){
+                            if(rrow !=0 || rrow != 1 || rrow !=11 || rrow !=4 || rrow !=5 || rrow !=6) {
+                                for (int ccol = 0; ccol < allPieces[0].length; ++ccol) {
+                                    if(!allPieces[rrow][ccol].position.equals("null")) {
+                                        ArrayList<String> ll = allPieces[rrow][ccol].CalculateLegalMoves(allPieces);
+                                        allLegalMoves.addAll(ll);
+                                    }
+                                }
+                            }
+                        }
+                        if(allLegalMoves.contains(allPieces[0][4].position)){
+                            mRoot.child("blackChecked").setValue("true");
+                        }
+
+                    }else{
+                        for(int rrow = 0;rrow<allPieces.length;++rrow){
+                            if(rrow !=3 || rrow != 2 || rrow !=7 || rrow !=8 || rrow !=9 || rrow !=10) {
+                                for (int ccol = 0; ccol < allPieces[0].length; ++ccol) {
+                                    if(!allPieces[rrow][ccol].position.equals("null")) {
+                                        ArrayList<String> ll = allPieces[rrow][ccol].CalculateLegalMoves(allPieces);
+                                        allLegalMoves.addAll(ll);
+                                    }
+                                }
+                            }
+                        }
+                        if(allLegalMoves.contains(allPieces[3][4].position)){
+                            mRoot.child("whiteChecked").setValue("true");
+                        }
+                    }
                     invalidate();
                 }
             }
@@ -2930,7 +3030,7 @@ public class Canvas extends View {
 
                     //update last moved piece info
                     mRoot.child("LastMovedPiece").child("position").setValue(p);
-                    LastMovedPiece.position = p;
+//                    LastMovedPiece.position = p;
                     mRoot.child("LastMovedPiece").child("color").setValue(selectedPiece.color);
                     LastMovedPiece.color = selectedPiece.color;
                     mRoot.child("LastMovedPiece").child("onlineCodeName").setValue(selectedPiece.onlineCodeName);
@@ -2938,7 +3038,7 @@ public class Canvas extends View {
                     mRoot.child("LastMovedPiece").child("name").setValue(selectedPiece.name);
                     LastMovedPiece.name = selectedPiece.name;
                     mRoot.child("LastMovedPiece").child("prevPosition").setValue(selectedPiece.position);
-                    LastMovedPiece.prevPosition = selectedPiece.position;
+//                    LastMovedPiece.prevPosition = selectedPiece.position;
 
                     moveToR = pr;
                     moveToC = pc;
@@ -3082,6 +3182,38 @@ public class Canvas extends View {
                             }
                         }
                     }
+                    ArrayList<String> allLegalMoves = new ArrayList<>();
+
+                    if(selectedPiece.color.equals("white")){
+                        for(int rrow = 0;rrow<allPieces.length;++rrow){
+                            if(rrow !=0 || rrow != 1 || rrow !=11 || rrow !=4 || rrow !=5 || rrow !=6) {
+                                for (int ccol = 0; ccol < allPieces[0].length; ++ccol) {
+                                    if(!allPieces[rrow][ccol].position.equals("null")) {
+                                        ArrayList<String> ll = allPieces[rrow][ccol].CalculateLegalMoves(allPieces);
+                                        allLegalMoves.addAll(ll);
+                                    }
+                                }
+                            }
+                        }
+                        if(allLegalMoves.contains(allPieces[0][4].position)){
+                            mRoot.child("blackChecked").setValue("true");
+                        }
+
+                    }else{
+                        for(int rrow = 0;rrow<allPieces.length;++rrow){
+                            if(rrow !=3 || rrow != 2 || rrow !=7 || rrow !=8 || rrow !=9 || rrow !=10) {
+                                for (int ccol = 0; ccol < allPieces[0].length; ++ccol) {
+                                    if(!allPieces[rrow][ccol].position.equals("null")) {
+                                        ArrayList<String> ll = allPieces[rrow][ccol].CalculateLegalMoves(allPieces);
+                                        allLegalMoves.addAll(ll);
+                                    }
+                                }
+                            }
+                        }
+                        if(allLegalMoves.contains(allPieces[3][4].position)){
+                            mRoot.child("whiteChecked").setValue("true");
+                        }
+                    }
                     invalidate();
                 }
             }
@@ -3168,7 +3300,7 @@ public class Canvas extends View {
 
                     //update last moved piece info
                     mRoot.child("LastMovedPiece").child("position").setValue(p);
-                    LastMovedPiece.position = p;
+//                    LastMovedPiece.position = p;
                     mRoot.child("LastMovedPiece").child("color").setValue(selectedPiece.color);
                     LastMovedPiece.color = selectedPiece.color;
                     mRoot.child("LastMovedPiece").child("onlineCodeName").setValue(selectedPiece.onlineCodeName);
@@ -3176,7 +3308,7 @@ public class Canvas extends View {
                     mRoot.child("LastMovedPiece").child("name").setValue(selectedPiece.name);
                     LastMovedPiece.name = selectedPiece.name;
                     mRoot.child("LastMovedPiece").child("prevPosition").setValue(selectedPiece.position);
-                    LastMovedPiece.prevPosition = selectedPiece.position;
+//                    LastMovedPiece.prevPosition = selectedPiece.position;
 
                     moveToR = pr;
                     moveToC = pc;
@@ -3294,6 +3426,39 @@ public class Canvas extends View {
                             }
                         }
                     }
+                    ArrayList<String> allLegalMoves = new ArrayList<>();
+
+                    if(selectedPiece.color.equals("white")){
+                        for(int rrow = 0;rrow<allPieces.length;++rrow){
+                            if(rrow !=0 || rrow != 1 || rrow !=11 || rrow !=4 || rrow !=5 || rrow !=6) {
+                                for (int ccol = 0; ccol < allPieces[0].length; ++ccol) {
+                                    if(!allPieces[rrow][ccol].position.equals("null")) {
+                                        ArrayList<String> ll = allPieces[rrow][ccol].CalculateLegalMoves(allPieces);
+                                        allLegalMoves.addAll(ll);
+                                    }
+                                }
+                            }
+                        }
+                        if(allLegalMoves.contains(allPieces[0][4].position)){
+                            mRoot.child("blackChecked").setValue("true");
+                        }
+
+                    }else{
+                        for(int rrow = 0;rrow<allPieces.length;++rrow){
+                            if(rrow !=3 || rrow != 2 || rrow !=7 || rrow !=8 || rrow !=9 || rrow !=10) {
+                                for (int ccol = 0; ccol < allPieces[0].length; ++ccol) {
+                                    if(!allPieces[rrow][ccol].position.equals("null")) {
+                                        ArrayList<String> ll = allPieces[rrow][ccol].CalculateLegalMoves(allPieces);
+                                        allLegalMoves.addAll(ll);
+                                    }
+                                }
+                            }
+                        }
+                        if(allLegalMoves.contains(allPieces[3][4].position)){
+                            mRoot.child("whiteChecked").setValue("true");
+                        }
+                    }
+
                     invalidate();
                 }
             }
@@ -3380,7 +3545,7 @@ public class Canvas extends View {
 
                     //update last moved piece info
                     mRoot.child("LastMovedPiece").child("position").setValue(p);
-                    LastMovedPiece.position = p;
+//                    LastMovedPiece.position = p;
                     mRoot.child("LastMovedPiece").child("color").setValue(selectedPiece.color);
                     LastMovedPiece.color = selectedPiece.color;
                     mRoot.child("LastMovedPiece").child("onlineCodeName").setValue(selectedPiece.onlineCodeName);
@@ -3388,7 +3553,7 @@ public class Canvas extends View {
                     mRoot.child("LastMovedPiece").child("name").setValue(selectedPiece.name);
                     LastMovedPiece.name = selectedPiece.name;
                     mRoot.child("LastMovedPiece").child("prevPosition").setValue(selectedPiece.position);
-                    LastMovedPiece.prevPosition = selectedPiece.position;
+//                    LastMovedPiece.prevPosition = selectedPiece.position;
 
                     moveToR = pr;
                     moveToC = pc;
@@ -3496,6 +3661,39 @@ public class Canvas extends View {
                             }
                         }
                     }
+                    ArrayList<String> allLegalMoves = new ArrayList<>();
+
+                    if(selectedPiece.color.equals("white")){
+                        for(int rrow = 0;rrow<allPieces.length;++rrow){
+                            if(rrow !=0 || rrow != 1 || rrow !=11 || rrow !=4 || rrow !=5 || rrow !=6) {
+                                for (int ccol = 0; ccol < allPieces[0].length; ++ccol) {
+                                    if(!allPieces[rrow][ccol].position.equals("null")) {
+                                        ArrayList<String> ll = allPieces[rrow][ccol].CalculateLegalMoves(allPieces);
+                                        allLegalMoves.addAll(ll);
+                                    }
+                                }
+                            }
+                        }
+                        if(allLegalMoves.contains(allPieces[0][4].position)){
+                            mRoot.child("blackChecked").setValue("true");
+                        }
+
+                    }else{
+                        for(int rrow = 0;rrow<allPieces.length;++rrow){
+                            if(rrow !=3 || rrow != 2 || rrow !=7 || rrow !=8 || rrow !=9 || rrow !=10) {
+                                for (int ccol = 0; ccol < allPieces[0].length; ++ccol) {
+                                    if(!allPieces[rrow][ccol].position.equals("null")) {
+                                        ArrayList<String> ll = allPieces[rrow][ccol].CalculateLegalMoves(allPieces);
+                                        allLegalMoves.addAll(ll);
+                                    }
+                                }
+                            }
+                        }
+                        if(allLegalMoves.contains(allPieces[3][4].position)){
+                            mRoot.child("whiteChecked").setValue("true");
+                        }
+                    }
+
                     invalidate();
                 }
             }
@@ -3582,7 +3780,7 @@ public class Canvas extends View {
 
                     //update last moved piece info
                     mRoot.child("LastMovedPiece").child("position").setValue(p);
-                    LastMovedPiece.position = p;
+//                    LastMovedPiece.position = p;
                     mRoot.child("LastMovedPiece").child("color").setValue(selectedPiece.color);
                     LastMovedPiece.color = selectedPiece.color;
                     mRoot.child("LastMovedPiece").child("onlineCodeName").setValue(selectedPiece.onlineCodeName);
@@ -3590,7 +3788,7 @@ public class Canvas extends View {
                     mRoot.child("LastMovedPiece").child("name").setValue(selectedPiece.name);
                     LastMovedPiece.name = selectedPiece.name;
                     mRoot.child("LastMovedPiece").child("prevPosition").setValue(selectedPiece.position);
-                    LastMovedPiece.prevPosition = selectedPiece.position;
+//                    LastMovedPiece.prevPosition = selectedPiece.position;
 
                     moveToR = pr;
                     moveToC = pc;
@@ -3646,6 +3844,39 @@ public class Canvas extends View {
                             }
                         }
                     }
+                    ArrayList<String> allLegalMoves = new ArrayList<>();
+
+                    if(selectedPiece.color.equals("white")){
+                        for(int rrow = 0;rrow<allPieces.length;++rrow){
+                            if(rrow !=0 || rrow != 1 || rrow !=11 || rrow !=4 || rrow !=5 || rrow !=6) {
+                                for (int ccol = 0; ccol < allPieces[0].length; ++ccol) {
+                                    if(!allPieces[rrow][ccol].position.equals("null")) {
+                                        ArrayList<String> ll = allPieces[rrow][ccol].CalculateLegalMoves(allPieces);
+                                        allLegalMoves.addAll(ll);
+                                    }
+                                }
+                            }
+                        }
+                        if(allLegalMoves.contains(allPieces[0][4].position)){
+                            mRoot.child("blackChecked").setValue("true");
+                        }
+
+                    }else{
+                        for(int rrow = 0;rrow<allPieces.length;++rrow){
+                            if(rrow !=3 || rrow != 2 || rrow !=7 || rrow !=8 || rrow !=9 || rrow !=10) {
+                                for (int ccol = 0; ccol < allPieces[0].length; ++ccol) {
+                                    if(!allPieces[rrow][ccol].position.equals("null")) {
+                                        ArrayList<String> ll = allPieces[rrow][ccol].CalculateLegalMoves(allPieces);
+                                        allLegalMoves.addAll(ll);
+                                    }
+                                }
+                            }
+                        }
+                        if(allLegalMoves.contains(allPieces[3][4].position)){
+                            mRoot.child("whiteChecked").setValue("true");
+                        }
+                    }
+
                     invalidate();
                 }
             }
