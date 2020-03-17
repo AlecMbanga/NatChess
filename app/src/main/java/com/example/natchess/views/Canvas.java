@@ -19,6 +19,8 @@ import androidx.annotation.Nullable;
 import com.example.natchess.Piece;
 import com.example.natchess.R;
 import com.firebase.client.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -227,6 +229,8 @@ public class Canvas extends View {
     private RectF p8wBishopScale;
     private RectF p8wKnightScale;
 
+    private FirebaseUser mCurentUser;
+    private FirebaseAuth mAuth;
 
     public String Turn;
 
@@ -286,6 +290,15 @@ public class Canvas extends View {
 //    }
 
     private void init(@Nullable AttributeSet set){
+
+        mAuth = FirebaseAuth.getInstance();
+
+        mCurentUser = mAuth.getCurrentUser();
+
+        if(mCurentUser != null){
+            String email = mCurentUser.getEmail();
+            System.out.println("phoku user is:"+email);
+        }
 
         mRoot = new Firebase("https://natchess-d50b2.firebaseio.com/Test/");
 
@@ -2112,6 +2125,7 @@ public class Canvas extends View {
         allPieces[10][6] = p8wQueen;
         allPieces[10][7] = p8wBishop;
 
+        Boolean CorrectUserSelected = false;
 
         //checking which piece is clicked on
         for(int r = 0;r<allPieces.length;++r)
@@ -2123,6 +2137,24 @@ public class Canvas extends View {
                 {
                     cont = true;
                     System.out.println("Alec this block contains a "+ allPieces[r][c].color + " " + allPieces[r][c].name);
+                    if(mCurentUser != null){
+                        String email = mCurentUser.getEmail();
+
+                        System.out.println(Boolean.toString(CorrectUserSelected)+"  phoku user is:"+email);
+                        if(mCurentUser.getEmail().equals("black@test.com") && allPieces[r][c].color.equals("black") && Turn.equals("black")){
+                            CorrectUserSelected = true;
+                            System.out.println("phoku user is "+email+" and selected black");
+                            System.out.println();
+                        }else if(mCurentUser.getEmail().equals("white@test.com") && allPieces[r][c].color.equals("white") && Turn.equals("white")){
+
+                            CorrectUserSelected = true;
+                            System.out.println("phoku user is "+email+" and selected white");
+                            System.out.println();
+                        }else{
+                            System.out.println("phoku user is unknown");
+                            System.out.println();
+                        }
+                    }
                     rs = r;
                     cs = c;
                 }
@@ -2136,32 +2168,32 @@ public class Canvas extends View {
             // if there's a piece in that selected box
             if(cont)
             {
-                    if(allPieces[rs][cs].color.equals(Turn))
-                    {
-                        //clear last moved
-                        int lastMovePos[] = getIndex(LastMovedPiece.position);
-                        if (color[lastMovePos[0]][lastMovePos[1]] == 0) {
-                            arrPaint[lastMovePos[0]][lastMovePos[1]].setColor(Color.rgb(236, 217, 121));
-                        } else {
-                            arrPaint[lastMovePos[0]][lastMovePos[1]].setColor(Color.rgb(215, 162, 109));
-                        }
-                        if (color[lastMovePos[0]][lastMovePos[1]] == 0) {
-                            arrPaint[lastMovePos[0]][lastMovePos[1]].setColor(Color.rgb(236, 217, 121));
-                        } else {
-                            arrPaint[lastMovePos[0]][lastMovePos[1]].setColor(Color.rgb(215, 162, 109));
-                        }
+                    if(CorrectUserSelected) {
+                        if (allPieces[rs][cs].color.equals(Turn)) {
+                            //clear last moved
+                            int lastMovePos[] = getIndex(LastMovedPiece.position);
+                            if (color[lastMovePos[0]][lastMovePos[1]] == 0) {
+                                arrPaint[lastMovePos[0]][lastMovePos[1]].setColor(Color.rgb(236, 217, 121));
+                            } else {
+                                arrPaint[lastMovePos[0]][lastMovePos[1]].setColor(Color.rgb(215, 162, 109));
+                            }
+                            if (color[lastMovePos[0]][lastMovePos[1]] == 0) {
+                                arrPaint[lastMovePos[0]][lastMovePos[1]].setColor(Color.rgb(236, 217, 121));
+                            } else {
+                                arrPaint[lastMovePos[0]][lastMovePos[1]].setColor(Color.rgb(215, 162, 109));
+                            }
 
-                        int lastMovePrevPos[] = getIndex(LastMovedPiece.prevPosition);
-                        if (color[lastMovePrevPos[0]][lastMovePrevPos[1]] == 0) {
-                            arrPaint[lastMovePrevPos[0]][lastMovePrevPos[1]].setColor(Color.rgb(236, 217, 121));
-                        } else {
-                            arrPaint[lastMovePrevPos[0]][lastMovePrevPos[1]].setColor(Color.rgb(215, 162, 109));
-                        }
-                        if (color[lastMovePrevPos[0]][lastMovePrevPos[1]] == 0) {
-                            arrPaint[lastMovePrevPos[0]][lastMovePrevPos[1]].setColor(Color.rgb(236, 217, 121));
-                        } else {
-                            arrPaint[lastMovePrevPos[0]][lastMovePrevPos[1]].setColor(Color.rgb(215, 162, 109));
-                        }
+                            int lastMovePrevPos[] = getIndex(LastMovedPiece.prevPosition);
+                            if (color[lastMovePrevPos[0]][lastMovePrevPos[1]] == 0) {
+                                arrPaint[lastMovePrevPos[0]][lastMovePrevPos[1]].setColor(Color.rgb(236, 217, 121));
+                            } else {
+                                arrPaint[lastMovePrevPos[0]][lastMovePrevPos[1]].setColor(Color.rgb(215, 162, 109));
+                            }
+                            if (color[lastMovePrevPos[0]][lastMovePrevPos[1]] == 0) {
+                                arrPaint[lastMovePrevPos[0]][lastMovePrevPos[1]].setColor(Color.rgb(236, 217, 121));
+                            } else {
+                                arrPaint[lastMovePrevPos[0]][lastMovePrevPos[1]].setColor(Color.rgb(215, 162, 109));
+                            }
 
 //                        if (moveToR != -1 && moveToC != -1 && moveFromC != -1 && moveFromR != -1) {
 //                            if (color[moveFromR][moveFromC] == 0) {
@@ -2181,26 +2213,27 @@ public class Canvas extends View {
 //                            moveToC = -1;
 //                            System.out.println("Alec clear grey color of previous move");
 //                        }
-                        selected = true;
-                        selectedPiece = allPieces[rs][cs];
-                        validMoves = selectedPiece.CalculateLegalMoves(allPieces);
-                        System.out.println();
-                        for (int i=0;i<validMoves.size();++i){
-                            System.out.print(validMoves.get(i)+", ");
+                            selected = true;
+                            selectedPiece = allPieces[rs][cs];
+                            validMoves = selectedPiece.CalculateLegalMoves(allPieces);
+                            System.out.println();
+                            for (int i = 0; i < validMoves.size(); ++i) {
+                                System.out.print(validMoves.get(i) + ", ");
 
-                            if(!validMoves.get(i).equals("yes") && !validMoves.get(i).equals("EnPassant") && !validMoves.get(i).equals("castlingR") && !validMoves.get(i).equals("castlingL")) {
-                                int[] selectedPieceIndex = getIndex(validMoves.get(i));
-                                arrPaint[selectedPieceIndex[0]][selectedPieceIndex[1]].setColor(Color.rgb(128, 128, 0));
+                                if (!validMoves.get(i).equals("yes") && !validMoves.get(i).equals("EnPassant") && !validMoves.get(i).equals("castlingR") && !validMoves.get(i).equals("castlingL")) {
+                                    int[] selectedPieceIndex = getIndex(validMoves.get(i));
+                                    arrPaint[selectedPieceIndex[0]][selectedPieceIndex[1]].setColor(Color.rgb(128, 128, 0));
+                                }
+
                             }
 
+                            System.out.println();
+                            moveFromR = pr;
+                            moveFromC = pc;
+                            arrPaint[pr][pc].setColor(Color.GRAY);
+                            System.out.println("Alec now color this to grey, its clicked");
+                            invalidate();
                         }
-
-                        System.out.println();
-                        moveFromR = pr;
-                        moveFromC = pc;
-                        arrPaint[pr][pc].setColor(Color.GRAY);
-                        System.out.println("Alec now color this to grey, its clicked");
-                        invalidate();
                     }
             }
         }
