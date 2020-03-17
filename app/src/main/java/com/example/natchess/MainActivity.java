@@ -40,17 +40,18 @@ public class MainActivity extends AppCompatActivity {
         Button btnLogin = findViewById(R.id.buttonLogin);
         Button btnPlay = findViewById(R.id.buttonPlay);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                login();
-            }
-        });
+//        btnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                login();
+//            }
+//        });
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Chess.class);
-                startActivity(intent);
+                login();
+//                Intent intent = new Intent(getApplicationContext(), Chess.class);
+//                startActivity(intent);
             }
         });
     }
@@ -58,31 +59,39 @@ public class MainActivity extends AppCompatActivity {
     private void login() {
         String email = editTextUsername.getText().toString();
         String password = editTextPassword.getText().toString();
-        mProgress.setMessage("Logging In...");
-        mProgress.show();
+        if(email.isEmpty()){
+            editTextUsername.setError("Email Required");
+        }
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
+        if(password.isEmpty()){
+            editTextPassword.setError("Email Required");
+        }
 
-                            mProgress.dismiss();
-                            Intent intent = new Intent(getApplicationContext(), play.class);
-                            startActivity(intent);
+        if(!email.isEmpty() && !password.isEmpty()) {
+            mProgress.setMessage("Logging In...");
+            mProgress.show();
 
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                FirebaseUser user = mAuth.getCurrentUser();
 
-                        } else {
-                            mProgress.dismiss();
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(MainActivity.this, "Login in failed, Enter valid credentials",
-                                    Toast.LENGTH_SHORT).show();
+                                mProgress.dismiss();
+                                Intent intent = new Intent(getApplicationContext(), Chess.class);
+                                startActivity(intent);
+                            } else {
+                                mProgress.dismiss();
+                                // If sign in fails, display a message to the user.
+                                Toast.makeText(MainActivity.this, "Incorrect credentials",
+                                        Toast.LENGTH_SHORT).show();
 
+                            }
                         }
-                    }
 
-                });
+                    });
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.natchess;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -16,19 +17,46 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Chess extends AppCompatActivity {
 
     private Firebase mRoot;
     private Canvas canvas;
+    private FirebaseAuth.AuthStateListener mAunthListener;
+    private FirebaseUser mCurentUser;
+    private FirebaseAuth mAuth;
 
 //    Dialog die;
 //    Button b;
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        mAuth.addAuthStateListener(mAunthListener);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chess);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        mCurentUser = mAuth.getCurrentUser();
+
+        mAunthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if(firebaseAuth.getCurrentUser()!=null){
+                    mCurentUser = firebaseAuth.getCurrentUser();
+                }
+            }
+        };
+
 //        final Canvas canvas = new Canvas(this);
         canvas = (Canvas)findViewById(R.id.chess_board);
 //        setContentView(R.layout.activity_chess);
