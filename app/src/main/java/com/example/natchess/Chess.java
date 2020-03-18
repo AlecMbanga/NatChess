@@ -226,8 +226,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p1b.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A1") || dataSnapshot.getValue(String.class).equals("B1") || dataSnapshot.getValue(String.class).equals("C1") || dataSnapshot.getValue(String.class).equals("D1") || dataSnapshot.getValue(String.class).equals("E1") || dataSnapshot.getValue(String.class).equals("F1") || dataSnapshot.getValue(String.class).equals("G1") || dataSnapshot.getValue(String.class).equals("H1")){
-                        if(mCurentUser!= null) {
-                            if(mCurentUser.getEmail().equals("black@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if(mCurentUser.getEmail().equals("black@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p1b");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null){
+                            if(canvas.user.equals("black")){
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -294,8 +306,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p2b.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A1") || dataSnapshot.getValue(String.class).equals("B1") || dataSnapshot.getValue(String.class).equals("C1") || dataSnapshot.getValue(String.class).equals("D1") || dataSnapshot.getValue(String.class).equals("E1") || dataSnapshot.getValue(String.class).equals("F1") || dataSnapshot.getValue(String.class).equals("G1") || dataSnapshot.getValue(String.class).equals("H1")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p2b");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null){
+                            if(canvas.user.equals("black")){
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -362,8 +386,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p3b.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A1") || dataSnapshot.getValue(String.class).equals("B1") || dataSnapshot.getValue(String.class).equals("C1") || dataSnapshot.getValue(String.class).equals("D1") || dataSnapshot.getValue(String.class).equals("E1") || dataSnapshot.getValue(String.class).equals("F1") || dataSnapshot.getValue(String.class).equals("G1") || dataSnapshot.getValue(String.class).equals("H1")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p3b");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null){
+                            if(canvas.user.equals("black")){
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -374,6 +410,7 @@ public class Chess extends AppCompatActivity {
                                 c.show(getSupportFragmentManager(), "crown Dialog");
                             }
                         }
+
                     }
                     canvas.invalidate();
                 }
@@ -430,8 +467,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p4b.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A1") || dataSnapshot.getValue(String.class).equals("B1") || dataSnapshot.getValue(String.class).equals("C1") || dataSnapshot.getValue(String.class).equals("D1") || dataSnapshot.getValue(String.class).equals("E1") || dataSnapshot.getValue(String.class).equals("F1") || dataSnapshot.getValue(String.class).equals("G1") || dataSnapshot.getValue(String.class).equals("H1")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p4b");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null){
+                            if(canvas.user.equals("black")){
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -499,8 +548,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p5b.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A1") || dataSnapshot.getValue(String.class).equals("B1") || dataSnapshot.getValue(String.class).equals("C1") || dataSnapshot.getValue(String.class).equals("D1") || dataSnapshot.getValue(String.class).equals("E1") || dataSnapshot.getValue(String.class).equals("F1") || dataSnapshot.getValue(String.class).equals("G1") || dataSnapshot.getValue(String.class).equals("H1")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p5b");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null){
+                            if(canvas.user.equals("black")){
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -568,8 +629,21 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p6b.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A1") || dataSnapshot.getValue(String.class).equals("B1") || dataSnapshot.getValue(String.class).equals("C1") || dataSnapshot.getValue(String.class).equals("D1") || dataSnapshot.getValue(String.class).equals("E1") || dataSnapshot.getValue(String.class).equals("F1") || dataSnapshot.getValue(String.class).equals("G1") || dataSnapshot.getValue(String.class).equals("H1")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p6b");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+
+                        if(canvas.user!=null){
+                            if(canvas.user.equals("black")){
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -637,8 +711,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p7b.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A1") || dataSnapshot.getValue(String.class).equals("B1") || dataSnapshot.getValue(String.class).equals("C1") || dataSnapshot.getValue(String.class).equals("D1") || dataSnapshot.getValue(String.class).equals("E1") || dataSnapshot.getValue(String.class).equals("F1") || dataSnapshot.getValue(String.class).equals("G1") || dataSnapshot.getValue(String.class).equals("H1")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p7b");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null){
+                            if(canvas.user.equals("black")){
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -705,8 +791,21 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p8b.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A1") || dataSnapshot.getValue(String.class).equals("B1") || dataSnapshot.getValue(String.class).equals("C1") || dataSnapshot.getValue(String.class).equals("D1") || dataSnapshot.getValue(String.class).equals("E1") || dataSnapshot.getValue(String.class).equals("F1") || dataSnapshot.getValue(String.class).equals("G1") || dataSnapshot.getValue(String.class).equals("H1")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("black@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p8b");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+
+                        if(canvas.user!=null){
+                            if(canvas.user.equals("black")){
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -1084,8 +1183,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p1w.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A8") || dataSnapshot.getValue(String.class).equals("B8") || dataSnapshot.getValue(String.class).equals("C8") || dataSnapshot.getValue(String.class).equals("D8") || dataSnapshot.getValue(String.class).equals("E8") || dataSnapshot.getValue(String.class).equals("F8") || dataSnapshot.getValue(String.class).equals("G8") || dataSnapshot.getValue(String.class).equals("H8")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p1w");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null) {
+                            if (canvas.user.equals("white")) {
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -1152,8 +1263,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p2w.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A8") || dataSnapshot.getValue(String.class).equals("B8") || dataSnapshot.getValue(String.class).equals("C8") || dataSnapshot.getValue(String.class).equals("D8") || dataSnapshot.getValue(String.class).equals("E8") || dataSnapshot.getValue(String.class).equals("F8") || dataSnapshot.getValue(String.class).equals("G8") || dataSnapshot.getValue(String.class).equals("H8")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p2w");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null) {
+                            if (canvas.user.equals("white")) {
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -1218,8 +1341,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p3w.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A8") || dataSnapshot.getValue(String.class).equals("B8") || dataSnapshot.getValue(String.class).equals("C8") || dataSnapshot.getValue(String.class).equals("D8") || dataSnapshot.getValue(String.class).equals("E8") || dataSnapshot.getValue(String.class).equals("F8") || dataSnapshot.getValue(String.class).equals("G8") || dataSnapshot.getValue(String.class).equals("H8")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p3w");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null) {
+                            if (canvas.user.equals("white")) {
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -1284,8 +1419,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p4w.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A8") || dataSnapshot.getValue(String.class).equals("B8") || dataSnapshot.getValue(String.class).equals("C8") || dataSnapshot.getValue(String.class).equals("D8") || dataSnapshot.getValue(String.class).equals("E8") || dataSnapshot.getValue(String.class).equals("F8") || dataSnapshot.getValue(String.class).equals("G8") || dataSnapshot.getValue(String.class).equals("H8")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p4w");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null) {
+                            if (canvas.user.equals("white")) {
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -1351,8 +1498,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p5w.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A8") || dataSnapshot.getValue(String.class).equals("B8") || dataSnapshot.getValue(String.class).equals("C8") || dataSnapshot.getValue(String.class).equals("D8") || dataSnapshot.getValue(String.class).equals("E8") || dataSnapshot.getValue(String.class).equals("F8") || dataSnapshot.getValue(String.class).equals("G8") || dataSnapshot.getValue(String.class).equals("H8")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p5w");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null) {
+                            if (canvas.user.equals("white")) {
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -1420,8 +1579,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p6w.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A8") || dataSnapshot.getValue(String.class).equals("B8") || dataSnapshot.getValue(String.class).equals("C8") || dataSnapshot.getValue(String.class).equals("D8") || dataSnapshot.getValue(String.class).equals("E8") || dataSnapshot.getValue(String.class).equals("F8") || dataSnapshot.getValue(String.class).equals("G8") || dataSnapshot.getValue(String.class).equals("H8")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p6w");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null) {
+                            if (canvas.user.equals("white")) {
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -1489,8 +1660,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p7w.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A8") || dataSnapshot.getValue(String.class).equals("B8") || dataSnapshot.getValue(String.class).equals("C8") || dataSnapshot.getValue(String.class).equals("D8") || dataSnapshot.getValue(String.class).equals("E8") || dataSnapshot.getValue(String.class).equals("F8") || dataSnapshot.getValue(String.class).equals("G8") || dataSnapshot.getValue(String.class).equals("H8")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p7w");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null) {
+                            if (canvas.user.equals("white")) {
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();
@@ -1557,8 +1740,20 @@ public class Chess extends AppCompatActivity {
                 if(dataSnapshot.getKey().equals("position")) {
                     canvas.p8w.position =dataSnapshot.getValue(String.class);
                     if(dataSnapshot.getValue(String.class).equals("A8") || dataSnapshot.getValue(String.class).equals("B8") || dataSnapshot.getValue(String.class).equals("C8") || dataSnapshot.getValue(String.class).equals("D8") || dataSnapshot.getValue(String.class).equals("E8") || dataSnapshot.getValue(String.class).equals("F8") || dataSnapshot.getValue(String.class).equals("G8") || dataSnapshot.getValue(String.class).equals("H8")){
-                        if(mCurentUser!= null) {
-                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                        if(mCurentUser!= null) {
+//                            if (mCurentUser.getEmail().equals("white@test.com")) {
+//                                SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.clear();
+//                                editor.putString("position", dataSnapshot.getValue(String.class));
+//                                editor.putString("onlineCodeName", "p8w");
+//                                editor.apply();
+//                                crownDialog c = new crownDialog();
+//                                c.show(getSupportFragmentManager(), "crown Dialog");
+//                            }
+//                        }
+                        if(canvas.user!=null) {
+                            if (canvas.user.equals("white")) {
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.clear();

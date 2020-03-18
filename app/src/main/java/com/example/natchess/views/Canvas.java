@@ -234,6 +234,8 @@ public class Canvas extends View {
 
     public String Turn;
 
+    public String user;
+
     private Paint paintPositionBlock;
     private Paint paintPositionText;
     private Paint paintPositionTextDown;
@@ -297,6 +299,11 @@ public class Canvas extends View {
 
         if(mCurentUser != null){
             String email = mCurentUser.getEmail();
+            if(email.equals("black@test.com")){
+                user = "black";
+            }else if(email.equals("white@test.com")){
+                user = "white";
+            }
             System.out.println("phoku user is:"+email);
         }
 
