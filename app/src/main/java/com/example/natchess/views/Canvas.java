@@ -2789,7 +2789,7 @@ public class Canvas extends View {
 
                         }
                     }
-                    //selectedPiece.prevPosition = selectedPiece.position;
+                    selectedPiece.prevPosition = selectedPiece.position;
                     selectedPiece.position = p;
                     arrPaint[pr][pc].setColor(Color.GRAY);
 

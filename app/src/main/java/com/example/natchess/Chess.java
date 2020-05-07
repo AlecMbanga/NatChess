@@ -295,6 +295,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p1bEnPassant = p1bb.child("EnPassant");
+        p1bEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p1b.EnPassant = true;
+                }else{
+                    canvas.p1b.EnPassant = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
 
         Firebase p2bb = mRoot.child("p2b");
@@ -374,8 +391,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p2bEnPassant = p2bb.child("EnPassant");
+        p2bEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p2b.EnPassant = true;
+                }else{
+                    canvas.p2b.EnPassant = false;
+                }
+            }
 
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         Firebase p3bb = mRoot.child("p3b");
         Firebase p3b = p3bb.child("position");
@@ -455,7 +487,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p3bEnPassant = p3bb.child("EnPassant");
+        p3bEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p3b.EnPassant = true;
+                }else{
+                    canvas.p3b.EnPassant = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
 
         Firebase p4bb = mRoot.child("p4b");
@@ -536,7 +584,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p4bEnPassant = p4bb.child("EnPassant");
+        p4bEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p4b.EnPassant = true;
+                }else{
+                    canvas.p4b.EnPassant = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
 
         Firebase p5bb = mRoot.child("p5b");
@@ -616,7 +680,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p5bEnPassant = p5bb.child("EnPassant");
+        p5bEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p5b.EnPassant = true;
+                }else{
+                    canvas.p5b.EnPassant = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
 
 
@@ -698,7 +778,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p6bEnPassant = p6bb.child("EnPassant");
+        p6bEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p6b.EnPassant = true;
+                }else{
+                    canvas.p6b.EnPassant = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
 
 
@@ -779,7 +875,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p7bEnPassant = p7bb.child("EnPassant");
+        p7bEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p7b.EnPassant = true;
+                }else{
+                    canvas.p7b.EnPassant = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
 
         Firebase p8bb = mRoot.child("p8b");
@@ -860,7 +972,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p8bEnPassant = p8bb.child("EnPassant");
+        p8bEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p8b.EnPassant = true;
+                }else{
+                    canvas.p8b.EnPassant = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
 
         Firebase r1bb = mRoot.child("r1b");
@@ -1251,7 +1379,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p1wEnPassant = p1wb.child("EnPassant");
+        p1wEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p1w.EnPassant = true;
+                }else{
+                    canvas.p1w.EnPassant = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
 
         Firebase p2wb = mRoot.child("p2w");
@@ -1322,6 +1466,24 @@ public class Chess extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.getKey().equals("prevPosition")) {
                     canvas.p2w.prevPosition =dataSnapshot.getValue(String.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+        Firebase p2wEnPassant = p2wb.child("EnPassant");
+        p2wEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p2w.EnPassant = true;
+                }else{
+                    canvas.p2w.EnPassant = false;
                 }
             }
 
@@ -1409,6 +1571,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p3wEnPassant = p3wb.child("EnPassant");
+        p3wEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p3w.EnPassant = true;
+                }else{
+                    canvas.p3w.EnPassant = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         Firebase p4wb = mRoot.child("p4w");
         Firebase p4w = p4wb.child("position");
@@ -1487,7 +1666,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p4wEnPassant = p4wb.child("EnPassant");
+        p4wEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p4w.EnPassant = true;
+                }else{
+                    canvas.p4w.EnPassant = false;
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         Firebase p5wb = mRoot.child("p5w");
         Firebase p5w = p5wb.child("position");
@@ -1566,9 +1761,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p5wEnPassant = p5wb.child("EnPassant");
+        p5wEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p5w.EnPassant = true;
+                }else{
+                    canvas.p5w.EnPassant = false;
+                }
+            }
 
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
 
+            }
+        });
 
         Firebase p6wb = mRoot.child("p6w");
         Firebase p6w = p6wb.child("position");
@@ -1647,9 +1856,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p6wEnPassant = p6wb.child("EnPassant");
+        p6wEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p6w.EnPassant = true;
+                }else{
+                    canvas.p6w.EnPassant = false;
+                }
+            }
 
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
 
+            }
+        });
 
         Firebase p7wb = mRoot.child("p7w");
         Firebase p7w = p7wb.child("position");
@@ -1728,8 +1951,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p7wEnPassant = p7wb.child("EnPassant");
+        p7wEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p7w.EnPassant = true;
+                }else{
+                    canvas.p7w.EnPassant = false;
+                }
+            }
 
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         Firebase p8wb = mRoot.child("p8w");
         Firebase p8w = p8wb.child("position");
@@ -1808,9 +2046,23 @@ public class Chess extends AppCompatActivity {
             }
         });
 
+        Firebase p8wEnPassant = p8wb.child("EnPassant");
+        p8wEnPassant.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                if(dataSnapshot.getValue(String.class).equals("true")){
+                    canvas.p8w.EnPassant = true;
+                }else{
+                    canvas.p8w.EnPassant = false;
+                }
+            }
 
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
 
+            }
+        });
 
         Firebase r1wb = mRoot.child("r1w");
         Firebase r1w = r1wb.child("position");
